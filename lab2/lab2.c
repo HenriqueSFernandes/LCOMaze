@@ -1,9 +1,8 @@
-#include <lcom/lcf.h>
 #include <lcom/lab2.h>
+#include <lcom/lcf.h>
 
 #include <stdbool.h>
 #include <stdint.h>
-
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -30,9 +29,14 @@ int main(int argc, char *argv[]) {
 }
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
+  // timer: range between 0-2 (timer0, 1 and 2)
+  uint8_t st;
+  if (timer_get_conf(timer, &st)) {
+    return 1;
+  }
+  if (timer_display_conf(timer, st, field)) {
+    return 1;
+  }
   return 1;
 }
 
