@@ -31,34 +31,86 @@ void(timer_int_handler)() {
   printf("%s is not yet implemented!\n", __func__);
 }
 
+/**
+ * @brief This sends a control word to port 43 (timer config port) and gets the config for the specified timer. Refer to 3.3 for more information
+ * @param timer 8 bit number representing which timer to use (0, 1 or 2).
+ * @param st Pointer to store the status code (the resulting config).
+ */
 int(timer_get_conf)(uint8_t timer, uint8_t *st) {
-  /* To be implemented by the students */
-  // This sends a control word to port 43 (timer config port) and gets the
-  uint8_t cw = BIT(7) | BIT(6) | BIT(5) | BIT(timer + 1);
+  // This sends a control word to port 43 (timer config port) and gets the config for the specified timer. Refer to 3.3 for more information.
+
+  // Validate input
+  if (st == NULL || timer < 0 || timer > 2) {
+    return 1;
+  }
+
+  uint8_t cw = BIT(7) | BIT(6) | BIT(5) | BIT(timer + 1); // cw = 1110xxx0, x represents the timer.
+
+  // Sends the control word to the timer controller.
   if (sys_outb(TIMER_CTRL, cw)) {
     return 1;
   }
-  if (util_sys_inb(0x40 + timer, st)) {
-    return 1;
-  }
-  return 0;
+  // Reads the config for the specified timer (the config is located at the timer that was specified in the control word).
+  return (util_sys_inb(0x40 + timer, st));
 }
 
+/**
+ * @brief Displays the config for the timer.
+ * @param timer The timer to display the config.
+ * @param st The status of the timer.
+ * @param field The field that should be returned.
+ */
 int(timer_display_conf)(uint8_t timer, uint8_t st,
                         enum timer_status_field field) {
-  /* To be implemented by the students */
-  // union timer_status_field_val data;
-  // switch (field){
-  //   case tsf_all:
-  //     data.byte = st;
-  //   break;
-  //   case tsf_initial:
-  //     data.in_mode = st &
-  //   case tsf_mode:
-  //   case tsf_base:
-  //   default:
-  //     return 1;
-  // }
+  union timer_status_field_val data;
+  switch (field) {
+    case tsf_all:
+      // Full status byte.
+      data.byte = st;
+      break;
+
+    case tsf_initial:
+      // Initialization mode.
+      st = st & (BIT(5) | BIT(4) >> 4);
+      if (st == 1)
+        data.in_mode = LSB_only;
+      else if (st == 2)
+        data.in_mode = MSB_only;
+      else if (st == 3)
+        data.in_mode = MSB_after_LSB;
+      else
+        data.in_mode = INVAL_val;
+      break;
+
+    case tsf_mode:
+      // Counting mode.
+
+      // Extracts bit 3, 2 and 1
+      st = st & (BIT(3) | BIT(2) | BIT(1) >> 1);
+
+      // on mode 2 and 3 the 3rd bit doesn't matter, so we should also consider when it is 1.
+      if (st == 6) {
+        data.count_mode = 2;
+      }
+      else if (st == 7) {
+        data.count_mode = 3;
+      }
+      else {
+        data.count_mode = st;
+      }
+      break;
+
+    case tsf_base:
+      // BCD
+
+      data.bcd = st & 0x01;
+      break;
+
+    default:
+      return 1;
+  }
+
+  return timer_print_config(timer, field, data);
 
   return 1;
 }
