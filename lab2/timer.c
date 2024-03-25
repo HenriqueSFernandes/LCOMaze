@@ -96,5 +96,6 @@ int(timer_display_conf)(uint8_t timer, uint8_t st,
     default:
       return 1;
   }
+  // Print the config.
   return timer_print_config(timer, field, data);
 }
