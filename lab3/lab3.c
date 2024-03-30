@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 int kbd_hook_id = 1;
-uint8_t kbd_value = 0x00;
+uint8_t kbd_value;
 extern uint32_t sysinb_calls;
 
 int main(int argc, char *argv[]) {
@@ -77,6 +77,7 @@ int(kbd_ih)() {
 }
 
 int(kbd_test_scan)() {
+  kbd_value = 0x00;
   int ipc_status;  // Indicates if a message has been received.
   int receiver;    // Indicates if there was an error receiving the message.
   uint8_t irq_set; // 8-bit value that indicates which interrupts the program should care about.
@@ -87,7 +88,7 @@ int(kbd_test_scan)() {
   if (kbd_subscribe_int(&irq_set) != 0)
     return 1;
 
-  // Loop until the defined time has passed.
+  // Loop until the key is not ESC.
   while (kbd_value != 0x81) {
     // Check if there is a message available
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -120,15 +121,76 @@ int(kbd_test_scan)() {
       }
     }
   }
-  kbd_print_no_sysinb(sysinb_calls);
+  if (kbd_print_no_sysinb(sysinb_calls))
+    return 1;
   return kbd_unsubscribe_int();
 }
 
 int(kbd_test_poll)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t keys[2] = {0x00, 0x00};
+  kbd_value = 0x00;
 
-  return 1;
+  // Loop until the key is not ESC.
+  while (kbd_value != 0x81) {
+    // Read the status from the KBC.
+    uint8_t status;
+    if (util_sys_inb(0x64, &status))
+      return 1;
+
+    // Check for error in the status.
+    if (status & BIT(7)) {
+      printf("Parity error!\n");
+      return 1;
+    }
+    if (status & BIT(6)) {
+      printf("Timeout error!\n");
+      return 1;
+    }
+    if (status & BIT(1)) {
+      printf("The input buffer is full!\n");
+      return 1;
+    }
+
+    // If the output buffer is full, data is available for reading.
+    if ((status & BIT(0)) != 0) {
+      if (util_sys_inb(0x60, &kbd_value))
+        return 1;
+
+      // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
+      if (keys[0] == 0xE0) {
+        keys[1] = kbd_value;
+      }
+      else {
+        keys[0] = kbd_value;
+      }
+      if (kbd_value != 0xE0) {
+        kbd_print_scancode((kbd_value & BIT(7)) == 0, keys[0] == 0xE0 ? 2 : 1, keys);
+        keys[0] = 0x00;
+      }
+    }
+  }
+  // Restore the keyboard controller by reenabling the interrupts.
+  // Send command 0x20 to the keyboard controller, telling it we want to read the command byte.
+  if (sys_outb(0x64, 0x20))
+    return 1;
+
+  // Read the command byte.
+  uint8_t command_byte;
+  if (util_sys_inb(0x60, &command_byte))
+    return 1;
+
+  // Enable the bit 0, which is the bit that enables / disables the interrupts.
+  command_byte |= BIT(0);
+
+  // Send command 0x60 to the keyboard controller, telling it we want to write a new command byte.
+  if (sys_outb(0x64, 0x60))
+    return 1;
+
+  // Write the new command byte.
+  if (sys_outb(0x60, command_byte))
+    return 1;
+
+  return kbd_print_no_sysinb(sysinb_calls);
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
