@@ -8,6 +8,7 @@
 int kbd_hook_id = 1;
 uint8_t kbd_value;
 extern uint32_t sysinb_calls;
+extern int timerCounter;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -88,7 +89,7 @@ int(kbd_test_scan)() {
   if (kbd_subscribe_int(&irq_set) != 0)
     return 1;
 
-  // Loop until the key is not ESC.
+  // Loop until the key is ESC.
   while (kbd_value != 0x81) {
     // Check if there is a message available
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -130,7 +131,7 @@ int(kbd_test_poll)() {
   uint8_t keys[2] = {0x00, 0x00};
   kbd_value = 0x00;
 
-  // Loop until the key is not ESC.
+  // Loop until the key is ESC.
   while (kbd_value != 0x81) {
     // Read the status from the KBC.
     uint8_t status;
@@ -194,8 +195,69 @@ int(kbd_test_poll)() {
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t irq_set_timer, irq_set_kbd; // 8-bit value that indicates which interrupts the program should care about.
+  int ipc_status;                     // Indicates if a message has been received.
+  int receiver;                       // Indicates if there was an error receiving the message.
+  message msg;                        // The message itself.
 
-  return 1;
+  int time = 0;
+  kbd_value = 0x00;
+  uint8_t keys[2] = {0x00, 0x00};
+
+  // Subscribe to the interrupts
+  if (timer_subscribe_int(&irq_set_timer))
+    return 1;
+  if (kbd_subscribe_int(&irq_set_kbd))
+    return 1;
+
+  // Loop until the key is ESC or the time has passed.
+  while (kbd_value != 0x81 && time < n) {
+    // Check if there is a message available
+    if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      printf("error driver_receive");
+      return 1;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          // If the interrupt is for the keyboard, call the interrupt handler.
+          if (msg.m_notify.interrupts & irq_set_kbd) {
+            // Call the interrupt handler.
+            if (kbd_ih())
+              return 1;
+            // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
+            if (keys[0] == 0xE0) {
+              keys[1] = kbd_value;
+            }
+            else {
+              keys[0] = kbd_value;
+            }
+            if (kbd_value != 0xE0) {
+              kbd_print_scancode((kbd_value & BIT(7)) == 0, keys[0] == 0xE0 ? 2 : 1, keys);
+              keys[0] = 0x00;
+            }
+            // Reset the counters.
+            time = 0;
+            timerCounter = 0;
+          }
+          // If the interrupt is for the timer, call the interrupt handler.
+          if (msg.m_notify.interrupts & irq_set_timer) {
+            timer_int_handler();
+            // If a second has passed, increase the timer.
+            if (timerCounter % 60 == 0) {
+              timer_print_elapsed_time();
+              time++;
+            }
+          }
+
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  // Unsubscribe from the interrupts.
+  if (kbd_unsubscribe_int())
+    return 1;
+  return timer_unsubscribe_int();
 }
