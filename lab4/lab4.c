@@ -35,13 +35,15 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int(mouse_subscribe_int)(uint8_t *irq_set) {
+int(mouse_subscribe_int)(uint32_t *irq_set) {
   // Validate input.
   if (irq_set == NULL)
     return 1;
+  printf("hook id: %d\n", mouse_hook_id);
 
   // The irq_line should be the position of the hook id.
   *irq_set = BIT(mouse_hook_id);
+  printf("irq_set: %d\n", *irq_set);
 
   // In addition to IRQ_REENABLE, the policy also needs to be exclusive, because MINIX has a builtin interrupt handler for the keyboard.
   return sys_irqsetpolicy(12, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
@@ -106,12 +108,12 @@ int(mouse_write_command)(uint8_t command) {
 int(mouse_test_packet)(uint32_t cnt) {
   int ipc_status;
   int receiver;
-  uint8_t irq_set;
+  uint32_t irq_set;
   message msg;
 
   if (mouse_enable_data_reporting())
     return 1;
-    
+
   // Subscribe to the interruptions.
   if (mouse_subscribe_int(&irq_set) != 0)
     return 1;
