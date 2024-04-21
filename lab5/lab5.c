@@ -7,6 +7,8 @@
 
 // Any header files included below this line should have been created by you
 
+#include "graphics.h"
+
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -32,24 +34,37 @@ int main(int argc, char *argv[]) {
 }
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
-  reg86_t reg;
-  memset(&reg, 0, sizeof(reg));
-  reg.intno = 0x10;
-  reg.ax = 0x4F02;
-  reg.bx  = mode | BIT(14);
-  sys_int86(&reg);
+  if (setGraphicsMode(mode))
+    return 1;
   sleep(delay);
-
   return vg_exit();
 }
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
-  /* To be completed */
-  printf("%s(0x%03X, %u, %u, %u, %u, 0x%08x): under construction\n",
-         __func__, mode, x, y, width, height, color);
+  if (set_frame_buffer(mode))
+    return 1;
+  if (setGraphicsMode(mode))
+    return 1;
+  uint32_t new_color;
+  if (normalize_color(color, &new_color) != 0)
+    return 1;
 
-  return 1;
+  // draw_rectangle(x, y, width, height, new_color);
+
+  for (int i = 0; i < getWidth() - width ; i++){
+    draw_rectangle(i, 0, width, height, new_color);
+    tickdelay(micros_to_ticks(1));
+    draw_rectangle(i, 0, width, height, 0);
+    new_color+= 0x00010000;
+  }
+  for (int i = getWidth() - width; i > 0 ; i--){
+    draw_rectangle(i, 0, width, height, new_color);
+    tickdelay(micros_to_ticks(1));
+    draw_rectangle(i, 0, width, height, 0);
+    new_color--;
+  }
+  return vg_exit();
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
