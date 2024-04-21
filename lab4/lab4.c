@@ -17,11 +17,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need/ it]
-  lcf_trace_calls("/home/lcom/labs/lab4/trace.txt");
+  lcf_trace_calls("/home/lcom/labs/g1/lab4/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab4/output.txt");
+  lcf_log_output("/home/lcom/labs/g1/lab4/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -69,7 +69,7 @@ void(mouse_ih)() {
     printf("The input buffer is full!\n");
     return;
   }
-  if (((status & BIT(5)) == 1) && ((status & BIT(0)) != 0)) {
+  if (((status & BIT(5)) != 0) && ((status & BIT(0)) != 0)) {
     // If the data is ready
     if (util_sys_inb(0x60, &current_byte))
       return;
@@ -116,7 +116,7 @@ int(mouse_test_packet)(uint32_t cnt) {
   if (mouse_subscribe_int(&irq_set) != 0)
     return 1;
 
-  while (counter < cnt) {
+  while (counter < cnt * 3) {
     // Check if there is a message available
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("error driver_receive");
@@ -128,6 +128,7 @@ int(mouse_test_packet)(uint32_t cnt) {
           // If the interrupt is for the mouse, call the interrupt handler.
           if (msg.m_notify.interrupts & irq_set) {
             mouse_ih();
+            counter++;
           }
           break;
         default:
