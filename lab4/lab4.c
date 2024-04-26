@@ -59,31 +59,29 @@ void(mouse_ih)() {
   if (util_sys_inb(0x64, &status))
     return;
   // Check for error in the status.
-  if (status & BIT(7)) {
-    printf("Parity error!\n");
-    return;
-  }
-  if (status & BIT(6)) {
-    printf("Timeout error!\n");
-    return;
-  }
-  if (status & BIT(1)) {
-    printf("The input buffer is full!\n");
-    return;
-  }
-  if (((status & BIT(5)) != 0) && ((status & BIT(0)) != 0)) {
-    // If the data is ready
-    if (util_sys_inb(0x60, &current_byte))
+  if ((status & BIT(0)) != 0) {
+    if (status & BIT(7)) {
+      printf("Parity error!\n");
       return;
-    // Sync the mouse with the driver
-    if (byte_counter == 0 && (current_byte & BIT(3))) {
-      packet_bytes[byte_counter] = current_byte;
-      byte_counter++;
     }
-  }
-  else if (byte_counter > 0) {
-    packet_bytes[byte_counter] = current_byte;
-    byte_counter++;
+    if (status & BIT(6)) {
+      printf("Timeout error!\n");
+      return;
+    }
+    if (((status & BIT(5)) != 0)) {
+      // If the data is ready
+      if (util_sys_inb(0x60, &current_byte))
+        return;
+      // Sync the mouse with the driver
+      if (byte_counter == 0 && (current_byte & BIT(3))) {
+        packet_bytes[byte_counter] = current_byte;
+        byte_counter++;
+      }
+      else if (byte_counter > 0) {
+        packet_bytes[byte_counter] = current_byte;
+        byte_counter++;
+      }
+    }
   }
 }
 

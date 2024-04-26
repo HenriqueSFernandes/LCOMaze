@@ -9,17 +9,19 @@
 
 #include "graphics.h"
 
+extern vbe_mode_info_t mode_info;
+
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/lab5/trace.txt");
+  lcf_trace_calls("/home/lcom/labs/g1/lab5/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab5/output.txt");
+  lcf_log_output("/home/lcom/labs/g1/lab5/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -42,36 +44,72 @@ int(video_test_init)(uint16_t mode, uint8_t delay) {
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
-  if (set_frame_buffer(mode))
+  if (setFrameBuffer(mode)) {
+    printf("Error setting frame buffer\n");
     return 1;
-  if (setGraphicsMode(mode))
-    return 1;
-  uint32_t new_color;
-  if (normalize_color(color, &new_color) != 0)
-    return 1;
-
-  // draw_rectangle(x, y, width, height, new_color);
-
-  for (int i = 0; i < getWidth() - width ; i++){
-    draw_rectangle(i, 0, width, height, new_color);
-    tickdelay(micros_to_ticks(1));
-    draw_rectangle(i, 0, width, height, 0);
-    new_color+= 0x00010000;
   }
-  for (int i = getWidth() - width; i > 0 ; i--){
-    draw_rectangle(i, 0, width, height, new_color);
-    tickdelay(micros_to_ticks(1));
-    draw_rectangle(i, 0, width, height, 0);
-    new_color--;
+  if (setGraphicsMode(mode)) {
+    printf("Error setting graphics mode\n");
+    return 1;
+  }
+  uint32_t newColor;
+  if (normalizeColor(color, &newColor)) {
+    printf("Error normalizing the color\n");
+    return 1;
+  }
+
+  if (vg_draw_rectangle(x, y, width, height, newColor)) {
+    printf("Error drawing the rectangle\n");
+    return 1;
+  }
+
+  if (waitForESC()) {
+    printf("Keyboard error\n");
+    return 1;
   }
   return vg_exit();
 }
 
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
-  /* To be completed */
-  printf("%s(0x%03x, %u, 0x%08x, %d): under construction\n", __func__,
-         mode, no_rectangles, first, step);
+  if (setFrameBuffer(mode)) {
+    printf("Error setting frame buffer\n");
+    return 1;
+  }
+  if (setGraphicsMode(mode)) {
+    printf("Error setting graphics mode\n");
+    return 1;
+  }
 
+  int height = mode_info.YResolution / no_rectangles;
+  int width = mode_info.XResolution / no_rectangles;
+
+  for (int i = 0; i < no_rectangles; i++) {
+    for (int j = 0; j < no_rectangles; j++) {
+      uint32_t color;
+      // If indexed color model
+      if (mode_info.MemoryModel == 0x06) {
+        uint32_t Rfirst = ((1 << mode_info.RedMaskSize) - 1) & (first >> mode_info.RedFieldPosition);
+        uint32_t Gfirst = ((1 << mode_info.GreenMaskSize) - 1) & (first >> mode_info.GreenFieldPosition);
+        uint32_t Bfirst = ((1 << mode_info.BlueMaskSize) - 1) & (first >> mode_info.BlueFieldPosition);
+        uint32_t R = (Rfirst + j * step) % (1 << mode_info.RedMaskSize);
+        uint32_t G = (Gfirst + i * step) % (1 << mode_info.GreenMaskSize);
+        uint32_t B = (Bfirst + (j + i) * step) % (1 << mode_info.BlueMaskSize);
+        color = R << mode_info.RedFieldPosition | G << mode_info.GreenFieldPosition | B << mode_info.BlueFieldPosition;
+      }
+      else {
+        color = (first + (i * no_rectangles + j) * step) % (1 << mode_info.BitsPerPixel);
+      }
+      if (vg_draw_rectangle(j * width, i * height, width, height, color)) {
+        printf("Error drawing the rectangle\n");
+        return 1;
+      }
+    }
+  }
+  if (waitForESC()) {
+    printf("Keyboard error\n");
+    return 1;
+  }
+  return vg_exit();
   return 1;
 }
 

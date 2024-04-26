@@ -1,103 +1,118 @@
 #include <graphics.h>
-#include <lcom/lcf.h>
+#include <keyboard.h>
 
-vbe_mode_info_t mode_info;
-uint8_t *frame_buffer;
+extern int kbd_hook_id;
+extern uint8_t kbd_value;
 
-int set_frame_buffer(uint16_t mode) {
-
-  // get mode info
+int setFrameBuffer(uint16_t mode) {
+  // Get mode info
   memset(&mode_info, 0, sizeof(mode_info));
   if (vbe_get_mode_info(mode, &mode_info))
     return 1;
 
-  // calculate the buffer size
-  uint8_t bytes_per_pixel = (mode_info.BitsPerPixel + 7) / 8;
-  unsigned int frame_size = mode_info.XResolution * mode_info.YResolution * bytes_per_pixel;
+  // Set buffer size
+  uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+  uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
 
-  // define the range of physical addresses
-  struct minix_mem_range physic_addresses;
-  physic_addresses.mr_base = mode_info.PhysBasePtr;
-  physic_addresses.mr_limit = physic_addresses.mr_base + frame_size;
-
-  // physical memory allocation
-  if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &physic_addresses)) {
-    printf("Physical memory allocation error\n");
+  // Allocate physical addresses
+  struct minix_mem_range physicAddresses;
+  physicAddresses.mr_base = mode_info.PhysBasePtr;
+  physicAddresses.mr_limit = physicAddresses.mr_base + frameSize;
+  if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &physicAddresses))
     return 1;
-  }
 
-  // virtual memory allocation
-  frame_buffer = vm_map_phys(SELF, (void *) physic_addresses.mr_base, frame_size);
-  if (frame_buffer == NULL) {
-    printf("Virtual memory allocation error");
+  // Allocate virtual addresses
+  frame_buffer = vm_map_phys(SELF, (void *) physicAddresses.mr_base, frameSize);
+  return frame_buffer == NULL;
+}
+
+int setGraphicsMode(uint16_t mode) {
+  // Initialize the struct
+  reg86_t reg86;
+  memset(&reg86, 0, sizeof(reg86));
+  reg86.intno = 0x10;
+  reg86.ah = 0x4F;
+  reg86.al = 0x02;
+  reg86.bx = mode | BIT(14);
+  if (sys_int86(&reg86) != 0)
     return 1;
-  }
-
   return 0;
 }
 
-int (getHeight)() {
-  return mode_info.YResolution;
+int(waitForESC)() {
+  kbd_value = 0x00;
+  int ipc_status;  // Indicates if a message has been received.
+  int receiver;    // Indicates if there was an error receiving the message.
+  uint8_t irq_set; // 8-bit value that indicates which interrupts the program should care about.
+  message msg;     // The message itself.
+  uint8_t keys[2] = {0x00, 0x00};
+
+  // Subscribe to the interruptions.
+  if (kbd_subscribe_int(&irq_set) != 0)
+    return 1;
+
+  // Loop until the key is ESC.
+  while (kbd_value != 0x81) {
+    // Check if there is a message available
+    if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      printf("error driver_receive");
+      return 1;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          // If the interrupt is for the keyboard, call the interrupt handler.
+          if (msg.m_notify.interrupts & irq_set) {
+            // Call the interrupt handler.
+            if (kbd_ih())
+              return 1;
+            // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
+            if (keys[0] == 0xE0) {
+              keys[1] = kbd_value;
+            }
+            else {
+              keys[0] = kbd_value;
+            }
+            if (kbd_value != 0xE0) {
+              keys[0] = 0x00;
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  return kbd_unsubscribe_int();
 }
 
-int (getWidth)() {
-  return mode_info.XResolution;
+int(normalizeColor(uint32_t color, uint32_t *newColor)) {
+  if (mode_info.BitsPerPixel == 32) {
+    *newColor = color;
+  }
+  else {
+    *newColor = color & (BIT(mode_info.BitsPerPixel) - 1);
+  }
+  return 0;
 }
 
-int(draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
-  for (uint16_t i = x; i < x + width; i++) {
-    for (uint16_t j = y; j < y + height; j++) {
-      if (paint_pixel(i, j, color) != 0)
+int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
+  if (x > mode_info.XResolution || y > mode_info.YResolution)
+    return 1;
+
+  uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+  uint32_t index = (mode_info.XResolution * y + x) * bytesPerPixel;
+  return memcpy(&frame_buffer[index], &color, bytesPerPixel) == NULL;
+}
+
+int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+  for (uint16_t i = x; i < width; i++) {
+    for (uint16_t j = y; j < height; j++) {
+      if (vg_draw_pixel(i, j, color)) {
+        vg_exit();
         return 1;
+      }
     }
   }
   return 0;
-}
-
-int(normalize_color)(uint32_t color, uint32_t *new_color) {
-  if (mode_info.BitsPerPixel == 32) {
-    *new_color = color;
-  }
-  else {
-    *new_color = color & (BIT(mode_info.BitsPerPixel) - 1);
-  }
-  return 0;
-}
-
-int paint_pixel(uint16_t x, uint16_t y, uint32_t color) {
-
-  // As coordenadas têm de ser válidas
-  if (x >= mode_info.XResolution || y >= mode_info.YResolution)
-    return 1;
-
-  // Cálculo dos Bytes per pixel da cor escolhida. Arredondamento por excesso.
-  unsigned BytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
-
-  // Índice (em bytes) da zona do píxel a colorir
-  unsigned int index = (mode_info.XResolution * y + x) * BytesPerPixel;
-
-  // A partir da zona de memória frame_buffer[index], copia @BytesPerPixel bytes da @color
-  if (memcpy(&frame_buffer[index], &color, BytesPerPixel) == NULL)
-    return 1;
-
-  return 0;
-}
-
-int(setGraphicsMode)(uint16_t mode) {
-  memset(&mode_info, 0, sizeof(mode_info));
-  if (vbe_get_mode_info(mode, &mode_info))
-    return 1;
-  reg86_t reg;
-  memset(&reg, 0, sizeof(reg));
-  reg.intno = 0x10;
-  reg.ax = 0x4F02;
-  reg.bx = mode | BIT(14);
-  if (sys_int86(&reg))
-    return 1;
-
-  return 0;
-}
-
-uint32_t(pixelIndex)(uint16_t x, uint16_t y) {
-  return y * mode_info.YResolution + x;
 }
