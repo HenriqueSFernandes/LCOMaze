@@ -7,10 +7,15 @@
 
 // Any header files included below this line should have been created by you
 
-#include "graphics.h"
+#include <graphics.h>
+#include <keyboard.h>
+#include <timer.h>
 
 extern vbe_mode_info_t mode_info;
-
+extern int timerHookId;
+extern int kbd_hook_id;
+extern uint8_t kbd_value;
+extern int timerCounter;
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -62,7 +67,6 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
     printf("Error drawing the rectangle\n");
     return 1;
   }
-
   if (waitForESC()) {
     printf("Keyboard error\n");
     return 1;
@@ -88,17 +92,15 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
       uint32_t color;
       // If indexed color model
       if (mode_info.MemoryModel == 0x06) {
-        uint32_t Rfirst = ((1 << mode_info.RedMaskSize) - 1) & (first >> mode_info.RedFieldPosition);
-        uint32_t Gfirst = ((1 << mode_info.GreenMaskSize) - 1) & (first >> mode_info.GreenFieldPosition);
-        uint32_t Bfirst = ((1 << mode_info.BlueMaskSize) - 1) & (first >> mode_info.BlueFieldPosition);
-        uint32_t R = (Rfirst + j * step) % (1 << mode_info.RedMaskSize);
-        uint32_t G = (Gfirst + i * step) % (1 << mode_info.GreenMaskSize);
-        uint32_t B = (Bfirst + (j + i) * step) % (1 << mode_info.BlueMaskSize);
+        uint32_t R = ((first >> mode_info.RedFieldPosition) + j * step) % (1 << mode_info.RedMaskSize);
+        uint32_t G = ((first >> mode_info.GreenFieldPosition) + i * step) % (1 << mode_info.GreenMaskSize);
+        uint32_t B = ((first >> mode_info.BlueFieldPosition) + (i + j) * step) % (1 << mode_info.BlueMaskSize);
         color = R << mode_info.RedFieldPosition | G << mode_info.GreenFieldPosition | B << mode_info.BlueFieldPosition;
       }
       else {
         color = (first + (i * no_rectangles + j) * step) % (1 << mode_info.BitsPerPixel);
       }
+
       if (vg_draw_rectangle(j * width, i * height, width, height, color)) {
         printf("Error drawing the rectangle\n");
         return 1;
@@ -110,23 +112,147 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
     return 1;
   }
   return vg_exit();
-  return 1;
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u): under construction\n", __func__, xpm, x, y);
+  if (setFrameBuffer(0x105)) {
+    printf("Error setting frame buffer\n");
+    return 1;
+  }
+  if (setGraphicsMode(0x105)) {
+    printf("Error setting graphics mode\n");
+    return 1;
+  }
+  xpm_image_t img;
+  uint8_t *colors = xpm_load(xpm, XPM_INDEXED, &img);
+  for (int i = 0; i < img.height; i++) {
+    for (int j = 0; j < img.width; j++) {
+      if (vg_draw_pixel(x + j, y + i, *colors))
+        return 1;
+      colors++;
+    }
+  }
 
-  return 1;
+  if (waitForESC()) {
+    printf("Keyboard error\n");
+    return 1;
+  }
+  return vg_exit();
 }
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u, %u, %u, %d, %u): under construction\n",
-         __func__, xpm, xi, yi, xf, yf, speed, fr_rate);
+  bool horizontalMovement = true;
+  bool running = true;
+  uint16_t x = xi;
+  uint16_t y = yi;
+  if (xi == xf)
+    horizontalMovement = false;
+  if (timer_set_frequency(0, fr_rate)) {
+    printf("Error setting the timer\n");
+    return 1;
+  }
+  if (setFrameBuffer(0x105)) {
+    printf("Error setting frame buffer\n");
+    return 1;
+  }
+  if (setGraphicsMode(0x105)) {
+    printf("Error setting graphics mode\n");
+    return 1;
+  }
+  int ipc_status;
+  int receiver;
+  uint8_t irq_set_timer;
+  uint8_t irq_set_kbd;
+  message msg;
+  kbd_value = 0x00;
+  uint8_t keys[2] = {0x00, 0x00};
 
-  return 1;
+  if (timer_subscribe_int(&irq_set_timer) != 0) {
+    printf("Error subscribing to timer\n");
+    return 1;
+  }
+  if (kbd_subscribe_int(&irq_set_kbd) != 0) {
+    printf("Error subscribing to keyboard\n");
+    return 1;
+  }
+  xpm_image_t img;
+  uint8_t *colors = xpm_load(xpm, XPM_INDEXED, &img);
+  for (int i = 0; i < img.height; i++) {
+    for (int j = 0; j < img.width; j++) {
+      if (vg_draw_pixel(x + j, y + i, *colors))
+        return 1;
+      colors++;
+    }
+  }
+  while (kbd_value != 0x81) {
+    if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      printf("error driver_receive");
+      return 1;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          // If the interrupt is for the keyboard, call the interrupt handler.
+          if (msg.m_notify.interrupts & irq_set_kbd) {
+            // Call the interrupt handler.
+            if (kbd_ih())
+              return 1;
+            // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
+            if (keys[0] == 0xE0) {
+              keys[1] = kbd_value;
+            }
+            else {
+              keys[0] = kbd_value;
+            }
+            if (kbd_value != 0xE0) {
+              keys[0] = 0x00;
+            }
+          }
+          if (msg.m_notify.interrupts & irq_set_timer) {
+            timer_int_handler();
+            if (running) {
+
+              printf("tick %d\n", timerCounter);
+              xpm_image_t img;
+              uint8_t *colors = xpm_load(xpm, XPM_INDEXED, &img);
+              for (int i = 0; i < img.height; i++) {
+                for (int j = 0; j < img.width; j++) {
+                  if (vg_draw_pixel(x + j, y + i, 0))
+                    return 1;
+                }
+              }
+              if (horizontalMovement)
+                x += speed;
+              else
+                y += speed;
+
+              if (x > xf)
+                x = xf;
+              if (y > yf)
+                y = yf;
+              for (int i = 0; i < img.height; i++) {
+                for (int j = 0; j < img.width; j++) {
+                  if (vg_draw_pixel(x + j, y + i, *colors))
+                    return 1;
+                  colors++;
+                }
+              }
+              if (x == xf && y == yf)
+                running = false;
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  if (timer_unsubscribe_int())
+    return 1;
+  if (kbd_unsubscribe_int())
+    return 1;
+  return vg_exit();
 }
 
 int(video_test_controller)() {

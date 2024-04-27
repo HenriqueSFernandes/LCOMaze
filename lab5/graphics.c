@@ -106,8 +106,8 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 }
 
 int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
-  for (uint16_t i = x; i < width; i++) {
-    for (uint16_t j = y; j < height; j++) {
+  for (uint16_t i = x; i < width + x; i++) {
+    for (uint16_t j = y; j < height + y; j++) {
       if (vg_draw_pixel(i, j, color)) {
         vg_exit();
         return 1;
