@@ -185,6 +185,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
       colors++;
     }
   }
+  int16_t waitingCounter = abs(speed);
   while (kbd_value != 0x81) {
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("error driver_receive");
@@ -211,7 +212,8 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
             timer_int_handler();
-            if (running) {
+            if (running && (speed > 0 || (speed < 0 && waitingCounter == 0))) {
+              waitingCounter = abs(speed) + 1;
 
               printf("tick %d\n", timerCounter);
               xpm_image_t img;
@@ -222,10 +224,22 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
                     return 1;
                 }
               }
-              if (horizontalMovement)
-                x += speed;
-              else
-                y += speed;
+              if (horizontalMovement) {
+                if (speed < 0) {
+                  x++;
+                }
+                else {
+                  x += speed;
+                }
+              }
+              else {
+                if (speed < 0) {
+                  y++;
+                }
+                else {
+                  y += speed;
+                }
+              }
 
               if (x > xf)
                 x = xf;
@@ -241,6 +255,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
               if (x == xf && y == yf)
                 running = false;
             }
+            waitingCounter--;
           }
           break;
         default:

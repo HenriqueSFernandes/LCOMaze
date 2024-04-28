@@ -4,12 +4,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int mouse_hook_id = 12;
-struct packet mouse_packet;
-uint8_t byte_counter = 0;
-uint8_t packet_bytes[3];
-uint8_t current_byte;
-uint32_t counter = 0;
+#include "mouse.h"
+
+extern uint8_t byte_index;
+extern struct packet mouse_packet;
+// Any header files included below this line should have been created by you
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -17,11 +16,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need/ it]
-  lcf_trace_calls("/home/lcom/labs/g1/lab4/trace.txt");
+  lcf_trace_calls("/home/lcom/labs/lab4/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/g1/lab4/output.txt");
+  lcf_log_output("/home/lcom/labs/lab4/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -35,89 +34,20 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int(mouse_subscribe_int)(uint32_t *irq_set) {
-  // Validate input.
-  if (irq_set == NULL)
-    return 1;
-  printf("hook id: %d\n", mouse_hook_id);
-
-  // The irq_line should be the position of the hook id.
-  *irq_set = BIT(mouse_hook_id);
-  printf("irq_set: %d\n", *irq_set);
-
-  // In addition to IRQ_REENABLE, the policy also needs to be exclusive, because MINIX has a builtin interrupt handler for the keyboard.
-  return sys_irqsetpolicy(12, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
-}
-
-int(mouse_unsubscribe_int)() {
-  return sys_irqrmpolicy(&mouse_hook_id);
-}
-
-void(mouse_ih)() {
-  // Read the status from the KBC.
-  uint8_t status;
-  if (util_sys_inb(0x64, &status))
-    return;
-  // Check for error in the status.
-  if ((status & BIT(0)) != 0) {
-    if (status & BIT(7)) {
-      printf("Parity error!\n");
-      return;
-    }
-    if (status & BIT(6)) {
-      printf("Timeout error!\n");
-      return;
-    }
-    if (((status & BIT(5)) != 0)) {
-      // If the data is ready
-      if (util_sys_inb(0x60, &current_byte))
-        return;
-      // Sync the mouse with the driver
-      if (byte_counter == 0 && (current_byte & BIT(3))) {
-        packet_bytes[byte_counter] = current_byte;
-        byte_counter++;
-      }
-      else if (byte_counter > 0) {
-        packet_bytes[byte_counter] = current_byte;
-        byte_counter++;
-      }
-    }
-  }
-}
-
-int(mouse_write_command)(uint8_t command) {
-  int tries = 5;
-  uint8_t response;
-
-  do {
-    tries--;
-    if (sys_outb(0x64, 0xD4))
-      return 1;
-    if (sys_outb(0x60, command))
-      return 1;
-    if (util_sys_inb(0x60, &response))
-      return 1;
-    if (response == 0xFA)
-      return 0;
-  } while (response != 0xFA && tries > 0);
-  return 1;
-}
-
 int(mouse_test_packet)(uint32_t cnt) {
   int ipc_status;
   int receiver;
-  uint32_t irq_set;
+  uint16_t irq_set;
   message msg;
-
-  if (mouse_enable_data_reporting())
+  if (mouse_subscribe_int(&irq_set)) {
+    printf("Error subscribing to mouse!\n");
     return 1;
-
-  // Subscribe to the interruptions.
-  if (mouse_subscribe_int(&irq_set) != 0)
+  }
+  if (mouse_send_command(0xF4)) {
+    printf("Error enabling data reporting!");
     return 1;
-
-  while (counter < cnt * 3) {
-    // Check if there is a message available
+  }
+  while (cnt) {
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("error driver_receive");
       return 1;
@@ -125,10 +55,15 @@ int(mouse_test_packet)(uint32_t cnt) {
     if (is_ipc_notify(ipc_status)) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
-          // If the interrupt is for the mouse, call the interrupt handler.
           if (msg.m_notify.interrupts & irq_set) {
             mouse_ih();
-            counter++;
+            sync_bytes();
+            if (byte_index == 3){
+              create_packet();
+              byte_index = 0;
+              cnt--;
+              mouse_print_packet(&mouse_packet);
+            }
           }
           break;
         default:
@@ -136,10 +71,15 @@ int(mouse_test_packet)(uint32_t cnt) {
       }
     }
   }
-  if (mouse_write_command(0xF5))
+  if (mouse_send_command(0xF5)) {
+    printf("Error disabling data reporting!");
     return 1;
-
-  return mouse_unsubscribe_int();
+  }
+  if (mouse_unsubscribe_int()) {
+    printf("Error unsubscribing to mouse!");
+    return 1;
+  }
+  return 0;
 }
 
 int(mouse_test_async)(uint8_t idle_time) {

@@ -27,7 +27,7 @@ int(kbd_ih)() {
 
   // Check for error in the status.
   if (status & BIT(7)) {
-    printf("Parity error!\n");
+h     printf("Parity error!\n");
     return 1;
   }
   if (status & BIT(6)) {
