@@ -8,6 +8,7 @@
 
 extern uint8_t byte_index;
 extern struct packet mouse_packet;
+extern int timerCounter;
 // Any header files included below this line should have been created by you
 
 int main(int argc, char *argv[]) {
@@ -58,7 +59,7 @@ int(mouse_test_packet)(uint32_t cnt) {
           if (msg.m_notify.interrupts & irq_set) {
             mouse_ih();
             sync_bytes();
-            if (byte_index == 3){
+            if (byte_index == 3) {
               create_packet();
               byte_index = 0;
               cnt--;
@@ -83,9 +84,71 @@ int(mouse_test_packet)(uint32_t cnt) {
 }
 
 int(mouse_test_async)(uint8_t idle_time) {
-  /* To be completed */
-  printf("%s(%u): under construction\n", __func__, idle_time);
-  return 1;
+  int ipc_status;
+  int receiver;
+  uint16_t irq_set_mouse;
+  uint8_t irq_set_timer;
+  int time = 0;
+  message msg;
+  if (mouse_subscribe_int(&irq_set_mouse)) {
+    printf("Error subscribing to mouse!\n");
+    return 1;
+  }
+  if (timer_subscribe_int(&irq_set_timer)) {
+    printf("Error subscribing to mouse!\n");
+    return 1;
+  }
+  if (mouse_send_command(0xF4)) {
+    printf("Error enabling data reporting!");
+    return 1;
+  }
+
+  while (time < idle_time) {
+    if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      printf("error driver_receive");
+      return 1;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_set_mouse) {
+            mouse_ih();
+            sync_bytes();
+            if (byte_index == 3) {
+              create_packet();
+              byte_index = 0;
+              mouse_print_packet(&mouse_packet);
+            }
+            time = 0;
+            timerCounter = 0;
+          }
+          if (msg.m_notify.interrupts & irq_set_timer) {
+            timer_int_handler();
+            // If a second has passed, increase the timer.
+            if (timerCounter % 60 == 0) {
+              timer_print_elapsed_time();
+              time++;
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  if (mouse_send_command(0xF5)) {
+    printf("Error disabling data reporting!");
+    return 1;
+  }
+  if (mouse_unsubscribe_int()) {
+    printf("Error unsubscribing to mouse!");
+    return 1;
+  }
+  if (timer_unsubscribe_int()) {
+    printf("Error unsubscribing to mouse!");
+    return 1;
+  }
+  return 0;
 }
 
 int(mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
