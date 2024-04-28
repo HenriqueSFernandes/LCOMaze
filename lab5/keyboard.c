@@ -19,29 +19,30 @@ int(kbd_unsubscribe_int)() {
   return sys_irqrmpolicy(&kbd_hook_id);
 }
 
-int(kbd_ih)() {
+void(kbd_ih)() {
   // Read the status from the KBC.
   uint8_t status;
   if (util_sys_inb(0x64, &status))
-    return 1;
+    return;
 
   // Check for error in the status.
   if (status & BIT(7)) {
-h     printf("Parity error!\n");
-    return 1;
+    printf("Parity error!\n");
+    return;
   }
   if (status & BIT(6)) {
     printf("Timeout error!\n");
-    return 1;
+    return;
   }
   if (status & BIT(1)) {
     printf("The input buffer is full!\n");
-    return 1;
+    return;
   }
 
   // If the output buffer is full, data is available for reading.
   if ((status & BIT(0)) != 0) {
-    return util_sys_inb(0x60, &kbd_value);
+    util_sys_inb(0x60, &kbd_value);
+    return;
   }
-  return 1;
+  return;
 }
