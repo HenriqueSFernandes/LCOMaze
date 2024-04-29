@@ -197,8 +197,7 @@ int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint1
           // If the interrupt is for the keyboard, call the interrupt handler.
           if (msg.m_notify.interrupts & irq_set_kbd) {
             // Call the interrupt handler.
-            if (kbd_ih())
-              return 1;
+            kbd_ih();
             // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
             if (keys[0] == 0xE0) {
               keys[1] = kbd_value;

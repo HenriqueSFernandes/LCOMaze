@@ -5,35 +5,43 @@ extern int kbd_hook_id;
 extern uint8_t kbd_value;
 
 int setFrameBuffer(uint16_t mode) {
-  // Get mode info
+  // Set mode_info to 0
   memset(&mode_info, 0, sizeof(mode_info));
+  // Get the info
   if (vbe_get_mode_info(mode, &mode_info))
     return 1;
 
-  // Set buffer size
+  // Calculating the bytes per pixel, by rounding up the bits per pixel and dividing it by 8.
   uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+  // Calculate the frame size (width * height * bytes per pixel).
   uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
 
   // Allocate physical addresses
   struct minix_mem_range physicAddresses;
+  // The start of the physical address.
   physicAddresses.mr_base = mode_info.PhysBasePtr;
+  // The end of the physical address, which is the start + size.
   physicAddresses.mr_limit = physicAddresses.mr_base + frameSize;
+
+  // TODO wtf is this
   if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &physicAddresses))
     return 1;
 
-  // Allocate virtual addresses
+  // Allocate virtual addresses.
   frame_buffer = vm_map_phys(SELF, (void *) physicAddresses.mr_base, frameSize);
   return frame_buffer == NULL;
 }
 
 int setGraphicsMode(uint16_t mode) {
-  // Initialize the struct
+  // Initialize the struct.
   reg86_t reg86;
+  // Set the struct to 0.
   memset(&reg86, 0, sizeof(reg86));
-  reg86.intno = 0x10;
-  reg86.ah = 0x4F;
-  reg86.al = 0x02;
-  reg86.bx = mode | BIT(14);
+  reg86.intno = 0x10;         // BIOS video service.
+  reg86.ah = 0x4F;            // ax higher bits.
+  reg86.al = 0x02;            // ax lower bits.
+  reg86.bx = mode | BIT(14);  // Set the mode with bit 14 (linear memory mapping).
+  // Send the command.
   if (sys_int86(&reg86) != 0)
     return 1;
   return 0;
@@ -43,7 +51,7 @@ int(waitForESC)() {
   kbd_value = 0x00;
   int ipc_status;  // Indicates if a message has been received.
   int receiver;    // Indicates if there was an error receiving the message.
-  uint8_t irq_set; // 8-bit value that indicates which interrupts the program should care about.
+  uint8_t irq_set; // Value that indicates which interrupts the program should care about.
   message msg;     // The message itself.
   uint8_t keys[2] = {0x00, 0x00};
 
@@ -64,8 +72,7 @@ int(waitForESC)() {
           // If the interrupt is for the keyboard, call the interrupt handler.
           if (msg.m_notify.interrupts & irq_set) {
             // Call the interrupt handler.
-            if (kbd_ih())
-              return 1;
+            kbd_ih();
             // If the previous key was 0xE0, then it means the makecode and breakcode for that key has size 2.
             if (keys[0] == 0xE0) {
               keys[1] = kbd_value;
@@ -87,11 +94,13 @@ int(waitForESC)() {
 }
 
 int(normalizeColor(uint32_t color, uint32_t *newColor)) {
+  // If each pixel is 32 bits, then just use the given color.
   if (mode_info.BitsPerPixel == 32) {
     *newColor = color;
   }
+  // Otherwise, set the unnecessary bits to 0.
   else {
-    *newColor = color & (BIT(mode_info.BitsPerPixel) - 1);
+    *newColor = color & (BIT(mode_info.BitsPerPixel) - 1); // Imagine we want 5 bits, the mask should be 0...11111. BIT(5) = 0...100000, BIT(5) - 1 = 0...11111.
   }
   return 0;
 }
