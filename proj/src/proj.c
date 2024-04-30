@@ -1,13 +1,13 @@
 // IMPORTANT: you must include the following line in all your C files
 #include <lcom/lcf.h>
 
+#include "controllers/graphics.h"
+#include "controllers/keyboard.h"
+#include "controllers/mouse.h"
+#include "controllers/timer.h"
+#include <lcom/vbe.h>
 #include <stdint.h>
 #include <stdio.h>
-
-#include "graphics.h"
-#include "keyboard.h"
-#include "mouse.h"
-#include "timer.h"
 // Any header files included below this line should have been created by you
 
 extern uint8_t kbd_value;
@@ -17,26 +17,12 @@ extern int timerCounter;
 extern vbe_mode_info_t mode_info;
 
 int main(int argc, char *argv[]) {
-  // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
-
-  // enables to log function invocations that are being "wrapped" by LCF
-  // [comment this out if you don't want/need/ it]
-  // lcf_trace_calls("/home/lcom/labs/g1/proj/src/trace.txt");
-
-  // enables to save the output of printf function calls on a file
-  // [comment this out if you don't want/need it]
-  // lcf_log_output("/home/lcom/labs/g1/proj/src/lab4/output.txt");
-
-  // handles control over to LCF
-  // [LCF handles command line arguments and invokes the right function]
+  lcf_trace_calls("/home/lcom/labs/g1/proj/src/log/trace.txt");
+  lcf_log_output("/home/lcom/labs/g1/proj/src/log/output.txt");
   if (lcf_start(argc, argv))
     return 1;
-
-  // LCF clean up tasks
-  // [must be the last statement before return]
   lcf_cleanup();
-
   return 0;
 }
 
@@ -49,8 +35,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint16_t irq_set_mouse;
   uint8_t irq_set_timer;
   message msg;
-  int16_t x = 0;
-  int16_t y = 0;
   if (mouse_subscribe_int(&irq_set_mouse)) {
     printf("Error subscribing to mouse!\n");
     return 1;
@@ -67,7 +51,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
     printf("Error setting graphics mode!\n");
     return 1;
   }
-  if (timer_set_frequency(0, 240)) {
+  if (timer_set_frequency(0, 60)) {
     printf("Error setting the frequency!\n");
     return 1;
   }
@@ -95,23 +79,13 @@ int(proj_main_loop)(int argc, char *argv[]) {
             mouse_ih();
             sync_bytes();
             if (byte_index == 3) {
-              create_packet();
               byte_index = 0;
-              x += mouse_packet.delta_x;
-              y -= mouse_packet.delta_y;
-              if (x < 0)
-                x = 0;
-              if (y < 0)
-                y = 0;
-              if (x > mode_info.XResolution - 5)
-                x = mode_info.XResolution - 5;
-              if (y > mode_info.YResolution - 5)
-                y = mode_info.YResolution - 5;
-              // printf("x: %d, y: %d\n", x, y);
+              create_packet();
+              mouse_print_packet(&mouse_packet);
             }
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
-            vg_draw_rectangle(x, y, 5, 5, color);
+            fill_color(0xFFFFFF);
           }
           break;
         default:

@@ -1,5 +1,9 @@
-#include <graphics.h>
-#include <keyboard.h>
+#include "graphics.h"
+#include "keyboard.h"
+#include <lcom/lcf.h>
+#include <lcom/vbe.h>
+#include <stdint.h>
+#include <stdio.h>
 
 extern int kbd_hook_id;
 extern uint8_t kbd_value;
@@ -78,4 +82,8 @@ int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, 
     }
   }
   return 0;
+}
+
+int(fill_color)(uint32_t color) {
+  return vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, color);
 }
