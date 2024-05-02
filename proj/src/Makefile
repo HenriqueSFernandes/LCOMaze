@@ -2,8 +2,9 @@
 PROG=proj
 
 .PATH: ${.CURDIR}/controllers
+.PATH: ${.CURDIR}/game
 # source code files to be compiled
-SRCS = proj.c utils.c timer.c keyboard.c mouse.c graphics.c
+SRCS = proj.c utils.c timer.c keyboard.c mouse.c graphics.c game.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

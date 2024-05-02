@@ -27,7 +27,6 @@ int setFrameBuffer(uint16_t mode) {
   // The end of the physical address, which is the start + size.
   physicAddresses.mr_limit = physicAddresses.mr_base + frameSize;
 
-  // TODO wtf is this
   if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &physicAddresses))
     return 1;
 

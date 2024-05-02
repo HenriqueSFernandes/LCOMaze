@@ -1,10 +1,10 @@
 // IMPORTANT: you must include the following line in all your C files
-#include <lcom/lcf.h>
-
 #include "controllers/graphics.h"
 #include "controllers/keyboard.h"
 #include "controllers/mouse.h"
 #include "controllers/timer.h"
+#include "game/game.h"
+#include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -43,11 +43,11 @@ int(proj_main_loop)(int argc, char *argv[]) {
     printf("Error enabling data reporting!\n");
     return 1;
   }
-  if (setFrameBuffer(0x11A)) {
+  if (setFrameBuffer(0x14C)) {
     printf("Error setting frame buffer!\n");
     return 1;
   }
-  if (setGraphicsMode(0x119)) {
+  if (setGraphicsMode(0x14C)) {
     printf("Error setting graphics mode!\n");
     return 1;
   }
@@ -64,8 +64,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
   //   printf("Error subscribing to keyboard!\n");
   //   return 1;
   // }
-  uint32_t color;
-  normalizeColor(0xFFFFFF, &color);
   while (!mouse_packet.rb) {
     // Check if there is a message available
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -81,11 +79,10 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if (byte_index == 3) {
               byte_index = 0;
               create_packet();
-              mouse_print_packet(&mouse_packet);
             }
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
-            fill_color(0xFFFFFF);
+            main_loop();
           }
           break;
         default:
