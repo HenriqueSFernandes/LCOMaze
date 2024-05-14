@@ -4,6 +4,9 @@
 #include <lcom/vbe.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <math.h>
+
+#define DEG2RAD(deg) ((deg) * M_PI / 180.0)
 
 extern int kbd_hook_id;
 extern uint8_t kbd_value;
@@ -86,6 +89,39 @@ int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, 
   return 0;
 }
 
+int (draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y){
+    xpm_image_t img; // pixmap and metadataz
+  uint32_t *map; // pixmap itself
+    enum xpm_image_type image_type = XPM_8_8_8_8;
+  map =(uint32_t *) xpm_load(xpm, image_type, &img);
+  for(int i=0;i < img.height; i++){
+    for(int j=0; j<img.width; j++){
+      vg_draw_pixel(x+j, y+i,map[i*img.width+j]);
+      
+    }
+  }return 0;
+}
+
+int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta) {
+    xpm_image_t img; // pixmap and metadata
+    uint32_t *map; // pixmap itself
+    enum xpm_image_type image_type = XPM_8_8_8_8;
+    map = (uint32_t *)xpm_load(xpm, image_type, &img);
+
+    double cos_theta = cos(-DEG2RAD(theta)); // Negative sign for counterclockwise rotation
+    double sin_theta = sin(-DEG2RAD(theta)); // Negative sign for counterclockwise rotation
+
+    for (int i = 0; i < img.height; i++) {
+        for (int j = 0; j < img.width; j++) {
+            // Rotate coordinates
+            int rotated_x = (int)(cos_theta * j - sin_theta * i);
+            int rotated_y = (int)(sin_theta * j + cos_theta * i);
+
+            vg_draw_pixel(x + rotated_x, y + rotated_y, map[i * img.width + j]);
+        }
+    }
+    return 0;
+}
 int(fill_color)(uint32_t color) {
   return vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, color);
 }

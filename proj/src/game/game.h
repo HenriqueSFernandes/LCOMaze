@@ -2,6 +2,8 @@
 #define GAME_H
 
 #include "../controllers/graphics.h"
+#include <math.h>
+#include "../images/player.xpm"
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>

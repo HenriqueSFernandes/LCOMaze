@@ -24,4 +24,8 @@ int (fill_color)(uint32_t color);
 
 int (swap)();
 
+int (draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y);
+
+int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta) ;
+
 #endif
