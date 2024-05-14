@@ -1,0 +1,2 @@
+bits per pixel DIFF: 32
+END 

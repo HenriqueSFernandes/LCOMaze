@@ -19,5 +19,6 @@ void main_loop() {
   normalizeColor(0x87CEEB, &sky_color);
   normalizeColor(0x4A4A4F, &ground_color);
   vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution / 2, sky_color);
+  swap();
   // vg_draw_rectangle(0, mode_info.YResolution / 2, 900, 900, ground_color);
 }

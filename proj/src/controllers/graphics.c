@@ -7,6 +7,7 @@
 
 extern int kbd_hook_id;
 extern uint8_t kbd_value;
+ uint32_t bytesPerPixel;
 
 int setFrameBuffer(uint16_t mode) {
   // Set mode_info to 0
@@ -16,7 +17,7 @@ int setFrameBuffer(uint16_t mode) {
     return 1;
 
   // Calculating the bytes per pixel, by rounding up the bits per pixel and dividing it by 8.
-  uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+  bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
   // Calculate the frame size (width * height * bytes per pixel).
   uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
 
@@ -32,6 +33,8 @@ int setFrameBuffer(uint16_t mode) {
 
   // Allocate virtual addresses.
   frame_buffer = vm_map_phys(SELF, (void *) physicAddresses.mr_base, frameSize);
+  back_buffer = (uint8_t *) malloc(frameSize);
+
   return frame_buffer == NULL;
 }
 
@@ -68,7 +71,7 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 
   uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
   uint32_t index = (mode_info.XResolution * y + x) * bytesPerPixel;
-  return memcpy(&frame_buffer[index], &color, bytesPerPixel) == NULL;
+  return memcpy(&back_buffer[index], &color, bytesPerPixel) == NULL;
 }
 
 int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
@@ -86,3 +89,9 @@ int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, 
 int(fill_color)(uint32_t color) {
   return vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, color);
 }
+
+int (swap)(){
+  memcpy(frame_buffer, back_buffer, mode_info.XResolution* mode_info.YResolution*bytesPerPixel);
+  return 0;
+}
+
