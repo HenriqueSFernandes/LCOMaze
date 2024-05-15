@@ -100,20 +100,34 @@ int (draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y){
   }return 0;
 }
 
+
 int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta) {
     xpm_image_t img; // pixmap and metadata
     uint32_t *map; // pixmap itself
     enum xpm_image_type image_type = XPM_8_8_8_8;
     map = (uint32_t *)xpm_load(xpm, image_type, &img);
 
-    double cos_theta = cos(-theta); // Negative sign for counterclockwise rotation
-    double sin_theta = sin(-theta); // Negative sign for counterclockwise rotation
+    // Calculate image center
+    double center_x = img.width / 2.0;
+    double center_y = img.height / 2.0;
+
+    // Convert theta to radians and get cosine and sine values
+    double cos_theta = cos(theta);
+    double sin_theta = sin(theta);
 
     for (int i = 0; i < img.height; i++) {
         for (int j = 0; j < img.width; j++) {
+            // Translate coordinates to be relative to center
+            double translated_x = j - center_x;
+            double translated_y = i - center_y;
+
             // Rotate coordinates
-            int rotated_x = (int)(cos_theta * j - sin_theta * i);
-            int rotated_y = (int)(sin_theta * j + cos_theta * i);
+            int rotated_x = (int)(cos_theta * translated_x + sin_theta * translated_y);
+            int rotated_y = (int)(-sin_theta * translated_x + cos_theta * translated_y);
+
+            // Translate coordinates back to original position
+            rotated_x += center_x;
+            rotated_y += center_y;
 
             vg_draw_pixel(x + rotated_x, y + rotated_y, map[i * img.width + j]);
         }
