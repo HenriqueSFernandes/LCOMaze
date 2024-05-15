@@ -7,7 +7,16 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
-
+extern double delta;
+typedef enum {
+    CLOCKWISE,
+    COUNTER_CLOCKWISE,
+    STOPPED
+} RotationState;
+RotationState rotation_state;
+uint8_t cur;
+double x ;
+double y ;
 struct point {
   int x;
   int y;

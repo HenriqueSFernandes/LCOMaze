@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#define DEG2RAD(deg) ((deg) * M_PI / 180.0)
-
 extern int kbd_hook_id;
 extern uint8_t kbd_value;
  uint32_t bytesPerPixel;
@@ -108,8 +106,8 @@ int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta
     enum xpm_image_type image_type = XPM_8_8_8_8;
     map = (uint32_t *)xpm_load(xpm, image_type, &img);
 
-    double cos_theta = cos(-DEG2RAD(theta)); // Negative sign for counterclockwise rotation
-    double sin_theta = sin(-DEG2RAD(theta)); // Negative sign for counterclockwise rotation
+    double cos_theta = cos(-theta); // Negative sign for counterclockwise rotation
+    double sin_theta = sin(-theta); // Negative sign for counterclockwise rotation
 
     for (int i = 0; i < img.height; i++) {
         for (int j = 0; j < img.width; j++) {
