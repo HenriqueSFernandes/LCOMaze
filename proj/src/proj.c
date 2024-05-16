@@ -47,8 +47,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   if (mouse_subscribe_int(&irq_set_mouse)) {
     printf("Error subscribing to mouse!\n");
     return 1;
-  }
-  if(kbd_subscribe_int(&irq_set_kbd)) return 1;
+  }  if(kbd_subscribe_int(&irq_set_kbd)) return 1;
   
   if (mouse_send_command(0xF4)) {
     printf("Error enabling data reporting!\n");
@@ -122,20 +121,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
             }
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
-                      
-              //double interval = atan2(mouse_packet.delta_y, mouse_packet.delta_x);
-              
-          if (mouse_packet.lb) {
-              if (mouse_packet.delta_x > 0) {
-                  rotation_state = CLOCKWISE;
-              } else if (mouse_packet.delta_x < 0) {
-                  rotation_state = COUNTER_CLOCKWISE;
-              } else {
-                  rotation_state = STOPPED;
-              }
-          } else {
-              rotation_state = STOPPED;
-          }
 
 
             main_loop();
