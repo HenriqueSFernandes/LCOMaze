@@ -7,6 +7,7 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
+extern xpm_image_t img; // pixmap and metadata
 extern double delta;
 typedef enum {
     CLOCKWISE,
@@ -15,8 +16,11 @@ typedef enum {
 } RotationState;
 RotationState rotation_state;
 uint8_t cur;
+
 double x ;
 double y ;
+double x_mouse;
+double y_mouse;
 struct point {
   int x;
   int y;

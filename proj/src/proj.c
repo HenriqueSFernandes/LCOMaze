@@ -11,6 +11,8 @@ uint8_t kbd_value;
 extern uint8_t cur;
 extern double x;
 extern double y;
+extern double x_mouse;
+extern double y_mouse;
 
 // Any header files included below this line should have been created by you
 extern RotationState rotation_state;
@@ -113,6 +115,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if (byte_index == 3) {
               byte_index = 0;
               create_packet();
+              x_mouse+=mouse_packet.delta_x;
+              y_mouse-=mouse_packet.delta_y;
+              
    
             }
           }

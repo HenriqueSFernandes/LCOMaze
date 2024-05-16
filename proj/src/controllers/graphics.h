@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <lcom/vbe.h>
 vbe_mode_info_t mode_info;
+xpm_image_t img; // pixmap and metadata
 uint8_t *frame_buffer;
 uint8_t *back_buffer;
 

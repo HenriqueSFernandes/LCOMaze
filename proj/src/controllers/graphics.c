@@ -79,7 +79,6 @@ int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, 
   for (uint16_t i = x; i < width + x; i++) {
     for (uint16_t j = y; j < height + y; j++) {
       if (vg_draw_pixel(i, j, color)) {
-        vg_exit();
         return 1;
       }
     }
@@ -102,7 +101,7 @@ int (draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y){
 
 
 int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta) {
-    xpm_image_t img; // pixmap and metadata
+    
     uint32_t *map; // pixmap itself
     enum xpm_image_type image_type = XPM_8_8_8_8;
     map = (uint32_t *)xpm_load(xpm, image_type, &img);
