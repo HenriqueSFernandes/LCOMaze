@@ -1,6 +1,6 @@
 #include "keyboard.h"
 
-int kbd_hook_id = 1;
+int kbd_hook_id = 7;
 uint8_t kbd_value;
 
 int(kbd_subscribe_int)(uint16_t *irq_set) {
