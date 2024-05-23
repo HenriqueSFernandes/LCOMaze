@@ -4,29 +4,35 @@
 #include "controllers/mouse.h"
 #include "controllers/timer.h"
 #include "game/game.h"
+#include "game/menu.h"
 #include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>
 uint8_t kbd_value;
-extern uint8_t cur;
-extern double x;
-extern double y;
-extern double x_mouse;
-extern double y_mouse;
-
+extern bool update_delta;
 // Any header files included below this line should have been created by you
-extern RotationState rotation_state;
 extern uint8_t kbd_value;
 extern uint8_t byte_index;
 extern struct packet mouse_packet;
 extern int timerCounter;
 extern vbe_mode_info_t mode_info;
 double delta=0;
+typedef enum {
+    Menu,
+    Game,
+    Pause
+} State;
+void print_double(double n) {
+
+  char str[100];
+  sprintf(str, "%f", n);
+  printf("%s", str);
+}
 
 int main(int argc, char *argv[]) {
   lcf_set_language("EN-US");
-  lcf_trace_calls("/home/lcom/labs/g1/proj/src/log/trace.txt");
-  lcf_log_output("/home/lcom/labs/g1/proj/src/log/output.txt");
+  //lcf_trace_calls("/home/lcom/labs/g1/proj/src/log/trace.txt");
+ // lcf_log_output("/home/lcom/labs/g1/proj/src/log/output.txt");
   if (lcf_start(argc, argv))
     return 1;
   lcf_cleanup();
@@ -34,15 +40,13 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
-  rotation_state = STOPPED;
   int ipc_status;
   int receiver;
-  x=0;
-  y=0;
   uint16_t irq_set_mouse;
   uint8_t irq_set_timer;
   uint16_t irq_set_kbd;
   message msg;
+  State state=Menu;
   
   if (mouse_subscribe_int(&irq_set_mouse)) {
     printf("Error subscribing to mouse!\n");
@@ -84,29 +88,10 @@ int(proj_main_loop)(int argc, char *argv[]) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_kbd) {
             kbd_ih();
-            printf("kbd_value: %x\n", kbd_value);
-            cur=kbd_value;
-           double x_changer = 0;
-          double y_changer = 0;
-          if (cur == 0x11) {
-                      x_changer = cos(delta);
-                      y_changer = sin(delta);
-          }else if(cur == 0x1f){
-                      x_changer = -cos(delta);
-                      y_changer = -sin(delta);
-                    
-          }else if(cur == 0x1e){
-                    x_changer = -sin(delta);
-                      y_changer = cos(delta);
-                    
-          }
-          else if (cur == 0x20) {
-                      x_changer = sin(delta);
-                      y_changer = -cos(delta);
-                      
-          }
-          x+=x_changer*10;
-          y-=y_changer*10;
+            if(state==Game){
+               printf("kbd_value: %x\n", kbd_value);
+               game_keyboard_handler();
+            }
           }
           if (msg.m_notify.interrupts & irq_set_mouse) {
             mouse_ih();
@@ -114,16 +99,19 @@ int(proj_main_loop)(int argc, char *argv[]) {
             if (byte_index == 3) {
               byte_index = 0;
               create_packet();
-              x_mouse+=mouse_packet.delta_x;
-              y_mouse-=mouse_packet.delta_y;
-              
-   
+            }
+             if(state==Game){
+               game_mouse_handler();
             }
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
 
-
-            main_loop();
+            if(state==Game){
+              game_main_loop();
+            }else if(state==Menu){
+              menu_main_loop();
+            }
+            
           }
           break;
         default:

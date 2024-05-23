@@ -142,3 +142,8 @@ int (swap)(){
   return 0;
 }
 
+int (clear)(){
+  if(vg_draw_rectangle(0,0, mode_info.XResolution, mode_info.YResolution, 0x000000)) return 1;
+  return 0;
+}
+
