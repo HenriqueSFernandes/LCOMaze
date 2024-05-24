@@ -7,11 +7,14 @@
 #include <stdint.h>
 #include <stdio.h>
 
+
 extern vbe_mode_info_t mode_info;
 
 xpm_image_t img; // pixmap and metadata
 
 extern struct packet mouse_packet;
+double x_mouse;
+double y_mouse;
 
 typedef struct {
     int x, y;

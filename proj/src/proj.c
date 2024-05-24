@@ -22,6 +22,7 @@ typedef enum {
     Game,
     Pause
 } State;
+State state=Menu;
 void print_double(double n) {
 
   char str[100];
@@ -46,7 +47,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint8_t irq_set_timer;
   uint16_t irq_set_kbd;
   message msg;
-  State state=Menu;
   
   if (mouse_subscribe_int(&irq_set_mouse)) {
     printf("Error subscribing to mouse!\n");
@@ -102,6 +102,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
             }
              if(state==Game){
                game_mouse_handler();
+            }else if(state==Menu){
+              menu_mouse_handler();
             }
           }
           if (msg.m_notify.interrupts & irq_set_timer) {
@@ -111,7 +113,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
             }else if(state==Menu){
               menu_main_loop();
             }
-            
           }
           break;
         default:
