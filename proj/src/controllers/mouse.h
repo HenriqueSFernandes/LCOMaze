@@ -10,13 +10,12 @@ int(mouse_unsubscribe_int)();
 
 void(mouse_ih)();
 
-void (sync_bytes)();
+void(sync_bytes)();
 
-void (create_packet)();
+void(create_packet)();
 
-int (kbc_send_command)(uint8_t port, uint8_t command);
+int(kbc_send_command)(uint8_t port, uint8_t command);
 
-int (mouse_send_command)(uint8_t command);
-
+int(mouse_send_command)(uint8_t command);
 
 #endif

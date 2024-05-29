@@ -1,10 +1,6 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <lcom/lcf.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <lcom/vbe.h>
 #include "../images/font/letter_a.xpm"
 #include "../images/font/letter_b.xpm"
 #include "../images/font/letter_c.xpm"
@@ -31,6 +27,10 @@
 #include "../images/font/letter_x.xpm"
 #include "../images/font/letter_y.xpm"
 #include "../images/font/letter_z.xpm"
+#include <lcom/lcf.h>
+#include <lcom/vbe.h>
+#include <stdint.h>
+#include <stdio.h>
 vbe_mode_info_t mode_info;
 xpm_image_t img; // pixmap and metadata
 uint8_t *frame_buffer;
@@ -42,19 +42,19 @@ int setGraphicsMode(uint16_t mode);
 
 int(normalizeColor(uint32_t color, uint32_t *newColor));
 
-int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
+int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 
-int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
+int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
 
-int (fill_color)(uint32_t color);
+int(fill_color)(uint32_t color);
 
-int (swap)();
+int(swap)();
 
-int (clear)();
+int(clear)();
 
-int (draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y);
+int(draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
-int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta) ;
+int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta);
 
 int fill_color(uint32_t color);
 

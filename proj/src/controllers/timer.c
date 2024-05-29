@@ -1,5 +1,5 @@
-#include <lcom/lcf.h>
 #include "timer.h"
+#include <lcom/lcf.h>
 
 #include <stdint.h>
 
@@ -67,7 +67,7 @@ int(timer_subscribe_int)(uint8_t *bit_no) {
   // Validate the input.
   if (bit_no == NULL)
     return 1;
-  
+
   // bit_no should indicate the position of the hook id bit.
   *bit_no = BIT(timerHookId);
   return sys_irqsetpolicy(0, IRQ_REENABLE, &timerHookId);

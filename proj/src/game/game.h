@@ -2,17 +2,17 @@
 #define GAME_H
 
 #include "../controllers/graphics.h"
-#include <math.h>
 #include "../images/player.xpm"
 #include <lcom/lcf.h>
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 xpm_image_t img; // pixmap and metadata
 double delta;
 uint8_t kbd_value;
 bool update_delta;
-double x ;
-double y ;
+double x;
+double y;
 double x_mouse;
 double y_mouse;
 extern struct packet mouse_packet;
