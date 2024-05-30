@@ -7,20 +7,15 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
-extern xpm_image_t img; // pixmap and metadata
-extern double delta;
-typedef enum {
-    CLOCKWISE,
-    COUNTER_CLOCKWISE,
-    STOPPED
-} RotationState;
-RotationState rotation_state;
-uint8_t cur;
-
+xpm_image_t img; // pixmap and metadata
+double delta;
+uint8_t kbd_value;
+bool update_delta;
 double x ;
 double y ;
 double x_mouse;
 double y_mouse;
+extern struct packet mouse_packet;
 struct point {
   int x;
   int y;
@@ -28,9 +23,8 @@ struct point {
   int projected_x;
   int projected_y;
 };
-
-void main_loop();
-
-void init_game();
-
+void game_keyboard_handler();
+void game_mouse_handler();
+void game_update_delta();
+void game_main_loop();
 #endif
