@@ -48,8 +48,8 @@ void(sync_bytes)() {
   }
 }
 
-void (create_packet)(){
-  for (int i = 0; i < 3; i++){
+void(create_packet)() {
+  for (int i = 0; i < 3; i++) {
     mouse_packet.bytes[i] = mouse_bytes[i];
   }
 
