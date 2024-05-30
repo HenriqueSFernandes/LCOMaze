@@ -11,9 +11,9 @@ void dump_memory(void *p, size_t n) {
 }
 
 struct Maze generate_maze() {
-    const int maze_width = 23;
-    const int maze_height = 17;
     const int cell_size = 50;
+    const int maze_width = mode_info.XResolution / cell_size;
+    const int maze_height = mode_info.YResolution / cell_size;
 
     struct Cell ***cells = malloc(maze_height * sizeof(struct Cell *));
 
