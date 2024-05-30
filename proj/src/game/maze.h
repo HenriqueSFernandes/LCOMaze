@@ -2,7 +2,7 @@
 #define MAZE_H
 
 #include "../controllers/graphics.h"
-#include "stack.h"
+#include "../data_structures/stack.h"
 #include <lcom/vbe.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -60,6 +60,8 @@ struct Maze generate_maze();
  * @param maze A pointer to the Maze structure.
  */
 void generate_maze_buffer(struct Maze *maze);
+
+void draw_solution(struct Maze *maze);
 
 /**
  * Draws the maze on the screen.

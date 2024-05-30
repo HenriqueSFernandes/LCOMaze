@@ -3,6 +3,7 @@ PROG=proj
 
 .PATH: ${.CURDIR}/controllers
 .PATH: ${.CURDIR}/game
+.PATH: ${.CURDIR}/data_structures
 # source code files to be compiled
 SRCS = proj.c utils.c timer.c keyboard.c mouse.c graphics.c game.c menu.c maze.c stack.c
 

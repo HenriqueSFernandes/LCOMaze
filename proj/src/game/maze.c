@@ -34,11 +34,11 @@ struct Maze generate_maze() {
     struct Cell *current_cell = cells[0][0];
     struct Stack stack = {NULL, 0};
     current_cell->visited = 1;
-    push(&stack, current_cell);
-    struct Cell *top_cell = top(&stack);
+    stack_push(&stack, current_cell);
+    struct Cell *top_cell = stack_top(&stack);
     printf("top cell: %x\n", top_cell);
     while (stack.size > 0) {
-        current_cell = pop(&stack);
+        current_cell = stack_pop(&stack);
         int x = current_cell->x;
         int y = current_cell->y;
         // Get all the neighbours that haven't been visited
@@ -63,7 +63,7 @@ struct Maze generate_maze() {
         }
         // if there are unvisited neighbours, push the current cell to the stack and choose a random neighbour.
         if (neighbours_count > 0) {
-            push(&stack, current_cell);
+            stack_push(&stack, current_cell);
             struct Cell *neighbour = neighbours[rand() % neighbours_count];
             // remove the wall between the current cell and the neighbour.
             if (neighbour->x == x - 1) {
@@ -84,7 +84,7 @@ struct Maze generate_maze() {
             }
             // mark the neighbour as visited and push it to the stack.
             neighbour->visited = 1;
-            push(&stack, neighbour);
+            stack_push(&stack, neighbour);
         }
         // ***** ENABLE THIS TO SEE THE MAZE BEING GENERATED *****
         // clear();
@@ -95,7 +95,6 @@ struct Maze generate_maze() {
         // draw_maze(&maze);
         // swap();
         // *******************************************************
-
     }
     struct Maze maze;
     maze.width = maze_width;
@@ -109,6 +108,22 @@ void generate_maze_buffer(struct Maze *maze) {
         uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
         uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
         maze_buffer = (uint8_t *) malloc(frameSize);
+    }
+}
+
+void draw_solution(struct Maze *maze) {
+    int dist[maze->height * maze->width];
+    int prev[maze->height * maze->width];
+    int nodes[maze->height * maze->width];
+    int nodes_size = 0;
+    for (int i = 0; i < maze->height * maze->width; i++) {
+        dist[i] = -1;
+        prev[i] = -1;
+        nodes[i] = i;
+        nodes_size++;
+    }
+    dist[0] = 0;
+    while (nodes_size > 0) {
     }
 }
 
