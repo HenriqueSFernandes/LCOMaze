@@ -67,4 +67,29 @@ struct Cell *linked_list_first(struct LinkedList *list);
  */
 struct Cell *linked_list_last(struct LinkedList *list);
 
+/**
+ * Returns the cell with the minimum distance in the given linked list.
+ *
+ * @param list The linked list to search for the minimum distance cell.
+ * @return The cell with the minimum distance, or NULL if the list is empty.
+ */
+struct Cell *get_minimum_distance(struct LinkedList *list);
+
+/**
+ * Removes a cell from the linked list.
+ *
+ * @param list The linked list from which to remove the cell.
+ * @param cell The cell to be removed from the linked list.
+ */
+void linked_list_remove(struct LinkedList *list, struct Cell *cell);
+
+/**
+ * Checks if a given cell is present in a linked list.
+ *
+ * @param list The linked list to search in.
+ * @param cell The cell to search for.
+ * @return true if the cell is found in the linked list, false otherwise.
+ */
+bool linked_list_contains(struct LinkedList *list, struct Cell *cell);
+
 #endif

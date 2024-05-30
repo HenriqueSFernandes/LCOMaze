@@ -2,6 +2,7 @@
 
 extern vbe_mode_info_t mode_info;
 struct Maze maze;
+struct LinkedList *maze_solution;
 
 double FOV_V;
 double FOV_H;
@@ -9,6 +10,7 @@ double FOV_H;
 void init_game() {
   maze = generate_maze();
   generate_maze_buffer(&maze);
+  maze_solution = get_solution(&maze);
 }
 
 void game_keyboard_handler() {
@@ -80,6 +82,7 @@ void game_main_loop() {
   game_check_bound();
   clear();
   draw_maze(&maze);
+  draw_solution(&maze, maze_solution);
   game_draw_hero();
   game_draw_cursor();
   swap();

@@ -57,3 +57,50 @@ struct Cell *linked_list_last(struct LinkedList *list){
     }
     return list->last->cell;
 }
+
+struct Cell *get_minimum_distance(struct LinkedList *list){
+    if (list->size == 0) {
+        return NULL;
+    }
+    struct ListNode *current_node = list->head;
+    struct Cell *min_cell = current_node->cell;
+    int min_dist = min_cell->dist;
+    while (current_node != NULL) {
+        if (current_node->cell->dist < min_dist) {
+            min_cell = current_node->cell;
+            min_dist = min_cell->dist;
+        }
+        current_node = current_node->next;
+    }
+    return min_cell;
+}
+
+void linked_list_remove(struct LinkedList *list, struct Cell *cell){
+    struct ListNode *current_node = list->head;
+    struct ListNode *prev_node = NULL;
+    while (current_node != NULL) {
+        if (current_node->cell == cell) {
+            if (prev_node == NULL) {
+                list->head = current_node->next;
+            }
+            else {
+                prev_node->next = current_node->next;
+            }
+            list->size--;
+            return;
+        }
+        prev_node = current_node;
+        current_node = current_node->next;
+    }
+}
+
+bool linked_list_contains(struct LinkedList *list, struct Cell *cell){
+    struct ListNode *current_node = list->head;
+    while (current_node != NULL) {
+        if (current_node->cell == cell) {
+            return true;
+        }
+        current_node = current_node->next;
+    }
+    return false;
+}

@@ -111,20 +111,94 @@ void generate_maze_buffer(struct Maze *maze) {
     }
 }
 
-void draw_solution(struct Maze *maze) {
-    int dist[maze->height * maze->width];
-    int prev[maze->height * maze->width];
-    int nodes[maze->height * maze->width];
-    int nodes_size = 0;
-    for (int i = 0; i < maze->height * maze->width; i++) {
-        dist[i] = -1;
-        prev[i] = -1;
-        nodes[i] = i;
-        nodes_size++;
+struct LinkedList *get_solution(struct Maze *maze) {
+    struct LinkedList nodes = {NULL, NULL, 0};
+
+    // Initialize all cells in the maze
+    for (int i = 0; i < maze->height; i++) {
+        for (int j = 0; j < maze->width; j++) {
+            maze->cells[i][j]->dist = INT_MAX;
+            maze->cells[i][j]->prev = NULL;
+            linked_list_push(&nodes, maze->cells[i][j]);
+        }
     }
-    dist[0] = 0;
-    while (nodes_size > 0) {
+
+    maze->cells[0][0]->dist = 0;
+
+    while (nodes.size > 0) {
+        struct Cell *current_cell = get_minimum_distance(&nodes);
+
+        // If the current cell is at the bottom right corner, we have reached the end of the maze.
+        if (current_cell->x == maze->width - 1 && current_cell->y == maze->height - 1) {
+            struct LinkedList *solution = malloc(sizeof(struct LinkedList));
+            solution->size = 0;
+            solution->head = NULL;
+            solution->last = NULL;
+
+            // Traverse the path from the end to the start and add each cell to the solution list
+            while (current_cell != NULL) {
+                linked_list_push(solution, current_cell);
+                current_cell = current_cell->prev;
+            }
+
+            return solution;
+        }
+
+        linked_list_remove(&nodes, current_cell);
+
+        // Get the neighbors of the current cell that are in the list of nodes.
+        struct Cell *neighbours[4] = {NULL, NULL, NULL, NULL};
+        int neighbours_count = 0;
+        int x = current_cell->x;
+        int y = current_cell->y;
+
+        // Check left neighbor
+        if (x > 0 && current_cell->left_wall == 0 && linked_list_contains(&nodes, maze->cells[y][x - 1])) {
+            neighbours[neighbours_count++] = maze->cells[y][x - 1];
+        }
+
+        // Check right neighbor
+        if (x < maze->width - 1 && current_cell->right_wall == 0 && linked_list_contains(&nodes, maze->cells[y][x + 1])) {
+            neighbours[neighbours_count++] = maze->cells[y][x + 1];
+        }
+
+        // Check top neighbor
+        if (y > 0 && (current_cell->top_wall == 0) && linked_list_contains(&nodes, maze->cells[y - 1][x])) {
+            neighbours[neighbours_count++] = maze->cells[y - 1][x];
+        }
+
+        // Check bottom neighbor
+        if (y < maze->height - 1 && current_cell->bottom_wall == 0 && linked_list_contains(&nodes, maze->cells[y + 1][x])) {
+            neighbours[neighbours_count++] = maze->cells[y + 1][x];
+        }
+
+        // Update the distance and previous cell for each neighbor
+        for (int i = 0; i < neighbours_count; i++) {
+            struct Cell *neighbour = neighbours[i];
+            int alt = current_cell->dist + 1;
+            if (alt < neighbour->dist) {
+                neighbour->dist = alt;
+                neighbour->prev = current_cell;
+            }
+        }
     }
+
+    // No solution found
+    return NULL;
+}
+
+void draw_solution(struct Maze *maze, struct LinkedList *solution) {
+    struct Cell *current_cell = linked_list_first(solution);
+    while (current_cell != NULL) {
+        int x = current_cell->x;
+        int y = current_cell->y;
+        if (current_cell->prev != NULL) {
+            // draw a pixel in the middle of the cell
+            vg_draw_rectangle(x * 25 + 7, y * 25 + 7, 11, 11, 0xFF0000);
+        }
+        current_cell = current_cell->prev;
+    }
+    vg_draw_rectangle(7, 7, 11, 11, 0xFF0000);
 }
 
 void draw_maze(struct Maze *maze) {
@@ -144,5 +218,18 @@ void draw_maze(struct Maze *maze) {
                 vg_draw_rectangle(j * 25 + 25, i * 25, 1, 25, 0xFFFFFF);
             }
         }
+    }
+}
+
+void draw_list(struct LinkedList *list) {
+    struct Cell *current_cell = linked_list_first(list);
+    while (current_cell != NULL) {
+        int x = current_cell->x;
+        int y = current_cell->y;
+        if (current_cell->prev != NULL) {
+            // draw a pixel in the middle of the cell
+            vg_draw_rectangle(x * 25 + 7, y * 25 + 7, 11, 11, 0xFF0000);
+        }
+        current_cell = current_cell->prev;
     }
 }
