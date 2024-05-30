@@ -44,6 +44,7 @@ struct Cell {
 struct Maze {
     int width;            /**< The width of the maze. */
     int height;           /**< The height of the maze. */
+    int cell_size;        /**< The size of each cell in pixels. */
     struct Cell ***cells; /**< A 2D array of `Cell` pointers representing the maze cells. */
 };
 
