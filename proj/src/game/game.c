@@ -1,9 +1,15 @@
 #include "game.h"
 
 extern vbe_mode_info_t mode_info;
+struct Maze maze;
 
 double FOV_V;
 double FOV_H;
+
+void init_game() {
+  maze = generate_maze();
+  generate_maze_buffer(&maze);
+}
 
 void game_keyboard_handler() {
   double x_changer = 0;
@@ -73,6 +79,7 @@ void game_draw_hero() {
 void game_main_loop() {
   game_check_bound();
   clear();
+  draw_maze(&maze);
   game_draw_hero();
   game_draw_cursor();
   swap();

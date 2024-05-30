@@ -3,11 +3,13 @@
 #include "controllers/mouse.h"
 #include "controllers/timer.h"
 #include "game/game.h"
+#include "game/maze.h"
 #include "game/menu.h"
 #include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>
 #include <stdio.h>
+
 uint8_t kbd_value;
 extern bool update_delta;
 // Any header files included below this line should have been created by you
@@ -80,6 +82,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
     printf("Error subscribing to timer!\n");
     return 1;
   }
+
+  init_game();
 
   while (!mouse_packet.rb) {
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
