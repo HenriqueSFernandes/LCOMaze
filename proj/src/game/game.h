@@ -18,17 +18,11 @@ double y;
 double x_mouse;
 double y_mouse;
 extern struct packet mouse_packet;
-struct point {
-  int x;
-  int y;
-  int z;
-  int projected_x;
-  int projected_y;
-};
 
 void init_game();
 void game_keyboard_handler();
 void game_mouse_handler();
 void game_update_delta();
 void game_main_loop();
+bool check_collision(int x, int y, int size);
 #endif

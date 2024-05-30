@@ -12,9 +12,9 @@ void menu_mouse_handler() {
   // Handle mouse input for the menu
   x_mouse += mouse_packet.delta_x * 0.5;
   y_mouse -= mouse_packet.delta_y * 0.5;
-  if (x_mouse > mode_info.XResolution)
+  if (x_mouse + 4 > mode_info.XResolution - 3)
     x_mouse = mode_info.XResolution;
-  if (y_mouse > mode_info.YResolution)
+  if (y_mouse + 4 > mode_info.YResolution - 3)
     y_mouse = mode_info.YResolution;
   if (x_mouse < 0)
     x_mouse = 0;
