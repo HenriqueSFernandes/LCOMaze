@@ -3,6 +3,7 @@
 
 #include "../controllers/graphics.h"
 #include "../data_structures/stack.h"
+#include "../data_structures/linked_list.h"
 #include <lcom/vbe.h>
 #include <stdbool.h>
 #include <stdint.h>
