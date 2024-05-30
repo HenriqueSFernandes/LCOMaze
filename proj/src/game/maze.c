@@ -1,18 +1,5 @@
 #include "maze.h"
 
-void push(struct Cell **stack, int *top, struct Cell *cell) {
-    printf("pushing cell %x\n", cell);
-    stack[++(*top)] = cell;
-}
-
-struct Cell *pop(struct Cell **stack, int *top) {
-    // printf("popping cell %x\n", stack[*top]);
-    return stack[(*top)--];
-}
-struct Cell *top(struct Cell **stack, int *top) {
-    return stack[*top];
-}
-
 void dump_memory(void *p, size_t n) {
     unsigned char *ptr = (unsigned char *) p;
     for (size_t i = 0; i < n; i++) {
@@ -56,7 +43,6 @@ struct Maze generate_maze() {
 
     // Generate the maze using the a randomized iterative depth-first search algorithm.
     // The algorithm is based on the one described in https://en.wikipedia.org/wiki/Maze_generation_algorithm
-    int stack_top = -1;
     // printf("cells pointers:\n");
     // for (int i = 0; i < maze_height; i++) {
     //     for (int j = 0; j < maze_width; j++) {
@@ -66,13 +52,13 @@ struct Maze generate_maze() {
     struct Cell *current_cell = cells[0][0];
     printf("current cell: %x\n", current_cell);
     // printf("initial cell: %x\n", current_cell);
-    struct Cell *stack = malloc(maze_width * maze_height * sizeof(current_cell) * 10000);
+    struct Stack stack = {NULL, 0};
     current_cell->visited = 1;
-    push(&stack, &stack_top, current_cell);
-    struct Cell *top_cell = top(&stack, &stack_top);
+    push(&stack, current_cell);
+    struct Cell *top_cell = top(&stack);
     printf("top cell: %x\n", top_cell);
-    while (stack_top != -1) {
-        current_cell = pop(&stack, &stack_top);
+    while (stack.size > 0) {
+        current_cell = pop(&stack);
         int x = current_cell->x;
         int y = current_cell->y;
         // Get all the neighbours that haven't been visited
@@ -97,7 +83,7 @@ struct Maze generate_maze() {
         }
         // if there are unvisited neighbours, push the current cell to the stack and choose a random neighbour.
         if (neighbours_count > 0) {
-            push(&stack, &stack_top, current_cell);
+            push(&stack, current_cell);
             struct Cell *neighbour = neighbours[rand() % neighbours_count];
             // remove the wall between the current cell and the neighbour.
             if (neighbour->x == x - 1) {
@@ -130,9 +116,7 @@ struct Maze generate_maze() {
             neighbour->visited = 1;
             // printf("current pointer: %x, with x: %d and y: %d\n", current_cell, current_cell->x, current_cell->y);
             // printf("neighbour pointer: %x, with x: %d and y: %d\n", neighbour, neighbour->x, neighbour->y);
-            printf("here1\n");
-            push(&stack, &stack_top, neighbour);
-            printf("here2\n");
+            push(&stack, neighbour);
         }
         clear();
         struct Maze maze;
@@ -142,8 +126,6 @@ struct Maze generate_maze() {
         draw_maze(&maze);
         swap();
     }
-    printf("done\n");
-    free(stack);
     struct Maze maze;
     maze.width = maze_width;
     maze.height = maze_height;

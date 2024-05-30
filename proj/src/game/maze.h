@@ -2,6 +2,7 @@
 #define MAZE_H
 
 #include "../controllers/graphics.h"
+#include "stack.h"
 #include <lcom/vbe.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -27,12 +28,6 @@ struct Maze {
     int height;
     struct Cell ***cells;
 };
-
-void push(struct Cell **stack, int *top, struct Cell *cell);
-
-struct Cell *pop(struct Cell **stack, int *top);
-
-struct Cell *top(struct Cell **stack, int *top);
 
 struct Maze generate_maze();
 
