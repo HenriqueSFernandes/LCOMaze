@@ -8,19 +8,13 @@ void dump_memory(void *p, size_t n) {
             printf("\n");
         }
     }
-    printf("\n");
 }
 
 struct Maze generate_maze() {
     const int maze_width = 46;
     const int maze_height = 34;
-    // const int maze_width = 5;
-    // const int maze_height = 5;
 
     struct Cell ***cells = malloc(maze_height * sizeof(struct Cell *));
-    printf("first cell: %x\n", &cells[0]);
-    printf("last cell: %x\n\n", &cells[maze_height - 1]);
-    printf("size of cell: %d\n", sizeof(struct Cell));
 
     // Initialize the maze to have 4 walls on every cell
     for (int i = 0; i < maze_height; i++) {
@@ -35,23 +29,9 @@ struct Maze generate_maze() {
             cells[i][j]->left_wall = 1;
             cells[i][j]->right_wall = 1;
         }
-        for (int j = 0; j < maze_width; j++) {
-            printf("cell[%d][%d] stored at %x and with value %x\n", i, j, &cells[i][j], cells[i][j]);
-            // dump_memory(cells[i][j], sizeof(struct Cell));
-        }
     }
 
-    // Generate the maze using the a randomized iterative depth-first search algorithm.
-    // The algorithm is based on the one described in https://en.wikipedia.org/wiki/Maze_generation_algorithm
-    // printf("cells pointers:\n");
-    // for (int i = 0; i < maze_height; i++) {
-    //     for (int j = 0; j < maze_width; j++) {
-    //         printf("cell: %x\n", &cells[i][j]);
-    //     }
-    // }
     struct Cell *current_cell = cells[0][0];
-    printf("current cell: %x\n", current_cell);
-    // printf("initial cell: %x\n", current_cell);
     struct Stack stack = {NULL, 0};
     current_cell->visited = 1;
     push(&stack, current_cell);
@@ -89,52 +69,38 @@ struct Maze generate_maze() {
             if (neighbour->x == x - 1) {
                 current_cell->left_wall = 0;
                 neighbour->right_wall = 0;
-                // printf("disabling left wall of cell %d %d\n", x, y);
-                // printf("disabling right wall of cell %d %d\n\n", neighbour->x, neighbour->y);
             }
             else if (neighbour->x == x + 1) {
                 current_cell->right_wall = 0;
                 neighbour->left_wall = 0;
-                // printf("current right: %d\n", current_cell->right_wall);
-                // printf("neighbour left: %d\n", neighbour->left_wall);
-                // printf("disabling right wall of cell %d %d\n", x, y);
-                // printf("disabling left wall of cell %d %d\n\n", neighbour->x, neighbour->y);
             }
             else if (neighbour->y == y - 1) {
                 current_cell->top_wall = 0;
                 neighbour->bottom_wall = 0;
-                // printf("disabling top wall of cell %d %d\n", x, y);
-                // printf("disabling bottom wall of cell %d %d\n\n", neighbour->x, neighbour->y);
             }
             else if (neighbour->y == y + 1) {
                 current_cell->bottom_wall = 0;
                 neighbour->top_wall = 0;
-                // printf("disabling bottom wall of cell %d %d\n", x, y);
-                // printf("disabling top wall of cell %d %d\n\n", neighbour->x, neighbour->y);
             }
             // mark the neighbour as visited and push it to the stack.
             neighbour->visited = 1;
-            // printf("current pointer: %x, with x: %d and y: %d\n", current_cell, current_cell->x, current_cell->y);
-            // printf("neighbour pointer: %x, with x: %d and y: %d\n", neighbour, neighbour->x, neighbour->y);
             push(&stack, neighbour);
         }
-        clear();
-        struct Maze maze;
-        maze.width = maze_width;
-        maze.height = maze_height;
-        maze.cells = cells;
-        draw_maze(&maze);
-        swap();
+        // ***** ENABLE THIS TO SEE THE MAZE BEING GENERATED *****
+        // clear();
+        // struct Maze maze;
+        // maze.width = maze_width;
+        // maze.height = maze_height;
+        // maze.cells = cells;
+        // draw_maze(&maze);
+        // swap();
+        // *******************************************************
+
     }
     struct Maze maze;
     maze.width = maze_width;
     maze.height = maze_height;
     maze.cells = cells;
-    // for (int i = 0; i < maze.height; i++) {
-    //     for (int j = 0; j < maze.width; j++) {
-    //         printf("top: %d bottom: %d left: %d right: %d x: %d y: %d\n", maze.cells[i][j]->top_wall, maze.cells[i][j]->bottom_wall, maze.cells[i][j]->left_wall, maze.cells[i][j]->right_wall, maze.cells[i][j]->x, maze.cells[i][j]->y);
-    //     }
-    // }
     return maze;
 }
 
@@ -147,6 +113,7 @@ void generate_maze_buffer(struct Maze *maze) {
 }
 
 void draw_maze(struct Maze *maze) {
+    // TODO change this to draw to the maze buffer
     for (int i = 0; i < maze->height; i++) {
         for (int j = 0; j < maze->width; j++) {
             if (maze->cells[i][j]->top_wall) {
