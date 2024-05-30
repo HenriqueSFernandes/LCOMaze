@@ -11,8 +11,8 @@ void dump_memory(void *p, size_t n) {
 }
 
 struct Maze generate_maze() {
-    const int maze_width = 46;
-    const int maze_height = 34;
+    const int maze_width = 23;
+    const int maze_height = 17;
 
     struct Cell ***cells = malloc(maze_height * sizeof(struct Cell *));
 
@@ -194,11 +194,12 @@ void draw_solution(struct Maze *maze, struct LinkedList *solution) {
         int y = current_cell->y;
         if (current_cell->prev != NULL) {
             // draw a pixel in the middle of the cell
-            vg_draw_rectangle(x * 25 + 7, y * 25 + 7, 11, 11, 0xFF0000);
+            vg_draw_rectangle(x * 50 + 7, y * 50 + 7, 36, 36, 0xFF0000);
         }
         current_cell = current_cell->prev;
     }
-    vg_draw_rectangle(7, 7, 11, 11, 0xFF0000);
+    vg_draw_rectangle(7, 7, 36, 36, 0x0000FF);
+    vg_draw_rectangle(22 * 50 + 7, 16 * 50 + 7, 36, 36, 0x00FF00);
 }
 
 void draw_maze(struct Maze *maze) {
@@ -206,16 +207,16 @@ void draw_maze(struct Maze *maze) {
     for (int i = 0; i < maze->height; i++) {
         for (int j = 0; j < maze->width; j++) {
             if (maze->cells[i][j]->top_wall) {
-                vg_draw_rectangle(j * 25, i * 25, 25, 1, 0xFFFFFF);
+                vg_draw_rectangle(j * 50, i * 50, 50, 1, 0xFFFFFF);
             }
             if (maze->cells[i][j]->bottom_wall) {
-                vg_draw_rectangle(j * 25, i * 25 + 25, 25, 1, 0xFFFFFF);
+                vg_draw_rectangle(j * 50, i * 50 + 50, 50, 1, 0xFFFFFF);
             }
             if (maze->cells[i][j]->left_wall) {
-                vg_draw_rectangle(j * 25, i * 25, 1, 25, 0xFFFFFF);
+                vg_draw_rectangle(j * 50, i * 50, 1, 50, 0xFFFFFF);
             }
             if (maze->cells[i][j]->right_wall) {
-                vg_draw_rectangle(j * 25 + 25, i * 25, 1, 25, 0xFFFFFF);
+                vg_draw_rectangle(j * 50 + 50, i * 50, 1, 50, 0xFFFFFF);
             }
         }
     }
@@ -228,7 +229,7 @@ void draw_list(struct LinkedList *list) {
         int y = current_cell->y;
         if (current_cell->prev != NULL) {
             // draw a pixel in the middle of the cell
-            vg_draw_rectangle(x * 25 + 7, y * 25 + 7, 11, 11, 0xFF0000);
+            vg_draw_rectangle(x * 50 + 7, y * 50 + 7, 11, 11, 0xFF0000);
         }
         current_cell = current_cell->prev;
     }
