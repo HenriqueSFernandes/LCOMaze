@@ -91,6 +91,7 @@ struct Maze generate_maze() {
         // maze.width = maze_width;
         // maze.height = maze_height;
         // maze.cells = cells;
+        // maze.cell_size = cell_size;
         // draw_maze(&maze);
         // swap();
         // *******************************************************
@@ -222,15 +223,18 @@ void draw_maze(struct Maze *maze) {
     }
 }
 
-void draw_list(struct LinkedList *list) {
-    struct Cell *current_cell = linked_list_first(list);
-    while (current_cell != NULL) {
-        int x = current_cell->x;
-        int y = current_cell->y;
-        if (current_cell->prev != NULL) {
-            // draw a pixel in the middle of the cell
-            vg_draw_rectangle(x * 50 + 7, y * 50 + 7, 11, 11, 0xFF0000);
-        }
-        current_cell = current_cell->prev;
+struct Cell *get_cell(struct Maze *maze, int x, int y) {
+    if (x < 0 || x >= (maze->width * maze->cell_size) || y < 0 || y >= (maze->height * maze->cell_size)) {
+        return NULL;
     }
+    // x and y are the actual coordinates, not the cell coordinates
+    return maze->cells[y / maze->cell_size][x / maze->cell_size];
+}
+
+void print_cell(struct Cell *cell){
+    if (cell == NULL){
+        printf("Cell is NULL\n");
+        return;
+    }
+    printf("Cell at (%d, %d) with walls: top=%d, bottom=%d, left=%d, right=%d\n", cell->x, cell->y, cell->top_wall, cell->bottom_wall, cell->left_wall, cell->right_wall);
 }

@@ -91,12 +91,15 @@ void draw_solution(struct Maze *maze, struct LinkedList *solution);
 void draw_maze(struct Maze *maze);
 
 /**
- * Draws a list of cells on the screen.
- * Each cell is represented by a pixel in the middle of the cell.
- * If a cell has a previous cell, a red rectangle is drawn around the pixel.
+ * Retrieves the cell at the specified coordinates in the maze.
  *
- * @param list The linked list of cells to be drawn.
+ * @param maze The maze structure.
+ * @param x The x-coordinate of the cell.
+ * @param y The y-coordinate of the cell.
+ * @return A pointer to the cell at the specified coordinates, or NULL if the coordinates are out of bounds.
  */
-void draw_list(struct LinkedList *list);
+struct Cell *get_cell(struct Maze *maze, int x, int y);
+
+void print_cell(struct Cell *cell);
 
 #endif

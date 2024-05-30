@@ -178,6 +178,7 @@ int(swap)() {
     return 0;
 }
 
+// TODO cant this be swapped to a memset(0)?
 int(clear)() {
     if (vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, 0x000000))
         return 1;
@@ -191,14 +192,12 @@ xpm_map_t get_xpm(char letter) {
             return (xpm_map_t) b_xpm;
         case 'c':
             return (xpm_map_t) c_xpm;
-        // Add cases for other letters
         case 'd':
             return (xpm_map_t) d_xpm;
         case 'e':
             return (xpm_map_t) e_xpm;
         case 'f':
             return (xpm_map_t) f_xpm;
-        // Add cases for other letters
         case 'g':
             return (xpm_map_t) g_xpm;
         case 'h':
