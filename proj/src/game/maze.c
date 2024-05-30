@@ -199,7 +199,7 @@ void draw_solution(struct Maze *maze, struct LinkedList *solution) {
         current_cell = current_cell->prev;
     }
     vg_draw_rectangle(7, 7, maze->cell_size - 14, maze->cell_size - 14, 0x0000FF);
-    vg_draw_rectangle(22 * 50 + 7, 16 * 50 + 7, maze->cell_size - 14, maze->cell_size - 14, 0x00FF00);
+    vg_draw_rectangle((maze->width - 1) * maze->cell_size + 7, (maze->height - 1) * maze->cell_size + 7, maze->cell_size - 14, maze->cell_size - 14, 0x00FF00);
 }
 
 void draw_maze(struct Maze *maze) {
