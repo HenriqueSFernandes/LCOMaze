@@ -2,6 +2,7 @@
 #include "controllers/keyboard.h"
 #include "controllers/mouse.h"
 #include "controllers/timer.h"
+#include "controllers/rtc.h"
 #include "game/game.h"
 #include "game/maze.h"
 #include "game/menu.h"
@@ -49,6 +50,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   uint16_t irq_set_mouse;
   uint8_t irq_set_timer;
   uint16_t irq_set_kbd;
+  uint16_t irq_set_rtc;
   message msg;
 
   if (mouse_subscribe_int(&irq_set_mouse)) {
@@ -80,6 +82,14 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if (timer_subscribe_int(&irq_set_timer)) {
     printf("Error subscribing to timer!\n");
+    return 1;
+  }
+  if(activate_interrupt_mode()){
+    printf("Error activating interrupt mode!\n");
+    return 1;
+  }
+  if(subscribe_rtc(&irq_set_rtc)){
+    printf("Error subscribing to rtc!\n");
     return 1;
   }
 
@@ -122,6 +132,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
               menu_main_loop();
             }
           }
+          if(msg.m_notify.interrupts & irq_set_rtc){
+            update();
+          }
           break;
         default:
           break;
@@ -144,6 +157,14 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   if (timer_unsubscribe_int()) {
     printf("Error unsubscribing to timer!\n");
+    return 1;
+  }
+  if (unsubscribe_rtc()) {
+    printf("Error unsubscribing to rtc!\n");
+    return 1;
+  }
+  if (deactivate_interrupt_mode()) {
+    printf("Error deactivating interrupt mode!\n");
     return 1;
   }
 
