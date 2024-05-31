@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#define FOV_ANGLE 200.0
 
 #include "../controllers/graphics.h"
 #include "../images/player.xpm"
@@ -18,6 +19,9 @@ double y;
 double x_mouse;
 double y_mouse;
 extern struct packet mouse_packet;
+double lanterna_x;
+double lanterna_y;
+double direction;
 
 void init_game();
 void game_keyboard_handler();
