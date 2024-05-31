@@ -19,6 +19,7 @@ void init_game() {
 void game_keyboard_handler() {
     double x_changer = 0;
     double y_changer = 0;
+    is_moving = (kbd_value == 0x11 || kbd_value == 0x1f || kbd_value == 0x1e || kbd_value == 0x20);
     if (kbd_value == 0x11) {
         x_changer = cos(delta);
         y_changer = sin(delta);
@@ -87,7 +88,30 @@ void game_draw_cursor() {
     }
 }
 void game_draw_hero() {
-    draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
+        if (is_moving) {
+        frame_counter++;
+        if (frame_counter > frame_delay) {
+            frame_counter = 0;
+            
+        }
+    } else {
+        current_frame = 0;
+    }
+    if(frame_counter == 1){
+        draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
+    }
+    else if(frame_counter == 2){
+        draw_xpm_at_pos_at_delta((xpm_map_t) player3, (int) x, (int) y, delta);
+    }
+    else if(frame_counter == 3){
+        draw_xpm_at_pos_at_delta((xpm_map_t) player4, (int) x, (int) y, delta);
+    }
+    else if(frame_counter == 4){
+        draw_xpm_at_pos_at_delta((xpm_map_t) player5, (int) x, (int) y, delta);
+    }
+    else if(frame_counter == 0){
+        draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
+    }
 }
 
 bool check_collision(int x, int y, int size) {
