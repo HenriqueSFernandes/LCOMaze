@@ -1,3 +1,4 @@
+#define FOV_ANGLE 200.0
 #include "game.h"
 
 extern vbe_mode_info_t mode_info;
@@ -21,18 +22,23 @@ void game_keyboard_handler() {
     if (kbd_value == 0x11) {
         x_changer = cos(delta);
         y_changer = sin(delta);
+        direction = delta;
     }
     else if (kbd_value == 0x1f) {
         x_changer = -cos(delta);
         y_changer = -sin(delta);
+        direction = delta + M_PI;
+         
     }
     else if (kbd_value == 0x1e) {
         x_changer = -sin(delta);
         y_changer = cos(delta);
+        direction = delta - M_PI / 2;
     }
     else if (kbd_value == 0x20) {
         x_changer = sin(delta);
         y_changer = -cos(delta);
+        direction = delta + M_PI / 2;
     }
     bool collision = check_collision(x + x_changer * 10, y - y_changer * 10, 25);
     if (!collision) {
@@ -115,11 +121,59 @@ bool check_collision(int x, int y, int size) {
     return false;
 }
 
+void game_draw_fov_cone() {
+    
+    double fov_radius = FOV_ANGLE;
+
+    uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+    uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
+
+    
+    for (double angle = 0; angle < 2 * M_PI; angle += 0.01) {
+        
+        int pixel_x = x + fov_radius * cos(angle);
+        int pixel_y = y + fov_radius * sin(angle);
+
+        //Desenha a circunferencia mas n é preciso que o faça
+        if (pixel_x >= 0 && pixel_x < mode_info.XResolution && pixel_y >= 0 && pixel_y < mode_info.YResolution) {
+            vg_draw_pixel(pixel_x, pixel_y, 0xFFFFFF);
+        }
+    }
+
+    
+    for (int y_pixel = 0; y_pixel < mode_info.YResolution; y_pixel++) {
+        for (int x_pixel = 0; x_pixel < mode_info.XResolution; x_pixel++) {
+            if(x_pixel == x && y_pixel == y){
+              continue;
+            }
+            double dx = x_pixel - x;
+            double dy = y_pixel - y;
+            double distance = sqrt(dx * dx + dy * dy);
+
+            if (distance <= fov_radius) {
+                uint32_t index = (mode_info.XResolution * y_pixel + x_pixel) * bytesPerPixel;
+                if (index < frameSize) {
+                    memcpy(&back_buffer[index], &maze_buffer[index], bytesPerPixel);
+                  
+                    
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
 void game_main_loop() {
     game_check_bound();
     clear();
     draw_maze(&maze);
-    draw_solution(&maze, maze_solution);
+    game_draw_fov_cone();
     game_draw_hero();
     game_draw_cursor();
     swap();

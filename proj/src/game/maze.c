@@ -204,24 +204,44 @@ void draw_solution(struct Maze *maze, struct LinkedList *solution) {
 }
 
 void draw_maze(struct Maze *maze) {
-    // TODO change this to draw to the maze buffer
     for (int i = 0; i < maze->height; i++) {
         for (int j = 0; j < maze->width; j++) {
+            // Draw top wall
             if (maze->cells[i][j]->top_wall) {
-                vg_draw_rectangle(j * maze->cell_size, i * maze->cell_size, maze->cell_size, 1, 0xFFFFFF);
+                for (uint16_t k = 0; k < maze->cell_size; k++) {
+                    uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+                    uint32_t index = (mode_info.XResolution * (i * maze->cell_size) + (j * maze->cell_size + k)) * bytesPerPixel;
+                    memcpy(&maze_buffer[index], &(uint32_t){0xFFFFFF}, bytesPerPixel);
+                }
             }
+            // Draw bottom wall
             if (maze->cells[i][j]->bottom_wall) {
-                vg_draw_rectangle(j * maze->cell_size, i * maze->cell_size + maze->cell_size, maze->cell_size, 1, 0xFFFFFF);
+                for (uint16_t k = 0; k < maze->cell_size; k++) {
+                    uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+                    uint32_t index = (mode_info.XResolution * (i * maze->cell_size + maze->cell_size) + (j * maze->cell_size + k)) * bytesPerPixel;
+                    memcpy(&maze_buffer[index], &(uint32_t){0xFFFFFF}, bytesPerPixel);
+                }
             }
+            // Draw left wall
             if (maze->cells[i][j]->left_wall) {
-                vg_draw_rectangle(j * maze->cell_size, i * maze->cell_size, 1, maze->cell_size, 0xFFFFFF);
+                for (uint16_t k = 0; k < maze->cell_size; k++) {
+                    uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+                    uint32_t index = (mode_info.XResolution * (i * maze->cell_size + k) + (j * maze->cell_size)) * bytesPerPixel;
+                    memcpy(&maze_buffer[index], &(uint32_t){0xFFFFFF}, bytesPerPixel);
+                }
             }
+            // Draw right wall
             if (maze->cells[i][j]->right_wall) {
-                vg_draw_rectangle(j * maze->cell_size + maze->cell_size, i * maze->cell_size, 1, maze->cell_size, 0xFFFFFF);
+                for (uint16_t k = 0; k < maze->cell_size; k++) {
+                    uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+                    uint32_t index = (mode_info.XResolution * (i * maze->cell_size + k) + (j * maze->cell_size + maze->cell_size)) * bytesPerPixel;
+                    memcpy(&maze_buffer[index], &(uint32_t){0xFFFFFF}, bytesPerPixel);
+                }
             }
         }
     }
 }
+
 
 struct Cell *get_cell(struct Maze *maze, int x, int y) {
     if (x < 0 || x >= (maze->width * maze->cell_size) || y < 0 || y >= (maze->height * maze->cell_size)) {
