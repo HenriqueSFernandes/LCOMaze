@@ -35,7 +35,6 @@ void game_keyboard_handler() {
         y_changer = -cos(delta);
     }
     bool collision = check_collision(x + x_changer * 10, y - y_changer * 10, 25);
-    printf("collision: %d\n", collision);
     if (!collision) {
         x += x_changer * 10;
         y -= y_changer * 10;
@@ -86,7 +85,7 @@ void game_draw_hero() {
 }
 
 bool check_collision(int x, int y, int size) {
-    // check for collisiong agains walls.
+    // check for collisions against walls.
     int left_x = x - size;
     int right_x = x + size;
     int top_y = y - size;
@@ -96,31 +95,21 @@ bool check_collision(int x, int y, int size) {
     struct Cell *top_cell = get_cell(&maze, x, top_y);
     struct Cell *bottom_cell = get_cell(&maze, x, bottom_y);
     struct Cell *center_cell = get_cell(&maze, x, y);
-    // printf("center: ");
-    // print_cell(center_cell);
-    // printf("left: ");
-    // print_cell(left_cell);
-    // printf("right: ");
-    // print_cell(right_cell);
-    // printf("top: ");
-    // print_cell(top_cell);
-    // printf("bottom: ");
-    // print_cell(bottom_cell);
 
-    if (left_cell != NULL && left_cell != center_cell && left_cell->right_wall && center_cell->left_wall) {
-        printf("left wall\n");
+    if (left_cell == NULL || right_cell == NULL || top_cell == NULL || bottom_cell == NULL) {
         return true;
     }
-    if (right_cell != NULL && right_cell != center_cell && right_cell->left_wall && center_cell->right_wall) {
-        printf("right wall\n");
+
+    if (left_cell != center_cell && left_cell->right_wall && center_cell->left_wall) {
         return true;
     }
-    if (top_cell != NULL && top_cell != center_cell && top_cell->bottom_wall && center_cell->top_wall) {
-        printf("top wall\n");
+    if (right_cell != center_cell && right_cell->left_wall && center_cell->right_wall) {
         return true;
     }
-    if (bottom_cell != NULL && bottom_cell != center_cell && bottom_cell->top_wall && center_cell->bottom_wall) {
-        printf("bottom wall\n");
+    if (top_cell != center_cell && top_cell->bottom_wall && center_cell->top_wall) {
+        return true;
+    }
+    if (bottom_cell != center_cell && bottom_cell->top_wall && center_cell->bottom_wall) {
         return true;
     }
     return false;

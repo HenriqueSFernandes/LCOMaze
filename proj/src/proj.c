@@ -96,7 +96,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
           if (msg.m_notify.interrupts & irq_set_kbd) {
             kbd_ih();
             if (state == Game) {
-              printf("kbd_value: %x\n", kbd_value);
               game_keyboard_handler();
             }
           }
