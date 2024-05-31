@@ -27,7 +27,6 @@ double lanterna_y;
 double direction;
 bool is_moving;
 double frame_counter;
-double frame_delay = 4;
 int current_frame;
 
 void init_game();

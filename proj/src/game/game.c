@@ -90,7 +90,7 @@ void game_draw_cursor() {
 void game_draw_hero() {
         if (is_moving) {
         frame_counter++;
-        if (frame_counter > frame_delay) {
+        if (frame_counter > 4) {
             frame_counter = 0;
             
         }
