@@ -164,7 +164,7 @@ void game_draw_fov_cone() {
             if (distance <= fov_radius) {
                 uint32_t index = (mode_info.XResolution * y_pixel + x_pixel) * bytesPerPixel;
                 if (index < frameSize) {
-                    memcpy(&frame_buffer[index], &maze_buffer[index], bytesPerPixel);
+                    memcpy(&back_buffer[index], &maze_buffer[index], bytesPerPixel);
                   
                     
                 }
@@ -184,8 +184,8 @@ void game_main_loop() {
     game_check_bound();
     clear();
     draw_maze(&maze);
+    game_draw_fov_cone();
     game_draw_hero();
     game_draw_cursor();
-    game_draw_fov_cone();
     swap();
 }
