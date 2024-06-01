@@ -20,6 +20,7 @@ extern uint8_t byte_index;
 extern struct packet mouse_packet;
 extern int timerCounter;
 extern vbe_mode_info_t mode_info;
+extern bool isMultiplayer;
 double delta = 0;
 typedef enum {
     Menu,
@@ -150,6 +151,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
                         printf("SERIE\n");
                         recieve(&c);
+                        if(c=='M'){
+                            game_activate_multiplayer();
+                        }
                     }
                     break;
                 default:

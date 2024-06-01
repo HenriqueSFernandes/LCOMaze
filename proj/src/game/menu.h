@@ -5,6 +5,7 @@
 #include <lcom/lcf.h>
 #include <math.h>
 #include <stdint.h>
+#include "controllers/serial.h"
 #include <stdio.h>
 
 extern vbe_mode_info_t mode_info;
@@ -14,6 +15,8 @@ xpm_image_t img; // pixmap and metadata
 extern struct packet mouse_packet;
 double x_mouse;
 double y_mouse;
+bool isMultiplayer;
+
 
 typedef struct {
   int x, y;
@@ -21,7 +24,7 @@ typedef struct {
   char *label;
   void (*onClick)();
 } Button;
-
+int gameState;
 // Maximum number of buttons
 #define MAX_BUTTONS 10
 

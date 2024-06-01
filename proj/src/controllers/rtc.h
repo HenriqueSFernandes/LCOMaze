@@ -3,11 +3,12 @@
 
 #include <lcom/lcf.h>
 #include <minix/sysutil.h>
+#include <math.h>
 
 struct time_el {
-    uint32_t seconds;
+    uint32_t  seconds;
     uint32_t minutes;
-    uint32_t hours;
+   uint32_t hours;
 };
 #define RTC_IRQ 8
 #define RTC_ADDR_REG 0x70
