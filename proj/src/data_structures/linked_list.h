@@ -1,7 +1,17 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+/**
+ * @file linked_list.h
+ * @brief This file contains the declarations of the linked list data structure and its associated functions.
+ */
 
-#include "../game/maze.h"
+/** @defgroup linked_list Linked List
+ * @brief Module for the linked list data structure.
+ * @{
+ */
+
+#ifndef LINKED_LIST_H
+#    define LINKED_LIST_H
+
+#    include "../game/maze.h"
 
 /**
  * @struct ListNode
@@ -10,7 +20,7 @@
  * This struct represents a node in a linked list. It contains a pointer to a `Cell` object and a pointer to the next node in the list.
  */
 struct ListNode {
-    struct Cell *cell; ///< Pointer to a `Cell` object.
+    struct Cell *cell;     ///< Pointer to a `Cell` object.
     struct ListNode *next; ///< Pointer to the next node in the list.
 };
 /**
@@ -23,7 +33,7 @@ struct ListNode {
 struct LinkedList {
     struct ListNode *head; ///< Pointer to the head node of the linked list.
     struct ListNode *last; ///< Pointer to the last node of the linked list.
-    int size; ///< The size of the linked list.
+    int size;              ///< The size of the linked list.
 };
 
 /**
@@ -53,7 +63,7 @@ struct Cell *linked_list_pop_last(struct LinkedList *list);
 
 /**
  * Returns the first cell in the linked list.
- * 
+ *
  * @param list The linked list.
  * @return The first cell in the linked list, or NULL if the list is empty.
  */
@@ -93,3 +103,5 @@ void linked_list_remove(struct LinkedList *list, struct Cell *cell);
 bool linked_list_contains(struct LinkedList *list, struct Cell *cell);
 
 #endif
+
+/** @} */

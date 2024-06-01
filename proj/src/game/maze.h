@@ -1,8 +1,6 @@
 /**
  * @file maze.h
- * @brief Header file for maze generation and manipulation.
- *
- * This file contains the declarations of the `Maze` and `Cell` structs,
+ * @brief This file contains the declarations of the `Maze` and `Cell` structs,
  * as well as the function prototypes for maze generation, solution calculation,
  * and drawing functions.
  */
