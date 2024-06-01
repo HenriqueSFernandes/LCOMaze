@@ -127,6 +127,7 @@ int recieve(char * c){
          ser_ih(0x3f8);
           if (!empty(receive_queue)) {
               *c = top(receive_queue);
+              pop(receive_queue);
           }
   
   return 0;

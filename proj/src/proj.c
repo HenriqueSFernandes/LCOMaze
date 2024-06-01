@@ -153,8 +153,13 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
                         printf("SERIE\n");
                         recieve(&c);
+                        printf("UWU: %c\n", c);
                         if(c=='M'){
                             game_activate_multiplayer();
+                        }
+                        if(c=='L'){
+                            printf("You lost\n");
+                            game_lose();
                         }
                     }
                     break;

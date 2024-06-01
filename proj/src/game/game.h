@@ -14,7 +14,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-
+#include "controllers/serial.h"
 xpm_image_t img; // pixmap and metadata
 double delta;
 uint8_t kbd_value;
@@ -47,4 +47,5 @@ void game_update_delta();
 void game_main_loop();
 bool check_collision(int x, int y, int size);
 void game_activate_multiplayer();
+void game_lose();
 #endif

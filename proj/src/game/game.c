@@ -4,6 +4,7 @@
 extern vbe_mode_info_t mode_info;
 struct Maze maze;
 struct LinkedList *maze_solution;
+bool won=0;
 GameState gameState=Waiting;
  time_el time_initial;
  time_el time_final;
@@ -199,6 +200,11 @@ int calculate_time() {
     time += time_final.seconds - time_initial.seconds;
     return time;
 }
+void game_lose(){
+    gameState=Finish;
+    won=0;
+    printf("You lost\n");
+}
 void game_main_loop() {
 
     check_time();
@@ -215,13 +221,18 @@ void game_main_loop() {
         game_draw_hero();
         game_draw_cursor();
         if (check_game_end()) {
-            // TODO add what happens after the game ends here.
-            printf("Game ended\n");
+            gameState = Finish;
+            won=1;
+             sp_send_int(0x3f8, 6, 2, 0x3, 115200, "L", 1);
         }
         swap();
     }else {
         clear(back_buffer);
-        draw_text("YOU WON", 500, 500);
+        if(won)
+            draw_text("YOU WON", 500, 500);
+        else
+            draw_text("YOU LOST", 500, 500);
+       
         swap();
     }
 }
