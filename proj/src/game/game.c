@@ -256,6 +256,7 @@ void game_main_loop() {
     if (gameState == Waiting) {
         clear(back_buffer);
         draw_text("WAITING FOR SOUTO", mode_info.XResolution / 2 - 200, 500);
+          sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
         swap();
     }
     else if (gameState == Running) {
@@ -284,7 +285,7 @@ void game_main_loop() {
                 snprintf( str, length + 1, "%d", sec );
               draw_text(str, mode_info.XResolution / 2 - 200, 500);
               draw_text("seconds", mode_info.XResolution / 2 - 200, 600);
-              draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 800);
+              draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 700);
               free(str );
         }
           
