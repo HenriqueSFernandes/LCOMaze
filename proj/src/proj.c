@@ -5,6 +5,7 @@
 #include "controllers/serial.h"
 #include "controllers/timer.h"
 #include "game/game.h"
+#include "game/info.h"
 #include "game/maze.h"
 #include "game/menu.h"
 #include <lcom/lcf.h>
@@ -25,7 +26,7 @@ double delta = 0;
 typedef enum {
     Menu,
     Game,
-    Pause
+    HowTo
 } State;
 State state = Menu;
 
@@ -136,6 +137,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         else if (state == Menu) {
                             menu_mouse_handler();
                         }
+                        else if (state == HowTo) {
+                            info_main_loop();
+                        }
                     }
                     if (msg.m_notify.interrupts & irq_set_timer) {
 
@@ -153,7 +157,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
                         printf("SERIE\n");
                         recieve(&c);
-                        if(c=='M'){
+                        if (c == 'M') {
                             game_activate_multiplayer();
                         }
                     }

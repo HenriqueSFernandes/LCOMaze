@@ -86,28 +86,27 @@ void handle_mouse_click(int mouse_x, int mouse_y) {
 
 // Example of a button click handler
 void single_player() {
-  printf("Button clicked!\n");
-  state = 1;
-  isMultiplayer = false;
-  gameState=1;
+    printf("Button clicked!\n");
+    state = 1;
+    isMultiplayer = false;
+    gameState = 1;
 }
 void multiple_player() {
-  printf("Button clicked!\n");
-  state = 1;
-  isMultiplayer = true;
-  sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
-
+    printf("Button clicked!\n");
+    state = 1;
+    isMultiplayer = true;
+    sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
 }
-void dummy() {
-  printf("Button clicked for isntro!\n");
-
+void how_to() {
+    printf("Button clicked!\n");
+    state = 2;
 }
 
 void menu_main_loop() {
     if (button_count < 1) {
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 1 / 5, 400, 50, "Single", single_player);
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 2 / 5, 400, 50, "Multiplayer", multiple_player);
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 3 / 5, 400, 50, "Settings", single_player);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 1 / 5, 400, 50, "SinglePlayer", single_player);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 2 / 5, 400, 50, "MultiPlayer", multiple_player);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 3 / 5, 400, 50, "How to Play", how_to);
     }
     clear(back_buffer);
     handle_mouse_click(x_mouse, y_mouse);
