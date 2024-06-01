@@ -2,3 +2,5 @@
 .vscode/
 
 proj/src/log/
+
+proj/docs/doxygen_documentation/html/
