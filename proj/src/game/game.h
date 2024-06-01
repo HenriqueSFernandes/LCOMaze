@@ -4,6 +4,9 @@
 
 #include "../controllers/graphics.h"
 #include "../images/player.xpm"
+#include "../images/player3.xpm"
+#include "../images/player4.xpm"
+#include "../images/player5.xpm"
 #include "maze.h"
 #include <lcom/lcf.h>
 #include <math.h>
@@ -22,6 +25,9 @@ extern struct packet mouse_packet;
 double lanterna_x;
 double lanterna_y;
 double direction;
+bool is_moving;
+double frame_counter;
+int current_frame;
 
 void init_game();
 void game_keyboard_handler();
