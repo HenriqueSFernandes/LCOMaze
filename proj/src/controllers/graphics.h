@@ -42,21 +42,19 @@ int setGraphicsMode(uint16_t mode);
 
 int(normalizeColor(uint32_t color, uint32_t *newColor));
 
-int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
+int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer);
 
-int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color);
+int(vg_draw_rectangle_to_buffer)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer);
 
-int(fill_color)(uint32_t color);
+int(fill_color)(uint32_t color, uint8_t *buffer);
 
 int(swap)();
 
-int(clear)();
+int(clear)(uint8_t *buffer);
 
 int(draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
 int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta);
-
-int fill_color(uint32_t color);
 
 int draw_text(char *text, uint16_t x, uint16_t y);
 #endif

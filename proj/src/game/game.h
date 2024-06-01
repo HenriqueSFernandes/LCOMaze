@@ -35,4 +35,5 @@ void game_mouse_handler();
 void game_update_delta();
 void game_main_loop();
 bool check_collision(int x, int y, int size);
+bool check_game_end();
 #endif
