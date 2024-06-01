@@ -182,7 +182,15 @@ void game_draw_fov_cone() {
 void game_activate_multiplayer() {
     gameState = Running;
 }
-
+void game_reset() {
+   isMultiplayer=0;
+   won=0;
+    gameState=Waiting;
+    initialTimeSet=0;
+    finalTimeSet=0;
+     x=50;
+     y=50;
+}
 void check_time() {
     if (!initialTimeSet) {
         initialTimeSet = 1;
@@ -247,7 +255,7 @@ void game_main_loop() {
     check_time();
     if (gameState == Waiting) {
         clear(back_buffer);
-        draw_text("WAITING FOR SOUTO", 500, 500);
+        draw_text("WAITING FOR SOUTO", mode_info.XResolution / 2 - 200, 500);
         swap();
     }
     else if (gameState == Running) {
@@ -267,15 +275,16 @@ void game_main_loop() {
     }else {
         clear(back_buffer);
         if(won){
-              draw_text("YOU WON", 500, 200);
-              draw_text("Time", 500, 400);
+              draw_text("YOU WON", mode_info.XResolution / 2 - 200, 200);
+              draw_text("Time", mode_info.XResolution / 2 - 200, 400);
               int sec=calculate_time();
               printf("Time: %x\n", sec);    
               int length = snprintf( NULL, 0, "%d", sec );
                 char* str = malloc( length + 1 );
                 snprintf( str, length + 1, "%d", sec );
-              draw_text(str, 500, 500);
-              draw_text("seconds", 500, 600);
+              draw_text(str, mode_info.XResolution / 2 - 200, 500);
+              draw_text("seconds", mode_info.XResolution / 2 - 200, 600);
+              draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 800);
               free(str );
         }
           

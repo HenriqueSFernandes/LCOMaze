@@ -34,12 +34,13 @@ bool is_moving;
 double frame_counter;
 int current_frame;
 extern bool isMultiplayer;
+extern struct packet mouse_packet;
 typedef enum {
     Waiting,
     Running,
    Finish ,
 } GameState;
-
+void game_reset();
 void init_game();
 void game_keyboard_handler();
 void game_mouse_handler();
