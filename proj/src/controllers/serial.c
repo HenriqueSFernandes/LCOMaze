@@ -1,5 +1,4 @@
 #include "serial.h"
-#include "queue.h"
 #include <stdio.h>
 
 int sp_hook_id;
@@ -17,7 +16,6 @@ int sp_enable_int(unsigned short base_addr, uint8_t mask) {
     printf("Failed to write IER\n");
     return 1;
   }
-  printf("Enabled interrupt ier: 0x%x\n", reg_ier | mask);
   return 0;
 }
 
@@ -48,7 +46,6 @@ int sp_subscribe_int(unsigned int base, uint32_t *bit_no) {
     return 1;
   }
 
-  printf("Subscribed to IRQ %d with bit_no %d\n", irq, *bit_no);
 
   transmit_queue = new_queue();
   if (!transmit_queue) {
@@ -82,14 +79,12 @@ int ser_ih(unsigned short base_addr) {
     return 1;
   }
 
-  printf("Interrupt Identified Register (IIR) value: 0x%x\n", iir);
 
   if (!(iir & BIT(0))) { // if it is pending
     uint32_t lsr;
     if (sys_inb(base_addr + LSR, &lsr) != OK)
       return 1;
 
-    printf("Line Status Register (LSR) value: 0x%x\n", lsr);
 
     if (iir & BIT(1)) { // transmitter full
       while (lsr & BIT(5)) {
@@ -97,7 +92,6 @@ int ser_ih(unsigned short base_addr) {
           break; // No more data to send
         }
         char c = top(transmit_queue);
-        printf("Sending char: %c\n", c);
         if (sys_outb(base_addr, c) != OK)
           return 1;
         pop(transmit_queue);
@@ -110,7 +104,6 @@ int ser_ih(unsigned short base_addr) {
         uint32_t c;
         if (sys_inb(base_addr, &c) != OK)
           return 1;
-        printf("Received char: %c\n", (char) c);
         push(receive_queue, (char) c);
         if (sys_inb(base_addr + LSR, &lsr) != OK)
           return 1;
@@ -119,10 +112,15 @@ int ser_ih(unsigned short base_addr) {
   }
   return 0;
 }
+
 int sp_get_status(uint8_t *status) {
   return util_sys_inb(0x3f8 + LSR, status);
 }
-int recieve(char * c){
+void clean_queue(){
+  delete_queue(transmit_queue);
+  delete_queue(receive_queue);
+}
+int receive(char * c){
   
          ser_ih(0x3f8);
           if (!empty(receive_queue)) {
@@ -161,7 +159,6 @@ int sp_send_int(unsigned short base_addr, unsigned long bits,
         break; // No more data to send
       }
       char c = top(transmit_queue);
-      printf("Sending char: %c\n", c);
       uint8_t status, attempts = 10;
       while (attempts--) {
         if (sp_get_status(&status))
@@ -172,9 +169,7 @@ int sp_send_int(unsigned short base_addr, unsigned long bits,
         }
         
       }
-      printf("Sent char: %c\n", c);
       pop(transmit_queue);
-      printf("Popped char: %c\n", c);
     }
   }
   
@@ -182,46 +177,4 @@ int sp_send_int(unsigned short base_addr, unsigned long bits,
   return 0;
 }
 
-int sp_receive_int(int base_addr, unsigned long bits, unsigned long stop,
-                   long parity, unsigned long rate) {
 
-  sp_enable_int(base_addr, (BIT(0))); // Enable receiver available interrupt
-  int ipc_status;                     // ipc_status
-  message msg;                        // message
-  uint32_t irq_set;
-
-  if (sp_subscribe_int(base_addr, &irq_set)) {
-    printf("Error: It wasn't possible to subscribe the interruption\n");
-    return -1;
-  }
-
-  char c = 1;
-  while (c != 0) {
-    if (driver_receive(ANY, &msg, &ipc_status)) {
-      printf("driver_receive failed\n");
-      continue;
-    }
-
-    if (is_ipc_notify(ipc_status)) { /* received notification */
-      switch (_ENDPOINT_P(msg.m_source)) {
-        case HARDWARE:                             /* hardware interrupt notification */
-          if (msg.m_notify.interrupts & irq_set) { /* subscribed interrupt */
-            ser_ih(base_addr);
-            if (!empty(receive_queue)) {
-              c = top(receive_queue);
-            }
-          }
-          break;
-
-        default:
-          break; /* no other notifications expected: do nothing */
-      }
-    }
-    else { /* received a standard message, not a notification */
-           /* no standard messages expected: do nothing */
-    }
-  }
-
-  sp_unsubscribe();
-  return 0;
-}
