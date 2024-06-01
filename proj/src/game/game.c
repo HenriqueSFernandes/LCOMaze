@@ -14,8 +14,8 @@ void init_game() {
     maze = generate_maze();
     generate_maze_buffer(&maze);
     maze_solution = get_solution(&maze);
+    draw_solution(&maze, maze_solution);
     draw_maze(&maze);
-    // draw_solution(&maze, maze_solution);
 }
 
 void game_keyboard_handler() {
@@ -146,6 +146,10 @@ bool check_collision(int x, int y, int size) {
     return false;
 }
 
+bool check_game_end() {
+    return x >= (maze.width - 1) * maze.cell_size - 25 && y >= (maze.height - 1) * maze.cell_size - 25;
+}
+
 void game_draw_fov_cone() {
 
     double fov_radius = FOV_ANGLE;
@@ -178,5 +182,9 @@ void game_main_loop() {
     game_draw_fov_cone();
     game_draw_hero();
     game_draw_cursor();
+    if (check_game_end()) {
+        // TODO add what happens after the game ends here.
+        printf("Game ended\n");
+    }
     swap();
 }
