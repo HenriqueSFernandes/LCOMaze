@@ -1,16 +1,27 @@
-#ifndef STACK_H
-#define STACK_H
+/**
+ * @file stack.h
+ * @brief Defines the stack data structure and its associated functions.
+ */
 
-#include "../game/maze.h"
+/** @defgroup stack Stack
+ * @brief Module for the stack data structure.
+ * @{
+ */
+
+#ifndef STACK_H
+#    define STACK_H
+
+#    include "../game/maze.h"
 
 /**
  * @struct StackNode
- * Represents a node in a stack data structure.
+ * @brief Represents a node in a stack data structure.
+ *
  * Each node contains a pointer to a Cell structure and a pointer to the next node in the stack.
  */
 struct StackNode {
-    struct Cell *cell;      // Pointer to the Cell structure stored in this node
-    struct StackNode *next; // Pointer to the next node in the stack
+    struct Cell *cell;      ///< Pointer to the Cell structure stored in this node.
+    struct StackNode *next; ///< Pointer to the next node in the stack.
 };
 
 /**
@@ -20,8 +31,8 @@ struct StackNode {
  * The Stack struct contains a pointer to the top node of the stack and the size of the stack.
  */
 struct Stack {
-    struct StackNode *stack_top; /**< Pointer to the top node of the stack */
-    int size;                    /**< Size of the stack */
+    struct StackNode *stack_top; ///< Pointer to the top node of the stack.
+    int size;                    ///< Size of the stack.
 };
 
 /**
@@ -54,3 +65,5 @@ struct Cell *stack_pop(struct Stack *stack);
 struct Cell *stack_top(struct Stack *stack);
 
 #endif
+
+/** @} */
