@@ -3,6 +3,11 @@
  * @brief Defines the queue data structure and its associated functions.
  */
 
+/**
+ * \addtogroup data_structures Data Structures
+ * @{
+ */
+
 /** @defgroup queue Queue
  * @brief Module for the queue data structure.
  * @{
@@ -70,4 +75,6 @@ void pop(queue_t *q);
 int empty(queue_t *q);
 
 #endif
+/** @} */
+
 /** @} */
