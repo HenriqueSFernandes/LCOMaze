@@ -195,12 +195,12 @@ void draw_solution(struct Maze *maze, struct LinkedList *solution) {
         int y = current_cell->y;
         if (current_cell->prev != NULL) {
             // draw a pixel in the middle of the cell
-            vg_draw_rectangle(x * maze->cell_size + 7, y * maze->cell_size + 7, maze->cell_size - 14, maze->cell_size - 14, 0xFF0000);
+            vg_draw_rectangle_to_buffer(x * maze->cell_size + 7, y * maze->cell_size + 7, maze->cell_size - 14, maze->cell_size - 14, 0xFF0000, maze_buffer);
         }
         current_cell = current_cell->prev;
     }
-    vg_draw_rectangle(7, 7, maze->cell_size - 14, maze->cell_size - 14, 0x0000FF);
-    vg_draw_rectangle((maze->width - 1) * maze->cell_size + 7, (maze->height - 1) * maze->cell_size + 7, maze->cell_size - 14, maze->cell_size - 14, 0x00FF00);
+    vg_draw_rectangle_to_buffer(7, 7, maze->cell_size - 14, maze->cell_size - 14, 0x0000FF, maze_buffer);
+    vg_draw_rectangle_to_buffer((maze->width - 1) * maze->cell_size + 7, (maze->height - 1) * maze->cell_size + 7, maze->cell_size - 14, maze->cell_size - 14, 0x00FF00, maze_buffer);
 }
 
 void draw_maze(struct Maze *maze) {
@@ -242,7 +242,6 @@ void draw_maze(struct Maze *maze) {
     }
 }
 
-
 struct Cell *get_cell(struct Maze *maze, int x, int y) {
     if (x < 0 || x >= (maze->width * maze->cell_size) || y < 0 || y >= (maze->height * maze->cell_size)) {
         return NULL;
@@ -251,8 +250,8 @@ struct Cell *get_cell(struct Maze *maze, int x, int y) {
     return maze->cells[y / maze->cell_size][x / maze->cell_size];
 }
 
-void print_cell(struct Cell *cell){
-    if (cell == NULL){
+void print_cell(struct Cell *cell) {
+    if (cell == NULL) {
         printf("Cell is NULL\n");
         return;
     }

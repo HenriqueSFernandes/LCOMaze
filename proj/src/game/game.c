@@ -14,6 +14,8 @@ void init_game() {
     maze = generate_maze();
     generate_maze_buffer(&maze);
     maze_solution = get_solution(&maze);
+    draw_maze(&maze);
+    draw_solution(&maze, maze_solution);
 }
 
 void game_keyboard_handler() {
@@ -29,7 +31,6 @@ void game_keyboard_handler() {
         x_changer = -cos(delta);
         y_changer = -sin(delta);
         direction = delta + M_PI;
-         
     }
     else if (kbd_value == 0x1e) {
         x_changer = -sin(delta);
@@ -81,35 +82,35 @@ void game_draw_cursor() {
     normalizeColor(0x87CEEB, &sky_color);
     normalizeColor(0x4A4A4F, &ground_color);
     if (!update_delta) {
-        vg_draw_rectangle((int) x_mouse, (int) y_mouse, 3, 3, sky_color);
+        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, sky_color, back_buffer);
     }
     else {
-        vg_draw_rectangle((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000);
+        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000, back_buffer);
     }
 }
 void game_draw_hero() {
-        if (is_moving) {
+    if (is_moving) {
         frame_counter++;
         if (frame_counter > 16) {
             frame_counter = 0;
-
         }
-    } else {
+    }
+    else {
         current_frame = 0;
     }
-    if(frame_counter <= 4){
+    if (frame_counter <= 4) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 8){
+    else if (frame_counter <= 8) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player3, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 12){
+    else if (frame_counter <= 12) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player4, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 16){
+    else if (frame_counter <= 16) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player5, (int) x, (int) y, delta);
     }
-    else if(frame_counter == 0){
+    else if (frame_counter == 0) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
     }
 }
@@ -146,7 +147,7 @@ bool check_collision(int x, int y, int size) {
 }
 
 void game_draw_fov_cone() {
-    
+
     double fov_radius = FOV_ANGLE;
 
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
@@ -154,8 +155,8 @@ void game_draw_fov_cone() {
 
     for (int y_pixel = 0; y_pixel < mode_info.YResolution; y_pixel++) {
         for (int x_pixel = 0; x_pixel < mode_info.XResolution; x_pixel++) {
-            if(x_pixel == x && y_pixel == y){
-              continue;
+            if (x_pixel == x && y_pixel == y) {
+                continue;
             }
             double dx = x_pixel - x;
             double dy = y_pixel - y;
@@ -165,25 +166,15 @@ void game_draw_fov_cone() {
                 uint32_t index = (mode_info.XResolution * y_pixel + x_pixel) * bytesPerPixel;
                 if (index < frameSize) {
                     memcpy(&back_buffer[index], &maze_buffer[index], bytesPerPixel);
-                  
-                    
                 }
             }
         }
     }
 }
 
-
-
-
-
-
-
-
 void game_main_loop() {
     game_check_bound();
-    clear();
-    draw_maze(&maze);
+    clear(back_buffer);
     game_draw_fov_cone();
     game_draw_hero();
     game_draw_cursor();
