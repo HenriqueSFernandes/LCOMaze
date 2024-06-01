@@ -237,6 +237,26 @@ xpm_map_t get_xpm(char letter) {
             return (xpm_map_t) y_xpm;
         case 'z':
             return (xpm_map_t) z_xpm;
+        case '0':
+            return (xpm_map_t) number_zero_xpm;
+        case '1':
+            return (xpm_map_t) number_one_xpm;
+        case '2':
+            return (xpm_map_t) number_two_xpm;
+        case '3':
+            return (xpm_map_t) number_three_xpm;
+        case '4':
+            return (xpm_map_t) number_four_xpm;
+        case '5':
+            return (xpm_map_t) number_five_xpm;
+        case '6':
+            return (xpm_map_t) number_six_xpm;
+        case '7':
+            return (xpm_map_t) number_seven_xpm;
+        case '8':
+            return (xpm_map_t) number_eight_xpm;
+        case '9':
+            return (xpm_map_t) number_nine_xpm;
         default:
             return NULL;
     }

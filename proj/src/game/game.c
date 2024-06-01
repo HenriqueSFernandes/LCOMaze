@@ -187,17 +187,54 @@ void check_time() {
     if (!initialTimeSet) {
         initialTimeSet = 1;
         memcpy(&time_initial, &time_stamp, sizeof(time_el));
+        printf("Time: %x:%x:%x\n", time_initial.hours, time_initial.minutes, time_initial.seconds);
     }
     if (!finalTimeSet && gameState == Finish) {
         finalTimeSet = 1;
         memcpy(&time_final, &time_stamp, sizeof(time_el));
+        printf("Time: %x:%x:%x\n", time_final.hours, time_final.minutes, time_final.seconds);
     }
 }
 int calculate_time() {
     int time = 0;
-    time += (time_final.hours - time_initial.hours) * 3600;
-    time += (time_final.minutes - time_initial.minutes) * 60;
-    time += time_final.seconds - time_initial.seconds;
+    printf("Time: %x:%x:%x\n", time_final.hours, time_final.minutes, time_final.seconds);
+    printf("Time: %x:%x:%x\n", time_initial.hours, time_initial.minutes, time_initial.seconds);
+    
+     int length = snprintf( NULL, 0, "%x",  time_final.hours);
+     char* str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x",  time_final.hours );
+    printf("str: %s\n", str);
+    int hours_final = atoi(str);
+    free(str);
+    length = snprintf( NULL, 0, "%x",  time_final.minutes);
+    str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x",  time_final.minutes );
+    int minutes_final = atoi(str);
+    free(str);
+    length = snprintf( NULL, 0, "%x",  time_final.seconds);
+    str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x",  time_final.seconds );
+    int seconds_final = atoi(str);
+     length = snprintf( NULL, 0, "%x",  time_initial.hours);
+     str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x", time_initial.hours );
+    int hours_initial = atoi(str);
+    free(str);
+    length = snprintf( NULL, 0, "%x", time_initial.minutes);
+    str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x", time_initial.minutes );
+    int minutes_initial = atoi(str);
+    free(str);
+    length = snprintf( NULL, 0, "%x",  time_initial.seconds);
+    str = malloc( length + 1 );
+    snprintf( str, length + 1, "%x",  time_initial.seconds );
+    int seconds_initial = atoi(str);
+    printf("final: %d:%d:%d\n", hours_final, minutes_final, seconds_final);
+    printf("begin: %d:%d:%d\n", hours_initial, minutes_initial, seconds_initial);
+
+    time+= (hours_final - hours_initial) * 3600;
+    time+= (minutes_final - minutes_initial) * 60;
+    time+= seconds_final - seconds_initial;
     return time;
 }
 void game_lose(){
@@ -223,15 +260,27 @@ void game_main_loop() {
         if (check_game_end()) {
             gameState = Finish;
             won=1;
+            if(isMultiplayer)
              sp_send_int(0x3f8, 6, 2, 0x3, 115200, "L", 1);
         }
         swap();
     }else {
         clear(back_buffer);
-        if(won)
-            draw_text("YOU WON", 500, 500);
-        else
-            draw_text("YOU LOST", 500, 500);
+        if(won){
+              draw_text("YOU WON", 500, 200);
+              draw_text("Time", 500, 400);
+              int sec=calculate_time();
+              printf("Time: %x\n", sec);    
+              int length = snprintf( NULL, 0, "%d", sec );
+                char* str = malloc( length + 1 );
+                snprintf( str, length + 1, "%d", sec );
+              draw_text(str, 500, 500);
+              draw_text("seconds", 500, 600);
+              free(str );
+        }
+          
+        else{draw_text("YOU LOST", 500, 500);}
+            
        
         swap();
     }
