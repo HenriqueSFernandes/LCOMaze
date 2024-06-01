@@ -179,11 +179,9 @@ int(swap)() {
     return 0;
 }
 
-// TODO cant this be swapped to a memset(0)?
 int(clear)(uint8_t *buffer) {
-    if (vg_draw_rectangle_to_buffer(0, 0, mode_info.XResolution, mode_info.YResolution, 0x000000, buffer))
-        return 1;
-    return 0;
+    return memset(buffer, 0, mode_info.XResolution * mode_info.YResolution * bytesPerPixel) == NULL;
+
 }
 xpm_map_t get_xpm(char letter) {
     switch (letter) {
