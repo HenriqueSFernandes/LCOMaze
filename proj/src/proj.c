@@ -137,9 +137,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         else if (state == Menu) {
                             menu_mouse_handler();
                         }
-                        else if (state == HowTo) {
-                            info_main_loop();
-                        }
                     }
                     if (msg.m_notify.interrupts & irq_set_timer) {
 
@@ -149,6 +146,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         else if (state == Menu) {
                             menu_main_loop();
                         }
+                        else if (state == HowTo) {
+                            info_main_loop();
+                        }
                     }
                     if (msg.m_notify.interrupts & irq_set_rtc) {
                         printf("RTC\n");
@@ -156,7 +156,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     }
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
                         printf("SERIE\n");
-                        recieve(&c);
+                        receive(&c);
                         if (c == 'M') {
                             game_activate_multiplayer();
                         }
