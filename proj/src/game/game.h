@@ -1,7 +1,7 @@
 /**
  * @file game.h
  *
- * This file contains the declarations of the functions and variables used in the game module.
+ * @brief This file contains the declarations of the functions and variables used in the game module.
  * The game module is responsible for managing the game logic and handling user input.
  */
 
