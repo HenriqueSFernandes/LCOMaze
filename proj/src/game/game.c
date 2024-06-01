@@ -55,6 +55,7 @@ void game_keyboard_handler() {
 void game_update_delta() {
     delta = atan2(-(y + (img.height / 2) - y_mouse), x + (img.width / 2) - x_mouse) + M_PI;
 }
+
 void game_mouse_handler() {
     x_mouse += mouse_packet.delta_x * 0.5;
     y_mouse -= mouse_packet.delta_y * 0.5;
@@ -74,8 +75,7 @@ void game_check_bound() {
     if (y_mouse < 0)
         y_mouse = 0;
 }
-void game_draw() {
-}
+
 void game_draw_cursor() {
     uint32_t sky_color;
     uint32_t ground_color;
@@ -88,6 +88,7 @@ void game_draw_cursor() {
         vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000, back_buffer);
     }
 }
+
 void game_draw_hero() {
     if (is_moving) {
         frame_counter++;
@@ -150,9 +151,9 @@ bool check_game_end() {
     return x >= (maze.width - 1) * maze.cell_size - 25 && y >= (maze.height - 1) * maze.cell_size - 25;
 }
 
-void game_draw_fov_cone() {
+void game_draw_fov_circle() {
 
-    double fov_radius = FOV_ANGLE;
+    double fov_radius = FOV_RADIUS;
 
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
     uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
@@ -179,7 +180,7 @@ void game_draw_fov_cone() {
 void game_main_loop() {
     game_check_bound();
     clear(back_buffer);
-    game_draw_fov_cone();
+    game_draw_fov_circle();
     game_draw_hero();
     game_draw_cursor();
     if (check_game_end()) {
