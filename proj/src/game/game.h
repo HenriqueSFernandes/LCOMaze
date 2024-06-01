@@ -21,7 +21,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-xpm_image_t img;                   ///< Pixmap and metadata for the game image
+xpm_image_t img;                   ///< 
 double delta;                      ///< Angle for the player's movement direction
 uint8_t kbd_value;                 ///< Value of the keyboard input
 bool update_delta;                 ///< Flag indicating if the delta value needs to be updated

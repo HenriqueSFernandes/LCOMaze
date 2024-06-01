@@ -20,8 +20,8 @@ struct StackNode {
  * The Stack struct contains a pointer to the top node of the stack and the size of the stack.
  */
 struct Stack {
-    struct StackNode *stack_top; /**< Pointer to the top node of the stack */
-    int size;                    /**< Size of the stack */
+    struct StackNode *stack_top; ///< Pointer to the top node of the stack.
+    int size;                    ///< Size of the stack.
 };
 
 /**

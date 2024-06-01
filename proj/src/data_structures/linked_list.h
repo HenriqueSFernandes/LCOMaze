@@ -10,8 +10,8 @@
  * This struct represents a node in a linked list. It contains a pointer to a `Cell` object and a pointer to the next node in the list.
  */
 struct ListNode {
-    struct Cell *cell; /**< Pointer to a `Cell` object. */
-    struct ListNode *next; /**< Pointer to the next node in the list. */
+    struct Cell *cell; ///< Pointer to a `Cell` object.
+    struct ListNode *next; ///< Pointer to the next node in the list.
 };
 /**
  * @struct LinkedList
@@ -21,9 +21,9 @@ struct ListNode {
  * and the size of the linked list.
  */
 struct LinkedList {
-    struct ListNode *head; /**< Pointer to the head node of the linked list. */
-    struct ListNode *last; /**< Pointer to the last node of the linked list. */
-    int size; /**< The size of the linked list. */
+    struct ListNode *head; ///< Pointer to the head node of the linked list.
+    struct ListNode *last; ///< Pointer to the last node of the linked list.
+    int size; ///< The size of the linked list.
 };
 
 /**

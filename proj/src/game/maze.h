@@ -23,15 +23,15 @@ uint8_t *maze_buffer;
  * It also includes additional fields for distance and previous cell information used for solving the maze.
  */
 struct Cell {
-    int x;             /**< The x-coordinate of the cell. */
-    int y;             /**< The y-coordinate of the cell. */
-    bool visited;      /**< Flag indicating whether the cell has been visited. */
-    bool top_wall;     /**< Flag indicating the presence of a wall on the top side of the cell. */
-    bool bottom_wall;  /**< Flag indicating the presence of a wall on the bottom side of the cell. */
-    bool left_wall;    /**< Flag indicating the presence of a wall on the left side of the cell. */
-    bool right_wall;   /**< Flag indicating the presence of a wall on the right side of the cell. */
-    int dist;          /**< The distance of the cell from a starting point. */
-    struct Cell *prev; /**< A pointer to the previous cell in the path. */
+    int x;             ///< The x-coordinate of the cell.
+    int y;             ///< The y-coordinate of the cell.
+    bool visited;      ///< Flag indicating whether the cell has been visited.
+    bool top_wall;     ///< Flag indicating the presence of a wall on the top side of the cell.
+    bool bottom_wall;  ///< Flag indicating the presence of a wall on the bottom side of the cell.
+    bool left_wall;    ///< Flag indicating the presence of a wall on the left side of the cell.
+    bool right_wall;   ///< Flag indicating the presence of a wall on the right side of the cell.
+    int dist;          ///< The distance of the cell from a starting point.
+    struct Cell *prev; ///< A pointer to the previous cell in the path.
 };
 
 /**
@@ -42,10 +42,10 @@ struct Cell {
  * and a 2D array of `Cell` pointers representing the maze cells.
  */
 struct Maze {
-    int width;            /**< The width of the maze. */
-    int height;           /**< The height of the maze. */
-    int cell_size;        /**< The size of each cell in pixels. */
-    struct Cell ***cells; /**< A 2D array of `Cell` pointers representing the maze cells. */
+    int width;            ///< The width of the maze.
+    int height;           ///< The height of the maze.
+    int cell_size;        ///< The size of each cell in pixels.
+    struct Cell ***cells; ///< A 2D array of `Cell` pointers representing the maze cells.
 };
 
 /**
