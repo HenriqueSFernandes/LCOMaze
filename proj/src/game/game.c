@@ -15,7 +15,7 @@ void init_game() {
     generate_maze_buffer(&maze);
     maze_solution = get_solution(&maze);
     draw_maze(&maze);
-    draw_solution(&maze, maze_solution);
+    // draw_solution(&maze, maze_solution);
 }
 
 void game_keyboard_handler() {

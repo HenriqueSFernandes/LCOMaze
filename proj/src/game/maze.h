@@ -100,6 +100,11 @@ void draw_maze(struct Maze *maze);
  */
 struct Cell *get_cell(struct Maze *maze, int x, int y);
 
+/**
+ * Prints the details of a cell.
+ *
+ * @param cell The cell to be printed.
+ */
 void print_cell(struct Cell *cell);
 
 #endif
