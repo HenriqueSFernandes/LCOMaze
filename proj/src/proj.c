@@ -3,6 +3,7 @@
 #include "controllers/mouse.h"
 #include "controllers/timer.h"
 #include "controllers/rtc.h"
+#include "controllers/serial.h"
 #include "game/game.h"
 #include "game/maze.h"
 #include "game/menu.h"
@@ -92,6 +93,13 @@ int(proj_main_loop)(int argc, char *argv[]) {
     printf("Error subscribing to rtc!\n");
     return 1;
   }
+  sp_enable_int(0x3f8, (BIT(0))); // Enable receiver available interrupt
+  uint32_t irq_set_serie;
+
+  if (sp_subscribe_int(0x3f8, &irq_set_serie)) {
+    printf("Error: It wasn't possible to subscribe the interruption\n");
+    return -1;
+  }
 
   init_game();
 
@@ -116,6 +124,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
               byte_index = 0;
               create_packet();
             }
+            if(mouse_packet.lb){
+               sp_send_int(0x3f8, 6, 2,0x3, 115200, "daniel", 6);
+            }
             if (state == Game) {
               game_mouse_handler();
             }
@@ -134,6 +145,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
           }
           if(msg.m_notify.interrupts & irq_set_rtc){
             update();
+          }
+          if(msg.m_notify.interrupts & irq_set_serie){
+           recieve();
           }
           break;
         default:
@@ -167,6 +181,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
     printf("Error deactivating interrupt mode!\n");
     return 1;
   }
+    sp_unsubscribe();
 
   return vg_exit();
 }
