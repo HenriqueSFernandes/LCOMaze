@@ -1,0 +1,13 @@
+<map id="ser_ih" name="ser_ih">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,62,133"/>
+<area shape="rect" id="Node000002" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="126,5,184,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,105,72,75,108,42,113,38,116,43,111,46,76,78,48,108"/>
+<area shape="rect" id="Node000003" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="134,56,176,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="61,106,119,81,121,86,63,111"/>
+<area shape="rect" id="Node000004" href="$group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="130,107,180,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="62,117,115,117,115,123,62,123"/>
+<area shape="rect" id="Node000005" href="$group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="135,157,175,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="63,129,122,154,120,159,61,134"/>
+<area shape="rect" id="Node000006" href="$utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="110,208,200,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="48,132,76,162,111,194,116,197,113,202,108,198,72,165,44,135"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="draw_xpm_at_pos" name="draw_xpm_at_pos">
+<area shape="rect" id="Node000001" title="Draws an XPM image at a specified position on the screen." alt="" coords="5,5,133,32"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="181,5,285,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+</map>

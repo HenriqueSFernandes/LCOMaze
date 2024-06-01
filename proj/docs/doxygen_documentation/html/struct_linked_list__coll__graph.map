@@ -1,0 +1,9 @@
+<map id="LinkedList" name="LinkedList">
+<area shape="rect" id="Node000001" title="Represents a linked list data structure." alt="" coords="5,203,86,229"/>
+<area shape="rect" id="Node000002" href="$struct_list_node.html" title="A node in a linked list." alt="" coords="9,96,82,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,138,48,202,43,202,43,138"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="99,100,109,109,100,118,83,120,82,115,98,113,104,109,96,104"/>
+<area shape="rect" id="Node000003" href="$struct_cell.html" title="Represents a cell in a maze." alt="" coords="23,5,68,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="48,48,48,95,43,95,43,48"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="84,9,91,12,94,19,86,28,68,29,68,24,83,23,89,18,88,16,82,14"/>
+</map>

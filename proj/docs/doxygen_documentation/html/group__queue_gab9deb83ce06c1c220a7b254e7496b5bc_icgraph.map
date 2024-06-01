@@ -1,0 +1,18 @@
+<map id="empty" name="empty">
+<area shape="rect" id="Node000001" title="Checks if the queue is empty." alt="" coords="625,31,682,57"/>
+<area shape="rect" id="Node000002" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="352,5,415,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,30,576,21,489,15,415,18,415,13,489,10,577,16,611,25"/>
+<area shape="rect" id="Node000004" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="503,31,559,57"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="609,47,560,47,560,41,609,41"/>
+<area shape="rect" id="Node000005" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="485,81,577,108"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="611,64,566,83,564,78,609,59"/>
+<area shape="rect" id="Node000003" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,56,114,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,27,162,53,115,62,114,56,161,48,336,22"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="487,39,415,27,416,21,488,34"/>
+<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="469,94,114,75,114,70,470,89"/>
+<area shape="rect" id="Node000006" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,107,437,133"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="471,108,438,113,437,108,470,102"/>
+<area shape="rect" id="Node000007" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,107,281,133"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="313,123,281,123,281,117,313,117"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="161,104,104,86,105,81,163,99"/>
+</map>

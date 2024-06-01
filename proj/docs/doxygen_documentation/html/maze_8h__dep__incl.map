@@ -1,0 +1,22 @@
+<map id="src/game/maze.h" name="src/game/maze.h">
+<area shape="rect" id="Node000001" title="This file contains the declarations of the Maze and Cell structs, as well as the function prototypes ..." alt="" coords="168,5,291,32"/>
+<area shape="rect" id="Node000002" href="$linked__list_8h.html" title="This file contains the declarations of the linked list data structure and its associated functions." alt="" coords="5,80,139,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,41,106,82,103,77,183,37"/>
+<area shape="rect" id="Node000004" href="$stack_8h.html" title="Defines the stack data structure and its associated functions." alt="" coords="163,80,296,123"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="223,48,224,80,219,80,218,48"/>
+<area shape="rect" id="Node000006" href="$game_8h.html" title="This file contains the declarations of the functions and variables used in the game module...." alt="" coords="320,88,443,115"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="268,37,359,85,357,90,265,42"/>
+<area shape="rect" id="Node000008" href="$proj_8c.html" title=" " alt="" coords="466,179,542,205"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="306,21,344,28,384,39,422,55,456,78,477,102,491,129,505,178,499,179,486,131,472,105,453,82,419,60,382,44,343,33,306,27"/>
+<area shape="rect" id="Node000009" href="$maze_8c.html" title=" " alt="" coords="518,88,640,115"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="303,33,499,77,530,85,529,90,498,83,302,38"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="133,70,210,30,213,35,135,75"/>
+<area shape="rect" id="Node000003" href="$linked__list_8c.html" title=" " alt="" coords="5,171,139,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,138,75,170,69,170,69,138"/>
+<area shape="poly" id="edge6_Node000004_Node000001" title=" " alt="" coords="236,65,233,33,239,32,241,65"/>
+<area shape="rect" id="Node000005" href="$stack_8c.html" title=" " alt="" coords="163,171,296,213"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="232,138,232,170,227,170,227,138"/>
+<area shape="rect" id="Node000007" href="$game_8c.html" title=" " alt="" coords="320,179,443,205"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="384,130,384,178,379,178,379,130"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="413,122,488,176,485,180,409,126"/>
+</map>

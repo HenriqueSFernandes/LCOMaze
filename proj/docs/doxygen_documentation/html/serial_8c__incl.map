@@ -1,0 +1,17 @@
+<map id="src/controllers/serial.c" name="src/controllers/serial.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="252,5,402,32"/>
+<area shape="rect" id="Node000002" href="$serial_8h.html" title="Function to handle the Serial Port." alt="" coords="253,80,316,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,34,302,68,297,65,317,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="340,80,400,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="337,31,357,65,352,68,332,34"/>
+<area shape="rect" id="Node000003" href="$queue_8h.html" title="Defines the queue data structure and its associated functions." alt="" coords="5,155,129,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,109,138,151,136,146,251,104"/>
+<area shape="rect" id="Node000004" href="$_u_a_r_t_8h.html" title=" " alt="" coords="153,163,221,189"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="271,109,215,155,211,151,267,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="245,163,324,189"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="287,107,287,147,282,147,282,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="347,163,422,189"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="302,105,359,151,356,155,298,109"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="446,163,510,189"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="318,105,435,152,438,154,436,158,433,157,316,110"/>
+</map>

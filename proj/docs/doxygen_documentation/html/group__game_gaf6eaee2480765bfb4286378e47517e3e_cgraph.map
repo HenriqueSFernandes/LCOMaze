@@ -1,0 +1,9 @@
+<map id="game_keyboard_handler" name="game_keyboard_handler">
+<area shape="rect" id="Node000001" title="Handles keyboard input for the game." alt="" coords="5,31,168,57"/>
+<area shape="rect" id="Node000002" href="$group__game.html#ga81000586bde03fc0a1ecb1b6a4304674" title="Checks for collision at the given position and size." alt="" coords="228,5,338,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,31,212,25,213,30,169,36"/>
+<area shape="rect" id="Node000004" href="$group__game.html#ga7b40f5ad1ff5d69c5b6056cf78ffff16" title="Updates the delta value for the game." alt="" coords="216,56,350,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,52,200,56,200,61,168,57"/>
+<area shape="rect" id="Node000003" href="$group__maze.html#ga35aae1a0ec9bfd46fde06cf67bf498c9" title=" " alt="" coords="398,5,464,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="338,16,382,16,382,21,338,21"/>
+</map>

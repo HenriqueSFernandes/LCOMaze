@@ -1,0 +1,5 @@
+<map id="handle_mouse_click" name="handle_mouse_click">
+<area shape="rect" id="Node000001" title="Handles a mouse click event." alt="" coords="5,5,145,32"/>
+<area shape="rect" id="Node000002" href="$group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="193,5,320,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,16,177,16,177,21,145,21"/>
+</map>

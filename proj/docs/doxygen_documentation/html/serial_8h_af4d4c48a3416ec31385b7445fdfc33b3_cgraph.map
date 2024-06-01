@@ -1,0 +1,7 @@
+<map id="sp_subscribe_int" name="sp_subscribe_int">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,125,57"/>
+<area shape="rect" id="Node000002" href="$group__queue.html#ga7b0221e1c302d1af3349ffa0a71b7c08" title="Deletes a queue." alt="" coords="173,5,271,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,32,157,26,158,32,125,37"/>
+<area shape="rect" id="Node000003" href="$group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="178,56,266,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,51,163,57,162,62,125,56"/>
+</map>

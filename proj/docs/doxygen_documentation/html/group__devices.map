@@ -1,0 +1,9 @@
+<map id="Devices" name="Devices">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,132,75,159"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html" title="Module for handling graphics." alt="" coords="123,5,209,32"/>
+<area shape="rect" id="Node000003" href="$group__keyboard.html" title="Module for handling the keyboard." alt="" coords="128,56,204,83"/>
+<area shape="rect" id="Node000004" href="$group__mouse.html" title="Module for handling the mouse." alt="" coords="136,107,196,133"/>
+<area shape="rect" id="Node000005" href="$group__rtc.html" title="Module for handling the RTC." alt="" coords="142,157,190,184"/>
+<area shape="rect" id="Node000006" href="$group__serial__port.html" title="Module for handling the Serial Port." alt="" coords="125,208,207,235"/>
+<area shape="rect" id="Node000007" href="$group__timer.html" title="Module for handling the Timer." alt="" coords="139,259,193,285"/>
+</map>

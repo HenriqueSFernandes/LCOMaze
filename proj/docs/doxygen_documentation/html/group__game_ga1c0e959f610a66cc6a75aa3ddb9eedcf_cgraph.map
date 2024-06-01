@@ -1,0 +1,5 @@
+<map id="game_mouse_handler" name="game_mouse_handler">
+<area shape="rect" id="Node000001" title="Handles mouse input for the game." alt="" coords="5,5,154,32"/>
+<area shape="rect" id="Node000002" href="$group__game.html#ga7b40f5ad1ff5d69c5b6056cf78ffff16" title="Updates the delta value for the game." alt="" coords="202,5,336,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,16,186,16,186,21,154,21"/>
+</map>

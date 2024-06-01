@@ -1,0 +1,9 @@
+<map id="draw_text" name="draw_text">
+<area shape="rect" id="Node000001" title="Draws text on the screen at the specified coordinates." alt="" coords="5,31,84,57"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="132,5,308,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,36,116,31,117,36,85,41"/>
+<area shape="rect" id="Node000004" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="184,56,256,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="85,47,169,59,168,65,84,52"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="356,5,460,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="309,16,341,16,341,21,309,21"/>
+</map>

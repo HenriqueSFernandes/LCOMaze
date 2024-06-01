@@ -1,0 +1,14 @@
+<map id="src/controllers/UART.h" name="src/controllers/UART.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,317,32"/>
+<area shape="rect" id="Node000002" href="$serial_8h.html" title="Function to handle the Serial Port." alt="" coords="165,80,315,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,48,243,80,237,80,237,48"/>
+<area shape="rect" id="Node000003" href="$serial_8c.html" title=" " alt="" coords="5,155,155,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,116,109,156,107,152,197,111"/>
+<area shape="rect" id="Node000004" href="$menu_8h.html" title="This file contains the declarations of functions and structures related to the menu module...." alt="" coords="179,155,301,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="243,122,243,154,237,154,237,122"/>
+<area shape="rect" id="Node000006" href="$proj_8c.html" title=" " alt="" coords="301,229,376,256"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="276,114,297,131,316,153,333,193,340,229,335,230,328,195,311,156,293,135,272,118"/>
+<area shape="rect" id="Node000005" href="$menu_8c.html" title=" " alt="" coords="155,229,277,256"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,197,223,230,218,228,228,196"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="271,189,323,227,320,231,268,193"/>
+</map>

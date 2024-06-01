@@ -1,0 +1,17 @@
+<map id="receive" name="receive">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,69,133"/>
+<area shape="rect" id="Node000002" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="238,5,295,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,104,222,35,224,40,70,109"/>
+<area shape="rect" id="Node000003" href="$serial_8c.html#a831765d455499780ff2b4b08613be4d7" title=" " alt="" coords="117,107,173,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="69,117,101,117,101,123,69,123"/>
+<area shape="rect" id="Node000006" href="$group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="247,208,286,235"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="70,131,233,204,231,209,68,136"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="155,105,183,75,219,42,224,38,227,43,223,46,187,78,159,108"/>
+<area shape="rect" id="Node000004" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="245,56,287,83"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="172,106,230,81,232,86,174,111"/>
+<area shape="rect" id="Node000005" href="$group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="242,107,291,133"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="173,117,226,117,226,123,173,123"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="159,132,187,162,223,194,235,202,232,207,219,198,183,165,155,135"/>
+<area shape="rect" id="Node000007" href="$utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="221,157,311,184"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="174,129,219,148,217,153,172,134"/>
+</map>

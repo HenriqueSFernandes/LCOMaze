@@ -1,0 +1,14 @@
+<map id="src/controllers/rtc.c" name="src/controllers/rtc.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,5,197,32"/>
+<area shape="rect" id="Node000002" href="$rtc_8h.html" title="Functions to handle the RTC." alt="" coords="106,80,154,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,33,133,64,127,64,127,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,84,181"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="125,34,96,81,61,143,56,140,92,79,120,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="178,80,242,107"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="146,31,187,68,183,72,142,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,109,72,147,69,143,113,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="107,155,169,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="134,107,137,139,132,139,129,108"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="193,155,299,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="151,105,214,144,211,148,149,109"/>
+</map>
