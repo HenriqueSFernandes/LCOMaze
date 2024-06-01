@@ -102,7 +102,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   }
 
   init_game();
-
+char c =1;
   while (!mouse_packet.rb) {
     if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("error driver_receive");
@@ -126,6 +126,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
             }
             if(mouse_packet.lb){
                sp_send_int(0x3f8, 6, 2,0x3, 115200, "daniel", 6);
+               printf("sent\n");
             }
             if (state == Game) {
               game_mouse_handler();
@@ -146,8 +147,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
           if(msg.m_notify.interrupts & irq_set_rtc){
             update();
           }
-          if(msg.m_notify.interrupts & irq_set_serie){
-           recieve();
+          if((msg.m_notify.interrupts & irq_set_serie) && c != 0){
+            printf("SERIE\n");
+           recieve(&c);
           }
           break;
         default:

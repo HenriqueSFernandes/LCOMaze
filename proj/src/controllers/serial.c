@@ -122,15 +122,13 @@ int ser_ih(unsigned short base_addr) {
 int sp_get_status(uint8_t *status) {
   return util_sys_inb(0x3f8 + LSR, status);
 }
-int recieve(){
-  char c = 1;
-  while (c != 0) {
-     ser_ih(0x3f8);
-            if (!empty(receive_queue)) {
-              c = top(receive_queue);
-              printf("c: %c\n", c);
-            }
-  }
+int recieve(char * c){
+  
+         ser_ih(0x3f8);
+          if (!empty(receive_queue)) {
+              *c = top(receive_queue);
+          }
+  
   return 0;
 }
 int sp_send_int(unsigned short base_addr, unsigned long bits,
