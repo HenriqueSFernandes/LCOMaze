@@ -1,5 +1,5 @@
 /**
- * @file keyboard.h
+ * @file mouse.h
  * @brief Functions to handle the mouse.
  */
 
