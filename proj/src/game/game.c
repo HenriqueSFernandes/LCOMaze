@@ -4,9 +4,13 @@
 extern vbe_mode_info_t mode_info;
 struct Maze maze;
 struct LinkedList *maze_solution;
-
+GameState gameState = Waiting;
+time_el time_initial;
+time_el time_final;
 double FOV_V;
 double FOV_H;
+bool initialTimeSet = 0;
+bool finalTimeSet = 0;
 
 void init_game() {
     x = 50;
@@ -177,15 +181,50 @@ void game_draw_fov_circle() {
     }
 }
 
-void game_main_loop() {
-    game_check_bound();
-    clear(back_buffer);
-    game_draw_fov_circle();
-    game_draw_hero();
-    game_draw_cursor();
-    if (check_game_end()) {
-        // TODO add what happens after the game ends here.
-        printf("Game ended\n");
+void game_activate_multiplayer() {
+    gameState = Running;
+}
+
+void check_time() {
+    if (!initialTimeSet) {
+        initialTimeSet = 1;
+        memcpy(&time_initial, &time_stamp, sizeof(time_el));
     }
-    swap();
+    if (!finalTimeSet && gameState == Finish) {
+        finalTimeSet = 1;
+        memcpy(&time_final, &time_stamp, sizeof(time_el));
+    }
+}
+int calculate_time() {
+    int time = 0;
+    time += (time_final.hours - time_initial.hours) * 3600;
+    time += (time_final.minutes - time_initial.minutes) * 60;
+    time += time_final.seconds - time_initial.seconds;
+    return time;
+}
+void game_main_loop() {
+
+    check_time();
+    if (gameState == Waiting) {
+        clear(back_buffer);
+        draw_text("WAITING FOR SOUTO", 500, 500);
+        swap();
+    }
+    else if (gameState == Running) {
+        game_check_bound();
+        clear(back_buffer);
+        game_draw_fov_circle();
+        game_draw_hero();
+        game_draw_cursor();
+        if (check_game_end()) {
+            // TODO add what happens after the game ends here.
+            printf("Game ended\n");
+        }
+        swap();
+    }
+    else {
+        clear(back_buffer);
+        draw_text("YOU WON", 500, 500);
+        swap();
+    }
 }

@@ -14,8 +14,8 @@
 #    define GAME_H
 
 #    define FOV_RADIUS 200.0 ///< The distance the player can see
-
 #    include "../controllers/graphics.h"
+#    include "../controllers/rtc.h"
 #    include "../images/player.xpm"
 #    include "../images/player3.xpm"
 #    include "../images/player4.xpm"
@@ -25,6 +25,21 @@
 #    include <math.h>
 #    include <stdint.h>
 #    include <stdio.h>
+
+/**
+ * @enum GameState
+ * @brief Represents the different states of the game.
+ *
+ * The GameState enum defines three possible states for the game:
+ * - Waiting: The game is waiting for the other player.
+ * - Running: The game is currently running.
+ * - Finish: The game has finished.
+ */
+typedef enum {
+    Waiting,
+    Running,
+    Finish,
+} GameState;
 
 xpm_image_t img;                   ///< Pixmap and metadata for the game image.
 double delta;                      ///< Angle for the player's movement direction
@@ -39,6 +54,10 @@ double direction;                  ///< Direction of the player's movement
 bool is_moving;                    ///< Flag indicating if the player is currently moving
 double frame_counter;              ///< Counter for tracking the frames
 int current_frame;                 ///< Current frame of the game animation
+bool initialTimeSet;               ///< Flag indicating if the initial time has been set
+bool finalTimeSet;                 ///< Flag indicating if the final time has been set
+extern struct time_el time_stamp;  ///< Time structure for storing the time
+extern bool isMultiplayer;         ///< Flag indicating if the game is in multiplayer mode
 
 /**
  * @brief Initializes the game module.
@@ -115,6 +134,11 @@ bool check_game_end();
  */
 void game_draw_fov_circle();
 
+/**
+ * @brief Activates the multiplayer mode of the game.
+ * Sets the game state to "Running".
+ */
+void game_activate_multiplayer();
 #endif
 
 /** @} */

@@ -5,6 +5,12 @@
  * and drawing buttons on the screen.
  */
 
+#include "../controllers/graphics.h"
+#include "controllers/serial.h"
+#include <lcom/lcf.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
 /** @defgroup menu Menu
  *  @brief Menu module for creating and handling menu buttons.
  *  @{
@@ -13,17 +19,12 @@
 #ifndef MENU_H
 #    define MENU_H
 
-#    include "../controllers/graphics.h"
-#    include <lcom/lcf.h>
-#    include <math.h>
-#    include <stdint.h>
-#    include <stdio.h>
-
 extern vbe_mode_info_t mode_info;  ///< Information about the graphics mode.
 xpm_image_t img;                   ///< Pixmap and metadata for the game image.
 extern struct packet mouse_packet; ///< Mouse packet containing mouse movement information.
 double x_mouse;                    ///< X-coordinate of the mouse position.
 double y_mouse;                    ///< Y-coordinate of the mouse position.
+bool isMultiplayer;                ///< Flag indicating if the game is in multiplayer mode.
 
 /**
  * @struct Button
@@ -39,6 +40,7 @@ typedef struct {
 } Button;
 
 #    define MAX_BUTTONS 10   ///< Maximum number of buttons.
+int gameState;               ///< The current state of the game.
 Button buttons[MAX_BUTTONS]; ///< The array of buttons.
 int button_count;            ///< The number of buttons.
 

@@ -3,12 +3,13 @@
 
 #include <lcom/lcf.h>
 #include <minix/sysutil.h>
+#include <math.h>
 
-struct time_el {
+typedef struct timeEl {
     uint32_t seconds;
     uint32_t minutes;
     uint32_t hours;
-};
+} time_el;
 #define RTC_IRQ 8
 #define RTC_ADDR_REG 0x70
 #define RTC_DATA_REG 0x71
