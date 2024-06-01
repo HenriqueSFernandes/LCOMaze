@@ -90,23 +90,23 @@ void game_draw_cursor() {
 void game_draw_hero() {
         if (is_moving) {
         frame_counter++;
-        if (frame_counter > 4) {
+        if (frame_counter > 16) {
             frame_counter = 0;
-            
+
         }
     } else {
         current_frame = 0;
     }
-    if(frame_counter == 1){
+    if(frame_counter <= 4){
         draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
     }
-    else if(frame_counter == 2){
+    else if(frame_counter <= 8){
         draw_xpm_at_pos_at_delta((xpm_map_t) player3, (int) x, (int) y, delta);
     }
-    else if(frame_counter == 3){
+    else if(frame_counter <= 12){
         draw_xpm_at_pos_at_delta((xpm_map_t) player4, (int) x, (int) y, delta);
     }
-    else if(frame_counter == 4){
+    else if(frame_counter <= 16){
         draw_xpm_at_pos_at_delta((xpm_map_t) player5, (int) x, (int) y, delta);
     }
     else if(frame_counter == 0){
@@ -152,19 +152,6 @@ void game_draw_fov_cone() {
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
     uint32_t frameSize = mode_info.XResolution * mode_info.YResolution * bytesPerPixel;
 
-    
-    for (double angle = 0; angle < 2 * M_PI; angle += 0.01) {
-        
-        int pixel_x = x + fov_radius * cos(angle);
-        int pixel_y = y + fov_radius * sin(angle);
-
-        //Desenha a circunferencia mas n é preciso que o faça
-        if (pixel_x >= 0 && pixel_x < mode_info.XResolution && pixel_y >= 0 && pixel_y < mode_info.YResolution) {
-            vg_draw_pixel(pixel_x, pixel_y, 0xFFFFFF);
-        }
-    }
-
-    
     for (int y_pixel = 0; y_pixel < mode_info.YResolution; y_pixel++) {
         for (int x_pixel = 0; x_pixel < mode_info.XResolution; x_pixel++) {
             if(x_pixel == x && y_pixel == y){
