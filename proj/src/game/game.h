@@ -3,6 +3,7 @@
 #define FOV_ANGLE 200.0
 
 #include "../controllers/graphics.h"
+#include "../controllers/rtc.h"
 #include "../images/player.xpm"
 #include "../images/player3.xpm"
 #include "../images/player4.xpm"
@@ -12,6 +13,7 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
+
 
 xpm_image_t img; // pixmap and metadata
 double delta;
@@ -37,11 +39,7 @@ typedef enum {
     Running,
    Finish ,
 } GameState;
-struct time_el {
-    uint32_t  seconds;
-    uint32_t minutes;
-   uint32_t hours;
-};
+
 void init_game();
 void game_keyboard_handler();
 void game_mouse_handler();

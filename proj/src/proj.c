@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
+    printf("proj_main_loop()\n");
     int ipc_status;
     int receiver;
     uint16_t irq_set_mouse;
@@ -146,6 +147,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         }
                     }
                     if (msg.m_notify.interrupts & irq_set_rtc) {
+                        printf("RTC\n");
                         update();
                     }
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {

@@ -67,19 +67,20 @@ int(normalizeColor(uint32_t color, uint32_t *newColor)) {
     return 0;
 }
 
-int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
+int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer) {
     if (x > mode_info.XResolution || y > mode_info.YResolution)
         return 1;
 
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
     uint32_t index = (mode_info.XResolution * y + x) * bytesPerPixel;
-    return memcpy(&back_buffer[index], &color, bytesPerPixel) == NULL;
+
+    return memcpy(&buffer[index], &color, bytesPerPixel) == NULL;
 }
 
-int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+int(vg_draw_rectangle_to_buffer)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer) {
     for (uint16_t i = x; i < width + x; i++) {
         for (uint16_t j = y; j < height + y; j++) {
-            if (vg_draw_pixel(i, j, color)) {
+            if (vg_draw_pixel(i, j, color, buffer)) {
                 return 1;
             }
         }
@@ -94,7 +95,7 @@ int(draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     map = (uint32_t *) xpm_load(xpm, image_type, &img);
     for (int i = 0; i < img.height; i++) {
         for (int j = 0; j < img.width; j++) {
-            vg_draw_pixel(x + j, y + i, map[i * img.width + j]);
+            vg_draw_pixel(x + j, y + i, map[i * img.width + j], back_buffer);
         }
     }
     return 0;
@@ -161,7 +162,7 @@ int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta
                 uint32_t color = map[src_y * img.width + src_x];
 
                 if (color != 0x00ff00) {
-                    vg_draw_pixel(x + j - rotated_width / 2.0, y + i - rotated_height / 2.0, color);
+                    vg_draw_pixel(x + j - rotated_width / 2.0, y + i - rotated_height / 2.0, color, back_buffer);
                 }
             }
         }
@@ -169,8 +170,8 @@ int draw_xpm_at_pos_at_delta(xpm_map_t xpm, uint16_t x, uint16_t y, double theta
     return 0;
 }
 
-int(fill_color)(uint32_t color) {
-    return vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, color);
+int(fill_color)(uint32_t color, uint8_t *buffer) {
+    return vg_draw_rectangle_to_buffer(0, 0, mode_info.XResolution, mode_info.YResolution, color, buffer);
 }
 
 int(swap)() {
@@ -178,11 +179,9 @@ int(swap)() {
     return 0;
 }
 
-// TODO cant this be swapped to a memset(0)?
-int(clear)() {
-    if (vg_draw_rectangle(0, 0, mode_info.XResolution, mode_info.YResolution, 0x000000))
-        return 1;
-    return 0;
+int(clear)(uint8_t *buffer) {
+    return memset(buffer, 0, mode_info.XResolution * mode_info.YResolution * bytesPerPixel) == NULL;
+
 }
 xpm_map_t get_xpm(char letter) {
     switch (letter) {
@@ -253,7 +252,7 @@ int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t time
         for (int j = 0; j < img.width; j++) {
             for (int k = 0; k < times; k++) {
                 for (int l = 0; l < times; l++) {
-                    vg_draw_pixel(x + j * times + k, y + i * times + l, map[i * img.width + j]);
+                    vg_draw_pixel(x + j * times + k, y + i * times + l, map[i * img.width + j], back_buffer);
                 }
             }
         }

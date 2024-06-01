@@ -1,7 +1,8 @@
 #include "rtc.h"
 #include <lcom/lcf.h>
 #include <stdint.h>
-struct time_el time_stamp;
+
+time_el time_stamp;
 int hook_id_rtc = 8;
 int activate_interrupt_mode(){
     uint32_t inf;
@@ -38,6 +39,7 @@ int unsubscribe_rtc() {
     return 0;
 }
 int update(){
+    printf("update\n");
     uint32_t cause;
     sys_outb(RTC_ADDR_REG, RTC_REG_C);
     printf("ou");

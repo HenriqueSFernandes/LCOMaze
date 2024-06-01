@@ -5,19 +5,20 @@ extern vbe_mode_info_t mode_info;
 struct Maze maze;
 struct LinkedList *maze_solution;
 GameState gameState=Waiting;
-struct time_el time_initial;
-struct time_el time_final;
+ time_el time_initial;
+ time_el time_final;
 double FOV_V;
 double FOV_H;
 bool initialTimeSet=0;
 bool finalTimeSet=0;
-
 void init_game() {
     x = 50;
     y = 50;
     maze = generate_maze();
     generate_maze_buffer(&maze);
     maze_solution = get_solution(&maze);
+    draw_solution(&maze, maze_solution);
+    draw_maze(&maze);
 }
 
 void game_keyboard_handler() {
@@ -33,7 +34,6 @@ void game_keyboard_handler() {
         x_changer = -cos(delta);
         y_changer = -sin(delta);
         direction = delta + M_PI;
-         
     }
     else if (kbd_value == 0x1e) {
         x_changer = -sin(delta);
@@ -85,35 +85,35 @@ void game_draw_cursor() {
     normalizeColor(0x87CEEB, &sky_color);
     normalizeColor(0x4A4A4F, &ground_color);
     if (!update_delta) {
-        vg_draw_rectangle((int) x_mouse, (int) y_mouse, 3, 3, sky_color);
+        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, sky_color, back_buffer);
     }
     else {
-        vg_draw_rectangle((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000);
+        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000, back_buffer);
     }
 }
 void game_draw_hero() {
-        if (is_moving) {
+    if (is_moving) {
         frame_counter++;
         if (frame_counter > 16) {
             frame_counter = 0;
-
         }
-    } else {
+    }
+    else {
         current_frame = 0;
     }
-    if(frame_counter <= 4){
+    if (frame_counter <= 4) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 8){
+    else if (frame_counter <= 8) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player3, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 12){
+    else if (frame_counter <= 12) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player4, (int) x, (int) y, delta);
     }
-    else if(frame_counter <= 16){
+    else if (frame_counter <= 16) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player5, (int) x, (int) y, delta);
     }
-    else if(frame_counter == 0){
+    else if (frame_counter == 0) {
         draw_xpm_at_pos_at_delta((xpm_map_t) player, (int) x, (int) y, delta);
     }
 }
@@ -149,8 +149,12 @@ bool check_collision(int x, int y, int size) {
     return false;
 }
 
+bool check_game_end() {
+    return x >= (maze.width - 1) * maze.cell_size - 25 && y >= (maze.height - 1) * maze.cell_size - 25;
+}
+
 void game_draw_fov_cone() {
-    
+
     double fov_radius = FOV_ANGLE;
 
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
@@ -158,8 +162,8 @@ void game_draw_fov_cone() {
 
     for (int y_pixel = 0; y_pixel < mode_info.YResolution; y_pixel++) {
         for (int x_pixel = 0; x_pixel < mode_info.XResolution; x_pixel++) {
-            if(x_pixel == x && y_pixel == y){
-              continue;
+            if (x_pixel == x && y_pixel == y) {
+                continue;
             }
             double dx = x_pixel - x;
             double dy = y_pixel - y;
@@ -174,46 +178,50 @@ void game_draw_fov_cone() {
         }
     }
 }
-void game_activate_multiplayer(){
-    gameState=Running;
+void game_activate_multiplayer() {
+    gameState = Running;
 }
 
-
-void check_time(){
-    if(!initialTimeSet){
-        initialTimeSet=1;
-         memcpy(&time_initial, &time_stamp, sizeof(time_stamp));
+void check_time() {
+    if (!initialTimeSet) {
+        initialTimeSet = 1;
+        memcpy(&time_initial, &time_stamp, sizeof(time_el));
     }
-    if(!finalTimeSet && gameState==Finish){
-        finalTimeSet=1;
-        memcpy(&time_final, &time_stamp, sizeof(time_stamp));
+    if (!finalTimeSet && gameState == Finish) {
+        finalTimeSet = 1;
+        memcpy(&time_final, &time_stamp, sizeof(time_el));
     }
 }
-int calculate_time(){
-    int time=0;
-    time+=(time_final.hours-time_initial.hours)*3600;
-    time+=(time_final.minutes-time_initial.minutes)*60;
-    time+=time_final.seconds-time_initial.seconds;
+int calculate_time() {
+    int time = 0;
+    time += (time_final.hours - time_initial.hours) * 3600;
+    time += (time_final.minutes - time_initial.minutes) * 60;
+    time += time_final.seconds - time_initial.seconds;
     return time;
 }
 void game_main_loop() {
+
     check_time();
-    if(gameState==Waiting){
-        clear();
+    if (gameState == Waiting) {
+        clear(back_buffer);
         draw_text("WAITING FOR SOUTO", 500, 500);
         swap();
-    }else if(gameState==Running){
-       game_check_bound();
-    clear();
-    draw_maze(&maze);
-    game_draw_fov_cone();
-    game_draw_hero();
-    game_draw_cursor();
-    swap();
+    }
+    else if (gameState == Running) {
+        game_check_bound();
+        clear(back_buffer);
+        draw_maze(&maze);
+        game_draw_fov_cone();
+        game_draw_hero();
+        game_draw_cursor();
+        if (check_game_end()) {
+            // TODO add what happens after the game ends here.
+            printf("Game ended\n");
+        }
+        swap();
     }else {
-        clear();
+        clear(back_buffer);
         draw_text("YOU WON", 500, 500);
         swap();
     }
-   
 }
