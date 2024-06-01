@@ -5,23 +5,28 @@
  * The game module is responsible for managing the game logic and handling user input.
  */
 
+/** @defgroup game Game
+ *  @brief Game module for managing game logic and user input.
+ *  @{
+ */
+
 #ifndef GAME_H
-#define GAME_H
+#    define GAME_H
 
-#define FOV_RADIUS 200.0 ///< The distance the player can see
+#    define FOV_RADIUS 200.0 ///< The distance the player can see
 
-#include "../controllers/graphics.h"
-#include "../images/player.xpm"
-#include "../images/player3.xpm"
-#include "../images/player4.xpm"
-#include "../images/player5.xpm"
-#include "maze.h"
-#include <lcom/lcf.h>
-#include <math.h>
-#include <stdint.h>
-#include <stdio.h>
+#    include "../controllers/graphics.h"
+#    include "../images/player.xpm"
+#    include "../images/player3.xpm"
+#    include "../images/player4.xpm"
+#    include "../images/player5.xpm"
+#    include "maze.h"
+#    include <lcom/lcf.h>
+#    include <math.h>
+#    include <stdint.h>
+#    include <stdio.h>
 
-xpm_image_t img;                   ///< 
+xpm_image_t img;                   ///< Pixmap and metadata for the game image.
 double delta;                      ///< Angle for the player's movement direction
 uint8_t kbd_value;                 ///< Value of the keyboard input
 bool update_delta;                 ///< Flag indicating if the delta value needs to be updated
@@ -111,3 +116,5 @@ bool check_game_end();
 void game_draw_fov_circle();
 
 #endif
+
+/** @} */

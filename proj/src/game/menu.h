@@ -112,4 +112,4 @@ void example_button_click();
 
 #endif // MENU_H
 
-/** @} */ // end of menu group
+/** @} */

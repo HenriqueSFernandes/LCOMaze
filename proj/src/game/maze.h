@@ -1,18 +1,32 @@
+/**
+ * @file maze.h
+ * @brief Header file for maze generation and manipulation.
+ *
+ * This file contains the declarations of the `Maze` and `Cell` structs,
+ * as well as the function prototypes for maze generation, solution calculation,
+ * and drawing functions.
+ */
+
+/** @defgroup maze Maze
+ *  @brief Maze module creating the maze.
+ *  @{
+ */
+
 #ifndef MAZE_H
-#define MAZE_H
+#    define MAZE_H
 
-#include "../controllers/graphics.h"
-#include "../data_structures/linked_list.h"
-#include "../data_structures/stack.h"
-#include <lcom/vbe.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
+#    include "../controllers/graphics.h"
+#    include "../data_structures/linked_list.h"
+#    include "../data_structures/stack.h"
+#    include <lcom/vbe.h>
+#    include <limits.h>
+#    include <stdbool.h>
+#    include <stdint.h>
+#    include <stdio.h>
+#    include <stdlib.h>
 
-extern vbe_mode_info_t mode_info;
-uint8_t *maze_buffer;
+extern vbe_mode_info_t mode_info; ///< Information about the graphics mode.
+uint8_t *maze_buffer;             ///< Buffer for the maze image.
 
 /**
  * @struct Cell
@@ -108,3 +122,5 @@ struct Cell *get_cell(struct Maze *maze, int x, int y);
 void print_cell(struct Cell *cell);
 
 #endif
+
+/** @} */
