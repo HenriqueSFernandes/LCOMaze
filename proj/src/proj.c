@@ -194,6 +194,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
         return 1;
     }
     sp_unsubscribe();
-
+    clean_queue();
     return vg_exit();
 }

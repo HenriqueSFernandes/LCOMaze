@@ -17,4 +17,5 @@ int sp_unsubscribe();
 int ser_ih(unsigned short base_addr);
 int sp_send_int(unsigned short base_addr, unsigned long bits, unsigned long stop, long parity, unsigned long rate, char string[],int stringc);
 int receive(char * c);
+void clean_queue();
 #endif /* SERIAL_H */

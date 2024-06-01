@@ -116,7 +116,10 @@ int ser_ih(unsigned short base_addr) {
 int sp_get_status(uint8_t *status) {
   return util_sys_inb(0x3f8 + LSR, status);
 }
-
+void clean_queue(){
+  delete_queue(transmit_queue);
+  delete_queue(receive_queue);
+}
 int receive(char * c){
   
          ser_ih(0x3f8);
