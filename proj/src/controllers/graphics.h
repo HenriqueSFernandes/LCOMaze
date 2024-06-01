@@ -27,6 +27,7 @@
 #include "../images/font/letter_x.xpm"
 #include "../images/font/letter_y.xpm"
 #include "../images/font/letter_z.xpm"
+#include "../images/font/letter_arrow.xpm"
 #include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>

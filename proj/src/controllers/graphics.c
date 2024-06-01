@@ -181,7 +181,6 @@ int(swap)() {
 
 int(clear)(uint8_t *buffer) {
     return memset(buffer, 0, mode_info.XResolution * mode_info.YResolution * bytesPerPixel) == NULL;
-
 }
 xpm_map_t get_xpm(char letter) {
     switch (letter) {
@@ -237,6 +236,8 @@ xpm_map_t get_xpm(char letter) {
             return (xpm_map_t) y_xpm;
         case 'z':
             return (xpm_map_t) z_xpm;
+        case '-':
+            return (xpm_map_t) arrow_xpm;
         default:
             return NULL;
     }
