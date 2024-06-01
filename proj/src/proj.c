@@ -11,6 +11,7 @@
 #include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>
+#include <math.h>
 #include <stdio.h>
 
 uint8_t kbd_value;
@@ -46,7 +47,19 @@ int main(int argc, char *argv[]) {
     lcf_cleanup();
     return 0;
 }
-
+int binaryTodecimal( int bin_num)  
+{  
+    // declaration of variables  
+    int decimal_num = 0, temp = 0, rem;  
+    while (bin_num != 0)  
+    {  
+        rem = bin_num % 10;  
+        bin_num = bin_num / 10;  
+        decimal_num = decimal_num + rem * pow( 2, temp);  
+        temp++;  
+    }  
+    return decimal_num;  
+}  
 int(proj_main_loop)(int argc, char *argv[]) {
     printf("proj_main_loop()\n");
     int ipc_status;
@@ -117,8 +130,8 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     if (msg.m_notify.interrupts & irq_set_kbd) {
                         kbd_ih();
                         if (kbd_value == 0x81) {
-                            sp_send_int(0x3f8, 6, 2, 0x3, 115200, "daniel", 6);
-                            printf("sent\n");
+                            game_reset();
+                            state = Menu;
                         }
                         if (state == Game) {
                             game_keyboard_handler();
@@ -151,15 +164,21 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         }
                     }
                     if (msg.m_notify.interrupts & irq_set_rtc) {
-                        printf("RTC\n");
                         update();
+                        
                     }
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
                         printf("SERIE\n");
                         receive(&c);
-                        if (c == 'M') {
+                        printf("UWU: %c\n", c);
+                        if(c=='M'){
                             game_activate_multiplayer();
                         }
+                        if(c=='L'){
+                            printf("You lost\n");
+                            game_lose();
+                        }
+                        clear_receive_queue();
                     }
                     break;
                 default:
@@ -194,6 +213,5 @@ int(proj_main_loop)(int argc, char *argv[]) {
         return 1;
     }
     sp_unsubscribe();
-    clean_queue();
     return vg_exit();
 }

@@ -26,42 +26,33 @@
 #    include <stdint.h>
 #    include <stdio.h>
 
-/**
- * @enum GameState
- * @brief Represents the different states of the game.
- *
- * The GameState enum defines three possible states for the game:
- * - Waiting: The game is waiting for the other player.
- * - Running: The game is currently running.
- * - Finish: The game has finished.
- */
+#include "controllers/serial.h"
+xpm_image_t img; // pixmap and metadata
+double delta;
+uint8_t kbd_value;
+bool update_delta;
+double x;
+double y;
+double x_mouse;
+double y_mouse;
+bool initialTimeSet;
+bool finalTimeSet;
+extern struct time_el time_stamp;
+extern struct packet mouse_packet;
+double lanterna_x;
+double lanterna_y;
+double direction;
+bool is_moving;
+double frame_counter;
+int current_frame;
+extern bool isMultiplayer;
+extern struct packet mouse_packet;
 typedef enum {
     Waiting,
     Running,
     Finish,
 } GameState;
-
-xpm_image_t img;                   ///< Pixmap and metadata for the game image.
-double delta;                      ///< Angle for the player's movement direction
-uint8_t kbd_value;                 ///< Value of the keyboard input
-bool update_delta;                 ///< Flag indicating if the delta value needs to be updated
-double x;                          ///< X-coordinate of the player's position
-double y;                          ///< Y-coordinate of the player's position
-double x_mouse;                    ///< X-coordinate of the mouse position
-double y_mouse;                    ///< Y-coordinate of the mouse position
-extern struct packet mouse_packet; ///< Mouse packet containing mouse movement information
-double direction;                  ///< Direction of the player's movement
-bool is_moving;                    ///< Flag indicating if the player is currently moving
-double frame_counter;              ///< Counter for tracking the frames
-int current_frame;                 ///< Current frame of the game animation
-bool initialTimeSet;               ///< Flag indicating if the initial time has been set
-bool finalTimeSet;                 ///< Flag indicating if the final time has been set
-extern struct time_el time_stamp;  ///< Time structure for storing the time
-extern bool isMultiplayer;         ///< Flag indicating if the game is in multiplayer mode
-
-/**
- * @brief Initializes the game module.
- */
+void game_reset();
 void init_game();
 
 /**
@@ -139,6 +130,7 @@ void game_draw_fov_circle();
  * Sets the game state to "Running".
  */
 void game_activate_multiplayer();
+void game_lose();
 #endif
 
 /** @} */

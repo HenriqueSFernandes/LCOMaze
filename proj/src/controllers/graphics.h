@@ -27,7 +27,17 @@
 #include "../images/font/letter_x.xpm"
 #include "../images/font/letter_y.xpm"
 #include "../images/font/letter_z.xpm"
-#include "../images/font/letter_arrow.xpm"
+#include "../images/font/number_eight.xpm"
+#include "../images/font/number_five.xpm"
+#include "../images/font/number_four.xpm"
+#include "../images/font/number_nine.xpm"
+#include "../images/font/number_one.xpm"
+#include "../images/font/number_seven.xpm"
+#include "../images/font/number_six.xpm"
+#include "../images/font/number_three.xpm"
+#include "../images/font/number_two.xpm"
+#include "../images/font/number_zero.xpm"
+
 #include <lcom/lcf.h>
 #include <lcom/vbe.h>
 #include <stdint.h>
