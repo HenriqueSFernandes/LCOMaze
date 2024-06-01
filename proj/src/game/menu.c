@@ -5,9 +5,6 @@ extern int state;
 Button buttons[MAX_BUTTONS];
 int button_count = 0;
 
-void menu_keyboard_handler() {
-    // Handle keyboard input for the menu
-}
 void menu_mouse_handler() {
     // Handle mouse input for the menu
     x_mouse += mouse_packet.delta_x * 0.5;
@@ -35,6 +32,7 @@ void create_button(int x, int y, int width, int height, char *label, void (*onCl
         printf("Maximum number of buttons reached.\n");
     }
 }
+
 void draw_button(Button button) {
     // Draw the button background
     uint32_t button_color = 0x000000; // Default button color
@@ -61,6 +59,7 @@ void draw_buttons() {
         draw_button(buttons[i]);
     }
 }
+
 void menu_draw_cursor() {
     uint32_t sky_color;
     uint32_t ground_color;
@@ -85,7 +84,6 @@ void handle_mouse_click(int mouse_x, int mouse_y) {
     }
 }
 
-// Example of a button click handler
 void example_button_click() {
     printf("Button clicked!\n");
     state = 1;
