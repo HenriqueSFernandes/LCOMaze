@@ -174,6 +174,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
                             printf("You lost\n");
                             game_lose();
                         }
+                        clear_receive_queue();
                     }
                     break;
                 default:

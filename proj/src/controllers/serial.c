@@ -21,6 +21,18 @@ int sp_enable_int(unsigned short base_addr, uint8_t mask) {
   return 0;
 }
 
+int clear_transmit_queue() {
+  while (!empty(transmit_queue)) {
+    pop(transmit_queue);
+  }
+  return 0;
+}
+int clear_receive_queue() {
+  while (!empty(receive_queue)) {
+    pop(receive_queue);
+  }
+  return 0;
+}
 int sp_subscribe_int(unsigned int base, uint32_t *bit_no) {
   if (base != 0x3f8 && base != 0x2f8) {
     printf("Invalid serial port\n");
