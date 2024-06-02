@@ -200,10 +200,16 @@ void check_time() {
     if (!initialTimeSet) {
         initialTimeSet = 1;
         memcpy(&time_initial, &time_stamp, sizeof(time_el));
+        if(time_initial.hours==0 && time_initial.minutes==0 && time_initial.seconds==0){
+            get_time_direct(&time_initial.seconds, &time_initial.minutes, &time_initial.hours);
+        }
     }
     if (!finalTimeSet && gameState == Finish) {
         finalTimeSet = 1;
         memcpy(&time_final, &time_stamp, sizeof(time_el));
+        if(time_final.hours==0 && time_final.minutes==0 && time_final.seconds==0){
+            get_time_direct(&time_final.seconds, &time_final.minutes, &time_final.hours);
+        }
     }
 }
 int calculate_time() {

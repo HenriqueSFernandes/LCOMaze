@@ -72,3 +72,18 @@ int get_time() {
     time_stamp.seconds = seconds;
     return 0;
 }
+
+int get_time_direct(uint32_t *seconds, uint32_t *minutes, uint32_t *hours) {
+    // Read hours
+    sys_outb(RTC_ADDR_REG, RTC_REG_HOURS);
+    sys_inb(RTC_DATA_REG, hours);
+
+    // Read minutes
+    sys_outb(RTC_ADDR_REG, RTC_REG_MINUTES);
+    sys_inb(RTC_DATA_REG, minutes);
+
+    // Read seconds
+    sys_outb(RTC_ADDR_REG, RTC_REG_SECONDS);
+    sys_inb(RTC_DATA_REG, seconds);
+    return 0;
+}

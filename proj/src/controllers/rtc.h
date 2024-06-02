@@ -105,6 +105,9 @@ int get_time();
  * @return 0 on success.
  */
 int update();
+
+
+int get_time_direct(uint32_t *seconds, uint32_t *minutes, uint32_t *hours);
 #endif
 
 /**@}*/
