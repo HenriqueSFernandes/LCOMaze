@@ -256,6 +256,8 @@ xpm_map_t get_xpm(char letter) {
             return (xpm_map_t) number_eight_xpm;
         case '9':
             return (xpm_map_t) number_nine_xpm;
+        case '-':
+            return (xpm_map_t) arrow_xpm;
         default:
             return NULL;
     }
