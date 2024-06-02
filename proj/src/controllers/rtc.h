@@ -37,6 +37,14 @@ typedef struct timeEl {
 #    define RTC_REG_A 10
 #    define RTC_REG_B 11
 #    define RTC_REG_C 12
+#    define RTC_REG_D 13
+#    define RTC_REG_SECONDS 0
+#    define RTC_REG_MINUTES 2
+#    define RTC_REG_HOURS 4
+#    define UE BIT(4)
+#    define UIE BIT(4)
+#    define VRT BIT(7)
+
 
 /**
  * @brief Activates the interrupt mode for the Real-Time Clock (RTC).
@@ -47,7 +55,7 @@ typedef struct timeEl {
  *
  * @return 0 on success, non-zero otherwise.
  */
-int activate_interrupt_mode();
+int set_update();
 
 /**
  * @brief Deactivates the interrupt mode of the Real-Time Clock (RTC).
@@ -56,7 +64,7 @@ int activate_interrupt_mode();
  *
  * @return 0 on success, non-zero otherwise.
  */
-int deactivate_interrupt_mode();
+int clean_update();
 
 /**
  * @brief Subscribes to RTC interrupts.

@@ -5,21 +5,21 @@
 time_el time_stamp;
 int hook_id_rtc = 8;
 
-int activate_interrupt_mode() {
+int set_update() {
     uint32_t inf;
     sys_outb(RTC_ADDR_REG, RTC_REG_B);
     sys_inb(RTC_DATA_REG, &inf);
-    inf |= BIT(4);
+    inf |= UIE;
     sys_outb(RTC_ADDR_REG, RTC_REG_B);
     sys_outb(RTC_DATA_REG, inf);
     return 0;
 }
 
-int deactivate_interrupt_mode() {
+int clean_update() {
     uint32_t inf;
     sys_outb(RTC_ADDR_REG, RTC_REG_B);
     sys_inb(RTC_DATA_REG, &inf);
-    inf &= ~BIT(4);
+    inf &= 0xFF ^ UIE;
     sys_outb(RTC_ADDR_REG, RTC_REG_B);
     sys_outb(RTC_DATA_REG, inf);
     return 0;
@@ -45,7 +45,9 @@ int update(){
     uint32_t cause;
     sys_outb(RTC_ADDR_REG, RTC_REG_C);
     sys_inb(RTC_DATA_REG, &cause);
-    get_time();
+    if(cause & UE){
+        get_time();
+    }
     return 0;
 }
 
@@ -55,17 +57,17 @@ int get_time() {
     uint32_t hours = 0;
     memset(&time_stamp, 0, sizeof(time_stamp));
     // Read hours
-    sys_outb(RTC_ADDR_REG, 4);
+    sys_outb(RTC_ADDR_REG, RTC_REG_HOURS);
     sys_inb(RTC_DATA_REG, &hours);
     time_stamp.hours = hours;
 
     // Read minutes
-    sys_outb(RTC_ADDR_REG, 2);
+    sys_outb(RTC_ADDR_REG, RTC_REG_MINUTES);
     sys_inb(RTC_DATA_REG, &minutes);
     time_stamp.minutes = minutes;
 
     // Read seconds
-    sys_outb(RTC_ADDR_REG, 0);
+    sys_outb(RTC_ADDR_REG, RTC_REG_SECONDS);
     sys_inb(RTC_DATA_REG, &seconds);
     time_stamp.seconds = seconds;
     return 0;
