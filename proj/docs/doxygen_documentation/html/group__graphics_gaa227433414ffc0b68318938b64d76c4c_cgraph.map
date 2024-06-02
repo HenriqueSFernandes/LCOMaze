@@ -1,0 +1,5 @@
+<map id="draw_xpm_x_times_bigger" name="draw_xpm_x_times_bigger">
+<area shape="rect" id="Node000001" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="5,5,182,32"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="230,5,334,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,16,214,16,214,21,182,21"/>
+</map>

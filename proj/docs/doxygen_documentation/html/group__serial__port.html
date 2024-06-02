@@ -138,6 +138,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gab94afeb490e514d4f33102c0e6bdebf9" id="r_gab94afeb490e514d4f33102c0e6bdebf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab94afeb490e514d4f33102c0e6bdebf9">clean_queue</a> ()</td></tr>
 <tr class="memdesc:gab94afeb490e514d4f33102c0e6bdebf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans the transmit and receive queues.  <br /></td></tr>
 <tr class="separator:gab94afeb490e514d4f33102c0e6bdebf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga673f5797c7d870f68cf46a61fb761670" id="r_ga673f5797c7d870f68cf46a61fb761670"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga673f5797c7d870f68cf46a61fb761670">clear_receive_queue</a> ()</td></tr>
+<tr class="separator:ga673f5797c7d870f68cf46a61fb761670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09a53cb7491af3c30e1dbf7d97c6394a" id="r_ga09a53cb7491af3c30e1dbf7d97c6394a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga09a53cb7491af3c30e1dbf7d97c6394a">clear_transmit_queue</a> ()</td></tr>
+<tr class="separator:ga09a53cb7491af3c30e1dbf7d97c6394a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -175,14 +179,76 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="100,16,132,16,132,21,100,21"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ga673f5797c7d870f68cf46a61fb761670" name="ga673f5797c7d870f68cf46a61fb761670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga673f5797c7d870f68cf46a61fb761670">&#9670;&#160;</a></span>clear_receive_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a> clear_receive_queue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the receive queue by popping all elements from it.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 if the receive queue was successfully cleared, otherwise an error code. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__serial__port_ga673f5797c7d870f68cf46a61fb761670_cgraph.png" border="0" usemap="#agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_cgraph" alt=""/></div>
+<map name="agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_cgraph" id="agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,146,57"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="194,5,251,32"/>
+<area shape="poly" title=" " alt="" coords="145,29,178,24,179,29,146,34"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="201,56,244,83"/>
+<area shape="poly" title=" " alt="" coords="146,54,186,60,185,66,145,59"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__serial__port_gab94afeb490e514d4f33102c0e6bdebf9_icgraph.png" border="0" usemap="#agroup__serial__port_gab94afeb490e514d4f33102c0e6bdebf9_icgraph" alt=""/></div>
-<map name="agroup__serial__port_gab94afeb490e514d4f33102c0e6bdebf9_icgraph" id="agroup__serial__port_gab94afeb490e514d4f33102c0e6bdebf9_icgraph">
-<area shape="rect" title="Cleans the transmit and receive queues." alt="" coords="162,5,256,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<div class="center"><img src="group__serial__port_ga673f5797c7d870f68cf46a61fb761670_icgraph.png" border="0" usemap="#agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_icgraph" alt=""/></div>
+<map name="agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_icgraph" id="agroup__serial__port_ga673f5797c7d870f68cf46a61fb761670_icgraph">
+<area shape="rect" title=" " alt="" coords="162,5,302,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga09a53cb7491af3c30e1dbf7d97c6394a" name="ga09a53cb7491af3c30e1dbf7d97c6394a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09a53cb7491af3c30e1dbf7d97c6394a">&#9670;&#160;</a></span>clear_transmit_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a> clear_transmit_queue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the transmit queue by popping all elements until it is empty.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 if the transmit queue is successfully cleared, otherwise an error code. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__serial__port_ga09a53cb7491af3c30e1dbf7d97c6394a_cgraph.png" border="0" usemap="#agroup__serial__port_ga09a53cb7491af3c30e1dbf7d97c6394a_cgraph" alt=""/></div>
+<map name="agroup__serial__port_ga09a53cb7491af3c30e1dbf7d97c6394a_cgraph" id="agroup__serial__port_ga09a53cb7491af3c30e1dbf7d97c6394a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,151,57"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="199,5,256,32"/>
+<area shape="poly" title=" " alt="" coords="150,29,183,23,184,29,151,34"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="206,56,249,83"/>
+<area shape="poly" title=" " alt="" coords="151,54,191,61,190,66,150,59"/>
 </map>
 </div>
 
@@ -217,21 +283,22 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_cgraph.png" border="0" usemap="#agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_cgraph" alt=""/></div>
 <map name="agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_cgraph" id="agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_cgraph">
-<area shape="rect" title="Receives a character from the serial port." alt="" coords="5,107,69,133"/>
+<area shape="rect" title="Receives a character from the serial port." alt="" coords="5,81,69,108"/>
 <area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="238,5,295,32"/>
-<area shape="poly" title=" " alt="" coords="68,104,222,35,224,40,70,109"/>
-<area shape="rect" href="group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="117,107,173,133"/>
-<area shape="poly" title=" " alt="" coords="69,117,101,117,101,123,69,123"/>
-<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="247,208,286,235"/>
-<area shape="poly" title=" " alt="" coords="70,131,233,204,231,209,68,136"/>
-<area shape="poly" title=" " alt="" coords="155,105,183,75,219,42,224,38,227,43,223,46,187,78,159,108"/>
+<area shape="poly" title=" " alt="" coords="68,80,116,63,222,29,223,34,118,68,70,85"/>
 <area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="245,56,287,83"/>
+<area shape="poly" title=" " alt="" coords="69,89,230,71,230,76,69,94"/>
+<area shape="rect" href="group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="117,107,173,133"/>
+<area shape="poly" title=" " alt="" coords="70,100,102,107,101,113,69,105"/>
+<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="247,208,286,235"/>
+<area shape="poly" title=" " alt="" coords="60,106,118,143,234,204,232,208,115,148,57,111"/>
+<area shape="poly" title=" " alt="" coords="155,105,183,75,219,42,224,38,227,43,223,46,187,78,159,108"/>
 <area shape="poly" title=" " alt="" coords="172,106,230,81,232,86,174,111"/>
-<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="242,107,291,133"/>
-<area shape="poly" title=" " alt="" coords="173,117,226,117,226,123,173,123"/>
+<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="242,157,291,184"/>
+<area shape="poly" title=" " alt="" coords="174,129,228,152,226,157,172,134"/>
 <area shape="poly" title=" " alt="" coords="159,132,187,162,223,194,235,202,232,207,219,198,183,165,155,135"/>
-<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="221,157,311,184"/>
-<area shape="poly" title=" " alt="" coords="174,129,219,148,217,153,172,134"/>
+<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="221,107,311,133"/>
+<area shape="poly" title=" " alt="" coords="173,117,205,117,205,123,173,123"/>
 </map>
 </div>
 <div class="dynheader">
@@ -240,7 +307,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_icgraph.png" border="0" usemap="#agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_icgraph" alt=""/></div>
 <map name="agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_icgraph" id="agroup__serial__port_ga126942c39afa1df63c23b4d8b72f0c78_icgraph">
 <area shape="rect" title="Receives a character from the serial port." alt="" coords="162,5,225,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -297,7 +364,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Interrupt handler for the serial port." alt="" coords="273,5,329,32"/>
 <area shape="rect" href="group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="162,5,225,32"/>
 <area shape="poly" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -349,7 +416,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__serial__port_gadc945c9610fdc7d91001dd59f4b02992_icgraph.png" border="0" usemap="#agroup__serial__port_gadc945c9610fdc7d91001dd59f4b02992_icgraph" alt=""/></div>
 <map name="agroup__serial__port_gadc945c9610fdc7d91001dd59f4b02992_icgraph" id="agroup__serial__port_gadc945c9610fdc7d91001dd59f4b02992_icgraph">
 <area shape="rect" title="Enables the specified interrupt(s) for a serial port." alt="" coords="162,5,263,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -395,16 +462,21 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__serial__port_ga345aef3f6a10f62322b353279a08d690_icgraph.png" border="0" usemap="#agroup__serial__port_ga345aef3f6a10f62322b353279a08d690_icgraph" alt=""/></div>
 <map name="agroup__serial__port_ga345aef3f6a10f62322b353279a08d690_icgraph" id="agroup__serial__port_ga345aef3f6a10f62322b353279a08d690_icgraph">
-<area shape="rect" title="Reads the status register of the serial port." alt="" coords="625,31,728,57"/>
-<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="485,31,577,57"/>
-<area shape="poly" title=" " alt="" coords="609,47,577,47,577,41,609,41"/>
-<area shape="rect" href="menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,5,437,32"/>
-<area shape="poly" title=" " alt="" coords="470,36,437,31,438,25,471,31"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,31,114,57"/>
-<area shape="poly" title=" " alt="" coords="470,47,114,47,114,41,470,41"/>
-<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
-<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
-<area shape="poly" title=" " alt="" coords="147,33,115,38,114,33,146,28"/>
+<area shape="rect" title="Reads the status register of the serial port." alt="" coords="693,56,796,83"/>
+<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="553,56,645,83"/>
+<area shape="poly" title=" " alt="" coords="677,72,645,72,645,67,677,67"/>
+<area shape="rect" href="group__game.html#gaed8baa9ecfe76f65360d20ffdc5ecc94" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="162,5,338,32"/>
+<area shape="poly" title=" " alt="" coords="538,54,505,47,419,34,338,26,338,21,420,29,506,41,539,49"/>
+<area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="386,56,505,83"/>
+<area shape="poly" title=" " alt="" coords="538,72,506,72,506,67,538,67"/>
+<area shape="rect" href="group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="392,107,500,133"/>
+<area shape="poly" title=" " alt="" coords="543,91,489,109,488,104,541,86"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,56,114,83"/>
+<area shape="poly" title=" " alt="" coords="183,39,113,58,112,53,181,34"/>
+<area shape="poly" title=" " alt="" coords="371,72,114,72,114,67,371,67"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="190,107,310,133"/>
+<area shape="poly" title=" " alt="" coords="376,123,310,123,310,117,376,117"/>
+<area shape="poly" title=" " alt="" coords="181,105,112,86,113,81,183,99"/>
 </map>
 </div>
 
@@ -496,14 +568,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__serial__port_gad605e6ff47801fcd5b58e98a8bdb3f06_icgraph.png" border="0" usemap="#agroup__serial__port_gad605e6ff47801fcd5b58e98a8bdb3f06_icgraph" alt=""/></div>
 <map name="agroup__serial__port_gad605e6ff47801fcd5b58e98a8bdb3f06_icgraph" id="agroup__serial__port_gad605e6ff47801fcd5b58e98a8bdb3f06_icgraph">
-<area shape="rect" title="Sends a string of characters over a serial port." alt="" coords="485,31,577,57"/>
-<area shape="rect" href="menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,5,437,32"/>
-<area shape="poly" title=" " alt="" coords="470,36,437,31,438,25,471,31"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,31,114,57"/>
-<area shape="poly" title=" " alt="" coords="470,47,114,47,114,41,470,41"/>
-<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
-<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
-<area shape="poly" title=" " alt="" coords="147,33,115,38,114,33,146,28"/>
+<area shape="rect" title="Sends a string of characters over a serial port." alt="" coords="553,56,645,83"/>
+<area shape="rect" href="group__game.html#gaed8baa9ecfe76f65360d20ffdc5ecc94" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="162,5,338,32"/>
+<area shape="poly" title=" " alt="" coords="538,54,505,47,419,34,338,26,338,21,420,29,506,41,539,49"/>
+<area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="386,56,505,83"/>
+<area shape="poly" title=" " alt="" coords="538,72,506,72,506,67,538,67"/>
+<area shape="rect" href="group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="392,107,500,133"/>
+<area shape="poly" title=" " alt="" coords="543,91,489,109,488,104,541,86"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,56,114,83"/>
+<area shape="poly" title=" " alt="" coords="183,39,113,58,112,53,181,34"/>
+<area shape="poly" title=" " alt="" coords="371,72,114,72,114,67,371,67"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="190,107,310,133"/>
+<area shape="poly" title=" " alt="" coords="376,123,310,123,310,117,376,117"/>
+<area shape="poly" title=" " alt="" coords="181,105,112,86,113,81,183,99"/>
 </map>
 </div>
 
@@ -556,7 +633,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__serial__port_gaf4d4c48a3416ec31385b7445fdfc33b3_icgraph.png" border="0" usemap="#agroup__serial__port_gaf4d4c48a3416ec31385b7445fdfc33b3_icgraph" alt=""/></div>
 <map name="agroup__serial__port_gaf4d4c48a3416ec31385b7445fdfc33b3_icgraph" id="agroup__serial__port_gaf4d4c48a3416ec31385b7445fdfc33b3_icgraph">
 <area shape="rect" title="Subscribes to the serial port interrupts." alt="" coords="162,5,281,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -597,7 +674,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__serial__port_gac6eb7b8c7654707d89db205584199977_icgraph.png" border="0" usemap="#agroup__serial__port_gac6eb7b8c7654707d89db205584199977_icgraph" alt=""/></div>
 <map name="agroup__serial__port_gac6eb7b8c7654707d89db205584199977_icgraph" id="agroup__serial__port_gac6eb7b8c7654707d89db205584199977_icgraph">
 <area shape="rect" title="Unsubscribes the serial port interrupts and deletes the transmit and receive queues." alt="" coords="162,5,274,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>

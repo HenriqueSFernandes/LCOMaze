@@ -142,9 +142,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ga39a6589b7272d766d21a79c3862c889a" id="r_ga39a6589b7272d766d21a79c3862c889a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga39a6589b7272d766d21a79c3862c889a">handle_mouse_click</a> (<a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a> mouse_x, <a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a> mouse_y)</td></tr>
 <tr class="memdesc:ga39a6589b7272d766d21a79c3862c889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mouse click event.  <br /></td></tr>
 <tr class="separator:ga39a6589b7272d766d21a79c3862c889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga928fd999305b133bb18c65f765fe897d" id="r_ga928fd999305b133bb18c65f765fe897d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga928fd999305b133bb18c65f765fe897d">example_button_click</a> ()</td></tr>
-<tr class="memdesc:ga928fd999305b133bb18c65f765fe897d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the click event of the example button.  <br /></td></tr>
-<tr class="separator:ga928fd999305b133bb18c65f765fe897d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga095b10852176bed8392f819a203048c8" id="r_ga095b10852176bed8392f819a203048c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga095b10852176bed8392f819a203048c8">single_player</a> ()</td></tr>
+<tr class="memdesc:ga095b10852176bed8392f819a203048c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle the single player button click event.  <br /></td></tr>
+<tr class="separator:ga095b10852176bed8392f819a203048c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad96f5e3d516346cb14adcb87878dae13" id="r_gad96f5e3d516346cb14adcb87878dae13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad96f5e3d516346cb14adcb87878dae13">multiple_player</a> ()</td></tr>
+<tr class="memdesc:gad96f5e3d516346cb14adcb87878dae13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the isMultiplayer variable to true. If the host flag is true, sends a message to the serial port with the character 'M'. If the host flag is false, sends a message to the serial port with the character 'S'.  <br /></td></tr>
+<tr class="separator:gad96f5e3d516346cb14adcb87878dae13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaafc0a4d6dd0de29a9cf74817634a59cd" id="r_gaafc0a4d6dd0de29a9cf74817634a59cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaafc0a4d6dd0de29a9cf74817634a59cd">how_to</a> ()</td></tr>
+<tr class="memdesc:gaafc0a4d6dd0de29a9cf74817634a59cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle the how to play button click event.  <br /></td></tr>
+<tr class="separator:gaafc0a4d6dd0de29a9cf74817634a59cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga191afc58fb9f5bc145a58eefac945575" id="r_ga191afc58fb9f5bc145a58eefac945575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga191afc58fb9f5bc145a58eefac945575">exit_game</a> ()</td></tr>
+<tr class="memdesc:ga191afc58fb9f5bc145a58eefac945575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits the game by setting the 'running' flag to false.  <br /></td></tr>
+<tr class="separator:ga191afc58fb9f5bc145a58eefac945575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -255,7 +264,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Creates a button with the specified parameters and adds it to the button array." alt="" coords="329,5,429,32"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -289,13 +298,13 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="group__menu_ga67437303ad652d440763730f50fa3eaf_cgraph.png" border="0" usemap="#agroup__menu_ga67437303ad652d440763730f50fa3eaf_cgraph" alt=""/></div>
 <map name="agroup__menu_ga67437303ad652d440763730f50fa3eaf_cgraph" id="agroup__menu_ga67437303ad652d440763730f50fa3eaf_cgraph">
 <area shape="rect" title=" " alt="" coords="5,64,98,91"/>
-<area shape="rect" href="group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="170,13,249,40"/>
+<area shape="rect" href="group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="170,13,249,40"/>
 <area shape="poly" title=" " alt="" coords="95,61,154,41,156,46,96,66"/>
 <area shape="rect" href="group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="146,64,273,91"/>
 <area shape="poly" title=" " alt="" coords="98,75,130,75,130,80,98,80"/>
 <area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="335,107,483,149"/>
 <area shape="poly" title=" " alt="" coords="98,89,146,100,235,113,320,121,320,126,235,118,145,105,97,94"/>
-<area shape="rect" href="group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="321,5,497,32"/>
+<area shape="rect" href="group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="321,5,497,32"/>
 <area shape="poly" title=" " alt="" coords="249,22,305,20,305,25,249,28"/>
 <area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="374,56,445,83"/>
 <area shape="poly" title=" " alt="" coords="250,32,359,56,358,61,249,38"/>
@@ -314,7 +323,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="461,21,429,21,429,16,461,16"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="313,21,282,21,282,16,313,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -345,13 +354,13 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Draws all the buttons on the screen." alt="" coords="5,64,105,91"/>
 <area shape="rect" href="group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="153,64,245,91"/>
 <area shape="poly" title=" " alt="" coords="105,75,137,75,137,80,105,80"/>
-<area shape="rect" href="group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="318,13,396,40"/>
+<area shape="rect" href="group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="318,13,396,40"/>
 <area shape="poly" title=" " alt="" coords="242,61,302,41,303,46,244,66"/>
 <area shape="rect" href="group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="293,64,420,91"/>
 <area shape="poly" title=" " alt="" coords="245,75,277,75,277,80,245,80"/>
 <area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="482,107,631,149"/>
 <area shape="poly" title=" " alt="" coords="246,89,293,100,383,113,467,121,467,126,382,118,293,105,245,94"/>
-<area shape="rect" href="group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="468,5,645,32"/>
+<area shape="rect" href="group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="468,5,645,32"/>
 <area shape="poly" title=" " alt="" coords="396,22,452,20,453,25,397,28"/>
 <area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="521,56,592,83"/>
 <area shape="poly" title=" " alt="" coords="397,32,507,56,505,61,396,38"/>
@@ -368,21 +377,21 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Draws all the buttons on the screen." alt="" coords="329,5,428,32"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="313,21,282,21,282,16,313,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ga928fd999305b133bb18c65f765fe897d" name="ga928fd999305b133bb18c65f765fe897d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga928fd999305b133bb18c65f765fe897d">&#9670;&#160;</a></span>example_button_click()</h2>
+<a id="ga191afc58fb9f5bc145a58eefac945575" name="ga191afc58fb9f5bc145a58eefac945575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga191afc58fb9f5bc145a58eefac945575">&#9670;&#160;</a></span>exit_game()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void example_button_click </td>
+          <td class="memname">void exit_game </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -390,8 +399,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Handles the click event of the example button. </p>
-<p>This function is called when the example button is clicked. It prints a message indicating that the button has been clicked and updates the state variable to 1. </p>
+<p>Exits the game by setting the 'running' flag to false. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__menu_ga191afc58fb9f5bc145a58eefac945575_icgraph.png" border="0" usemap="#agroup__menu_ga191afc58fb9f5bc145a58eefac945575_icgraph" alt=""/></div>
+<map name="agroup__menu_ga191afc58fb9f5bc145a58eefac945575_icgraph" id="agroup__menu_ga191afc58fb9f5bc145a58eefac945575_icgraph">
+<area shape="rect" title="Exits the game by setting the &#39;running&#39; flag to false." alt="" coords="329,5,410,32"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,282,21,282,16,313,16"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -440,7 +460,38 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Handles a mouse click event." alt="" coords="329,5,468,32"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,281,21,281,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaafc0a4d6dd0de29a9cf74817634a59cd" name="gaafc0a4d6dd0de29a9cf74817634a59cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaafc0a4d6dd0de29a9cf74817634a59cd">&#9670;&#160;</a></span>how_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void how_to </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to handle the how to play button click event. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__menu_gaafc0a4d6dd0de29a9cf74817634a59cd_icgraph.png" border="0" usemap="#agroup__menu_gaafc0a4d6dd0de29a9cf74817634a59cd_icgraph" alt=""/></div>
+<map name="agroup__menu_gaafc0a4d6dd0de29a9cf74817634a59cd_icgraph" id="agroup__menu_gaafc0a4d6dd0de29a9cf74817634a59cd_icgraph">
+<area shape="rect" title="Function to handle the how to play button click event." alt="" coords="329,5,392,32"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="314,21,281,21,281,16,314,16"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -495,7 +546,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="501,21,449,21,449,16,501,16"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,31,281,57"/>
 <area shape="poly" title=" " alt="" coords="334,31,282,38,281,33,333,25"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,31,114,57"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,31,114,57"/>
 <area shape="poly" title=" " alt="" coords="146,47,114,47,114,41,146,41"/>
 <area shape="poly" title=" " alt="" coords="314,60,281,55,282,50,314,55"/>
 </map>
@@ -525,11 +576,11 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__menu_gafe7fc531bdb715767b074e320b5b07ae_cgraph.png" border="0" usemap="#agroup__menu_gafe7fc531bdb715767b074e320b5b07ae_cgraph" alt=""/></div>
 <map name="agroup__menu_gafe7fc531bdb715767b074e320b5b07ae_cgraph" id="agroup__menu_gafe7fc531bdb715767b074e320b5b07ae_cgraph">
-<area shape="rect" title="Draws the cursor on the menu screen." alt="" coords="5,13,137,40"/>
-<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="185,5,333,48"/>
-<area shape="poly" title=" " alt="" coords="137,24,169,24,169,29,137,29"/>
-<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="381,13,485,40"/>
-<area shape="poly" title=" " alt="" coords="333,24,366,24,366,29,333,29"/>
+<area shape="rect" title="Draws the cursor on the menu screen." alt="" coords="5,5,137,32"/>
+<area shape="rect" href="group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="185,5,312,32"/>
+<area shape="poly" title=" " alt="" coords="137,16,169,16,169,21,137,21"/>
+<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="360,5,464,32"/>
+<area shape="poly" title=" " alt="" coords="312,16,344,16,344,21,312,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -540,7 +591,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Draws the cursor on the menu screen." alt="" coords="329,5,460,32"/>
 <area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,282,21,282,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -568,59 +619,67 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_cgraph.png" border="0" usemap="#agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_cgraph" alt=""/></div>
 <map name="agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_cgraph" id="agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_cgraph">
-<area shape="rect" title="Main loop of the menu module." alt="" coords="5,208,125,235"/>
-<area shape="rect" href="group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="202,5,252,32"/>
-<area shape="poly" title=" " alt="" coords="69,206,104,131,134,84,171,42,186,31,190,35,174,46,138,87,109,133,74,209"/>
-<area shape="rect" href="group__menu.html#gaa431cf9edd6a3ee79ea356091599963d" title="Creates a button with the specified parameters and adds it to the button array." alt="" coords="177,56,277,83"/>
-<area shape="poly" title=" " alt="" coords="73,206,112,153,140,121,171,93,177,89,180,93,174,97,143,125,116,156,77,209"/>
-<area shape="rect" href="group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="177,107,277,133"/>
-<area shape="poly" title=" " alt="" coords="86,205,171,150,188,139,191,144,174,154,88,210"/>
-<area shape="rect" href="group__menu.html#ga39a6589b7272d766d21a79c3862c889a" title="Handles a mouse click event." alt="" coords="329,208,468,235"/>
-<area shape="poly" title=" " alt="" coords="125,219,313,219,313,224,125,224"/>
-<area shape="rect" href="menu_8c.html#aafc0a4d6dd0de29a9cf74817634a59cd" title=" " alt="" coords="195,259,259,285"/>
-<area shape="poly" title=" " alt="" coords="111,233,181,255,180,260,109,238"/>
-<area shape="rect" href="group__menu.html#gafe7fc531bdb715767b074e320b5b07ae" title="Draws the cursor on the menu screen." alt="" coords="333,157,464,184"/>
-<area shape="poly" title=" " alt="" coords="125,208,172,200,317,179,318,184,173,205,126,213"/>
-<area shape="rect" href="menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="173,309,281,336"/>
-<area shape="poly" title=" " alt="" coords="85,233,125,263,174,295,182,300,180,304,171,300,122,267,82,237"/>
-<area shape="rect" href="menu_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="178,360,276,387"/>
-<area shape="poly" title=" " alt="" coords="77,234,116,287,143,318,174,346,180,350,177,354,171,350,140,322,112,290,73,237"/>
-<area shape="rect" href="group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="201,411,253,437"/>
-<area shape="poly" title=" " alt="" coords="74,234,109,310,138,355,174,397,188,407,185,411,171,401,134,359,104,312,69,236"/>
-<area shape="rect" href="group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="353,107,445,133"/>
-<area shape="poly" title=" " alt="" coords="277,117,337,117,337,123,277,123"/>
-<area shape="rect" href="group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="551,69,630,96"/>
-<area shape="poly" title=" " alt="" coords="445,108,536,90,537,96,446,114"/>
-<area shape="rect" href="group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="527,187,654,213"/>
-<area shape="poly" title=" " alt="" coords="442,131,470,143,494,158,518,172,531,178,529,183,515,177,491,162,467,148,440,136"/>
-<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="516,120,665,163"/>
-<area shape="poly" title=" " alt="" coords="446,122,501,129,500,134,445,128"/>
-<area shape="rect" href="group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="713,27,889,53"/>
-<area shape="poly" title=" " alt="" coords="629,72,716,54,717,60,630,77"/>
-<area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="765,77,837,104"/>
-<area shape="poly" title=" " alt="" coords="630,81,750,86,750,91,630,87"/>
-<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="937,77,1041,104"/>
-<area shape="poly" title=" " alt="" coords="854,51,923,70,922,75,853,57"/>
-<area shape="poly" title=" " alt="" coords="665,136,771,128,889,113,925,106,926,111,889,119,771,134,665,141"/>
-<area shape="poly" title=" " alt="" coords="469,211,511,206,512,211,469,216"/>
-<area shape="poly" title=" " alt="" coords="464,158,501,152,501,158,465,163"/>
-<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="353,364,444,391"/>
-<area shape="poly" title=" " alt="" coords="272,334,341,356,339,361,270,339"/>
-<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="562,339,619,365"/>
-<area shape="poly" title=" " alt="" coords="444,369,546,355,547,360,445,374"/>
-<area shape="rect" href="group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="547,389,634,416"/>
-<area shape="poly" title=" " alt="" coords="445,381,532,392,531,398,444,386"/>
-<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="569,440,612,467"/>
-<area shape="poly" title=" " alt="" coords="431,389,517,426,556,439,554,444,515,430,429,394"/>
-<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="566,491,615,517"/>
-<area shape="poly" title=" " alt="" coords="414,389,458,432,486,455,518,476,552,491,550,496,515,481,483,460,454,436,410,393"/>
-<area shape="rect" href="group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="539,237,642,264"/>
-<area shape="poly" title=" " alt="" coords="410,362,454,319,483,295,515,274,525,268,528,273,518,278,486,299,458,323,414,366"/>
-<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="756,389,846,416"/>
-<area shape="poly" title=" " alt="" coords="408,390,422,421,446,460,478,498,496,514,518,527,556,542,590,547,623,541,664,527,700,507,732,481,780,427,784,431,735,485,703,512,666,532,625,546,590,552,555,548,515,532,493,518,474,502,441,463,418,423,403,392"/>
-<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="571,288,610,315"/>
-<area shape="poly" title=" " alt="" coords="429,361,515,324,555,310,557,315,517,329,431,366"/>
-<area shape="poly" title=" " alt="" coords="642,262,666,274,700,297,731,324,780,375,776,379,728,328,697,302,663,278,640,267"/>
+<area shape="rect" title="Main loop of the menu module." alt="" coords="5,259,125,285"/>
+<area shape="rect" href="group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="214,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="66,257,77,216,97,159,127,97,147,68,171,42,197,26,200,31,174,46,152,71,132,100,102,161,82,218,72,259"/>
+<area shape="rect" href="group__menu.html#gaa431cf9edd6a3ee79ea356091599963d" title="Creates a button with the specified parameters and adds it to the button array." alt="" coords="188,56,289,83"/>
+<area shape="poly" title=" " alt="" coords="68,257,82,225,103,181,133,134,171,93,176,89,180,93,174,97,137,137,108,183,86,227,73,259"/>
+<area shape="rect" href="group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="189,107,288,133"/>
+<area shape="poly" title=" " alt="" coords="74,257,113,206,140,177,171,150,188,139,191,143,174,154,144,181,117,210,78,260"/>
+<area shape="rect" href="group__graphics.html#gac64a8729042d4a3278e24849040f9781" title=" " alt="" coords="564,208,642,235"/>
+<area shape="poly" title=" " alt="" coords="116,255,172,244,277,232,381,224,549,219,549,224,381,230,277,237,173,249,117,261"/>
+<area shape="rect" href="group__menu.html#ga191afc58fb9f5bc145a58eefac945575" title="Exits the game by setting the &#39;running&#39; flag to false." alt="" coords="198,309,279,336"/>
+<area shape="poly" title=" " alt="" coords="114,283,184,304,182,309,113,289"/>
+<area shape="rect" href="group__menu.html#ga39a6589b7272d766d21a79c3862c889a" title="Handles a mouse click event." alt="" coords="352,157,491,184"/>
+<area shape="poly" title=" " alt="" coords="81,256,120,227,172,200,213,188,256,179,337,170,337,175,256,184,214,193,174,205,123,231,84,260"/>
+<area shape="rect" href="group__menu.html#gaafc0a4d6dd0de29a9cf74817634a59cd" title="Function to handle the how to play button click event." alt="" coords="207,360,270,387"/>
+<area shape="poly" title=" " alt="" coords="84,284,124,314,174,346,193,355,191,360,171,350,121,318,81,288"/>
+<area shape="rect" href="group__menu.html#gafe7fc531bdb715767b074e320b5b07ae" title="Draws the cursor on the menu screen." alt="" coords="173,259,304,285"/>
+<area shape="poly" title=" " alt="" coords="125,269,157,269,157,275,125,275"/>
+<area shape="rect" href="group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="184,411,293,437"/>
+<area shape="poly" title=" " alt="" coords="77,284,115,338,143,369,174,397,181,401,178,405,171,401,139,373,111,341,72,287"/>
+<area shape="rect" href="group__menu.html#ga095b10852176bed8392f819a203048c8" title="Function to handle the single player button click event." alt="" coords="190,461,287,488"/>
+<area shape="poly" title=" " alt="" coords="73,285,86,317,108,361,137,407,174,447,180,451,176,455,171,451,133,410,103,363,82,319,68,287"/>
+<area shape="rect" href="group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="212,512,265,539"/>
+<area shape="poly" title=" " alt="" coords="72,285,82,326,102,383,132,444,152,473,174,498,199,513,197,518,171,502,147,476,127,447,97,385,77,328,66,287"/>
+<area shape="rect" href="group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="376,107,468,133"/>
+<area shape="poly" title=" " alt="" coords="289,117,360,117,360,123,289,123"/>
+<area shape="rect" href="group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="564,107,642,133"/>
+<area shape="poly" title=" " alt="" coords="468,117,548,117,548,123,468,123"/>
+<area shape="rect" href="group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="539,157,667,184"/>
+<area shape="poly" title=" " alt="" coords="469,130,539,150,537,155,467,135"/>
+<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="729,53,877,96"/>
+<area shape="poly" title=" " alt="" coords="468,106,539,92,629,82,713,76,714,81,629,87,540,97,469,111"/>
+<area shape="rect" href="group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="715,187,891,213"/>
+<area shape="poly" title=" " alt="" coords="640,131,755,178,753,183,638,136"/>
+<area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="767,125,839,152"/>
+<area shape="poly" title=" " alt="" coords="643,121,752,131,752,137,643,126"/>
+<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="939,187,1043,213"/>
+<area shape="poly" title=" " alt="" coords="892,197,924,197,924,203,892,203"/>
+<area shape="poly" title=" " alt="" coords="861,94,892,111,934,142,968,174,964,178,930,146,890,116,859,99"/>
+<area shape="poly" title=" " alt="" coords="642,215,699,208,700,214,642,220"/>
+<area shape="poly" title=" " alt="" coords="638,205,666,194,714,172,752,156,754,161,716,177,668,198,640,210"/>
+<area shape="poly" title=" " alt="" coords="492,168,524,168,524,173,492,173"/>
+<area shape="rect" href="group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="739,237,867,264"/>
+<area shape="poly" title=" " alt="" coords="305,267,724,251,724,256,305,272"/>
+<area shape="poly" title=" " alt="" coords="855,234,924,215,925,220,856,239"/>
+<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="376,436,467,463"/>
+<area shape="poly" title=" " alt="" coords="293,429,361,438,360,444,293,434"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="574,360,632,387"/>
+<area shape="poly" title=" " alt="" coords="453,433,538,396,559,388,561,393,540,401,456,438"/>
+<area shape="rect" href="group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="559,411,647,437"/>
+<area shape="poly" title=" " alt="" coords="467,440,544,430,544,435,468,446"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="582,461,624,488"/>
+<area shape="poly" title=" " alt="" coords="468,453,566,467,566,472,467,458"/>
+<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="578,512,628,539"/>
+<area shape="poly" title=" " alt="" coords="456,461,540,498,565,508,563,513,538,502,453,466"/>
+<area shape="rect" href="group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="551,613,655,640"/>
+<area shape="poly" title=" " alt="" coords="433,461,475,523,506,559,541,593,557,603,554,608,538,597,502,563,471,526,429,464"/>
+<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="758,588,848,615"/>
+<area shape="poly" title=" " alt="" coords="436,461,479,505,508,529,541,548,591,568,645,582,742,596,742,601,644,587,590,573,538,553,505,533,475,509,432,465"/>
+<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="583,309,623,336"/>
+<area shape="poly" title=" " alt="" coords="434,434,478,391,538,346,567,331,570,336,541,350,481,396,438,437"/>
+<area shape="poly" title=" " alt="" coords="655,617,742,606,743,612,655,623"/>
 </map>
 </div>
 <div class="dynheader">
@@ -629,7 +688,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_icgraph.png" border="0" usemap="#agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_icgraph" alt=""/></div>
 <map name="agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_icgraph" id="agroup__menu_gafe1e23e0aa0f2f0a2008652e912cd66a_icgraph">
 <area shape="rect" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -658,7 +717,94 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__menu_ga8edc66800ffb06c4b675bee1f3058c5f_icgraph.png" border="0" usemap="#agroup__menu_ga8edc66800ffb06c4b675bee1f3058c5f_icgraph" alt=""/></div>
 <map name="agroup__menu_ga8edc66800ffb06c4b675bee1f3058c5f_icgraph" id="agroup__menu_ga8edc66800ffb06c4b675bee1f3058c5f_icgraph">
 <area shape="rect" title="Mouse event handler for the menu module." alt="" coords="162,5,310,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gad96f5e3d516346cb14adcb87878dae13" name="gad96f5e3d516346cb14adcb87878dae13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad96f5e3d516346cb14adcb87878dae13">&#9670;&#160;</a></span>multiple_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiple_player </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the isMultiplayer variable to true. If the host flag is true, sends a message to the serial port with the character 'M'. If the host flag is false, sends a message to the serial port with the character 'S'. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__menu_gad96f5e3d516346cb14adcb87878dae13_cgraph.png" border="0" usemap="#agroup__menu_gad96f5e3d516346cb14adcb87878dae13_cgraph" alt=""/></div>
+<map name="agroup__menu_gad96f5e3d516346cb14adcb87878dae13_cgraph" id="agroup__menu_gad96f5e3d516346cb14adcb87878dae13_cgraph">
+<area shape="rect" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="5,157,114,184"/>
+<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="162,157,253,184"/>
+<area shape="poly" title=" " alt="" coords="114,168,146,168,146,173,114,173"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="324,5,381,32"/>
+<area shape="poly" title=" " alt="" coords="214,155,246,102,271,71,299,42,309,35,312,39,303,46,275,74,251,105,218,158"/>
+<area shape="rect" href="group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="309,56,396,83"/>
+<area shape="poly" title=" " alt="" coords="221,155,256,125,300,92,306,88,309,93,302,97,259,129,225,159"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="332,107,374,133"/>
+<area shape="poly" title=" " alt="" coords="247,154,316,130,318,135,249,159"/>
+<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="328,157,377,184"/>
+<area shape="poly" title=" " alt="" coords="253,168,313,168,313,173,253,173"/>
+<area shape="rect" href="group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="301,208,404,235"/>
+<area shape="poly" title=" " alt="" coords="249,182,299,200,297,205,247,187"/>
+<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="452,233,543,260"/>
+<area shape="poly" title=" " alt="" coords="221,182,255,216,277,232,302,244,335,253,370,257,437,254,437,260,370,262,335,258,300,249,274,236,251,220,218,186"/>
+<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="333,309,372,336"/>
+<area shape="poly" title=" " alt="" coords="219,183,253,232,303,289,321,303,318,307,299,293,249,236,215,186"/>
+<area shape="poly" title=" " alt="" coords="405,228,437,233,436,239,404,233"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__menu_gad96f5e3d516346cb14adcb87878dae13_icgraph.png" border="0" usemap="#agroup__menu_gad96f5e3d516346cb14adcb87878dae13_icgraph" alt=""/></div>
+<map name="agroup__menu_gad96f5e3d516346cb14adcb87878dae13_icgraph" id="agroup__menu_gad96f5e3d516346cb14adcb87878dae13_icgraph">
+<area shape="rect" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="329,5,437,32"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga095b10852176bed8392f819a203048c8" name="ga095b10852176bed8392f819a203048c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga095b10852176bed8392f819a203048c8">&#9670;&#160;</a></span>single_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void single_player </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to handle the single player button click event. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__menu_ga095b10852176bed8392f819a203048c8_icgraph.png" border="0" usemap="#agroup__menu_ga095b10852176bed8392f819a203048c8_icgraph" alt=""/></div>
+<map name="agroup__menu_ga095b10852176bed8392f819a203048c8_icgraph" id="agroup__menu_ga095b10852176bed8392f819a203048c8_icgraph">
+<area shape="rect" title="Function to handle the single player button click event." alt="" coords="329,5,426,32"/>
+<area shape="rect" href="group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -743,6 +889,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Flag indicating if the game is in multiplayer mode. </p>
+<p>Flag to check if the game is multiplayer. </p>
 
 </div>
 </div>

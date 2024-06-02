@@ -1,29 +1,20 @@
 <map id="vg_draw_rectangle_to_buffer" name="vg_draw_rectangle_to_buffer">
-<area shape="rect" id="Node000001" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="688,124,836,167"/>
-<area shape="rect" id="Node000002" href="$group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="528,208,620,235"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="696,176,641,198,612,210,610,205,639,194,694,171"/>
-<area shape="rect" id="Node000006" href="$group__maze.html#ga1a872ef2b894c21b27733845d383891f" title=" " alt="" coords="530,5,618,32"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="727,115,686,80,638,46,615,35,618,30,641,42,689,76,730,111"/>
-<area shape="rect" id="Node000008" href="$group__maze.html#gaff19e9d5cfbdae617b8e9cd38cf7ed42" title=" " alt="" coords="523,56,625,83"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="692,120,608,86,610,81,694,115"/>
-<area shape="rect" id="Node000009" href="$group__graphics.html#gadd4131f7057e248ba74e16a71edd3a16" title="Fills the given buffer with the specified color." alt="" coords="539,157,609,184"/>
-<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="673,160,609,169,609,163,672,155"/>
-<area shape="rect" id="Node000010" href="$group__game.html#ga883b39d4713f5017f0599666f7f9dd5c" title="Draws the cursor on the screen." alt="" coords="508,259,640,285"/>
-<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="730,179,689,215,641,249,618,261,615,256,638,244,686,211,727,175"/>
-<area shape="rect" id="Node000012" href="$group__menu.html#gafe7fc531bdb715767b074e320b5b07ae" title="Draws the cursor on the menu screen." alt="" coords="329,132,460,159"/>
-<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="672,148,461,148,461,143,672,143"/>
-<area shape="rect" id="Node000003" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="345,189,444,216"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="512,218,444,210,445,205,513,212"/>
-<area shape="rect" id="Node000004" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,157,281,184"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="329,193,281,184,282,179,330,188"/>
-<area shape="rect" id="Node000005" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,157,114,184"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="146,173,114,173,114,168,146,168"/>
-<area shape="rect" id="Node000007" href="$group__game.html#ga43344c9fbe4022056e87cbf2a1a77e87" title="Initializes the game module." alt="" coords="356,56,433,83"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="516,38,435,61,433,56,514,33"/>
-<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="342,88,107,159,106,154,340,83"/>
-<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="508,72,434,72,434,67,508,67"/>
-<area shape="rect" id="Node000011" href="$group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,213,281,240"/>
-<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="493,264,281,237,282,232,493,259"/>
-<area shape="poly" id="edge13_Node000011_Node000005" title=" " alt="" coords="165,210,99,187,101,182,167,205"/>
-<area shape="poly" id="edge15_Node000012_Node000004" title=" " alt="" coords="314,160,282,165,281,159,313,155"/>
+<area shape="rect" id="Node000001" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="626,73,774,116"/>
+<area shape="rect" id="Node000002" href="$group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="481,5,573,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="635,69,558,35,560,30,637,64"/>
+<area shape="rect" id="Node000006" href="$group__maze.html#ga1a872ef2b894c21b27733845d383891f" title=" " alt="" coords="483,56,571,83"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="610,84,571,78,572,73,611,79"/>
+<area shape="rect" id="Node000008" href="$group__maze.html#gaff19e9d5cfbdae617b8e9cd38cf7ed42" title=" " alt="" coords="476,107,578,133"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="611,110,578,115,577,110,610,105"/>
+<area shape="rect" id="Node000009" href="$group__graphics.html#gadd4131f7057e248ba74e16a71edd3a16" title="Fills the given buffer with the specified color." alt="" coords="492,157,562,184"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="637,125,560,159,558,154,635,120"/>
+<area shape="rect" id="Node000003" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="329,5,428,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,21,429,21,429,16,465,16"/>
+<area shape="rect" id="Node000004" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,21,282,21,282,16,313,16"/>
+<area shape="rect" id="Node000005" href="$group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,31,114,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="147,33,115,38,114,33,146,28"/>
+<area shape="rect" id="Node000007" href="$group__game.html#ga43344c9fbe4022056e87cbf2a1a77e87" title=" " alt="" coords="183,56,260,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="467,72,260,72,260,67,467,67"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="167,64,114,55,114,50,168,58"/>
 </map>

@@ -1,0 +1,10 @@
+<map id="draw_title" name="draw_title">
+<area shape="rect" id="Node000001" title=" " alt="" coords="329,31,406,57"/>
+<area shape="rect" id="Node000002" href="$info_8c.html#a9cc55d4940b86fa696cf725de5361bfc" title=" " alt="" coords="167,5,276,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,37,275,31,276,25,314,32"/>
+<area shape="rect" id="Node000004" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,56,281,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="314,56,282,62,281,56,313,51"/>
+<area shape="rect" id="Node000003" href="$group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,31,114,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,32,114,38,113,33,151,27"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="146,60,114,55,115,50,147,55"/>
+</map>

@@ -117,13 +117,17 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#gga7899b65f1ea0f655e4bbf8d2a5714285a2f5f2c4a8c4f4f0519d503dcdfbf55cb">Running</a>
 , <a class="el" href="#gga7899b65f1ea0f655e4bbf8d2a5714285a7afd97a7b6273be9dcbad0e4e25b8eae">Finish</a>
  }</td></tr>
-<tr class="memdesc:ga7899b65f1ea0f655e4bbf8d2a5714285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the different states of the game.  <a href="#ga7899b65f1ea0f655e4bbf8d2a5714285">More...</a><br /></td></tr>
 <tr class="separator:ga7899b65f1ea0f655e4bbf8d2a5714285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gad4343e2492d4c6130483623a5fee98a6" id="r_gad4343e2492d4c6130483623a5fee98a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad4343e2492d4c6130483623a5fee98a6">can_lose</a> ()</td></tr>
+<tr class="separator:gad4343e2492d4c6130483623a5fee98a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad74868beaa505ce458fe2f245961d2bf" id="r_gad74868beaa505ce458fe2f245961d2bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad74868beaa505ce458fe2f245961d2bf">can_enter_multiplayer</a> ()</td></tr>
+<tr class="separator:gad74868beaa505ce458fe2f245961d2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a5640b92afc268e7635f2b57ad1172a" id="r_ga1a5640b92afc268e7635f2b57ad1172a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1a5640b92afc268e7635f2b57ad1172a">game_reset</a> ()</td></tr>
+<tr class="separator:ga1a5640b92afc268e7635f2b57ad1172a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43344c9fbe4022056e87cbf2a1a77e87" id="r_ga43344c9fbe4022056e87cbf2a1a77e87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga43344c9fbe4022056e87cbf2a1a77e87">init_game</a> ()</td></tr>
-<tr class="memdesc:ga43344c9fbe4022056e87cbf2a1a77e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game module.  <br /></td></tr>
 <tr class="separator:ga43344c9fbe4022056e87cbf2a1a77e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf6eaee2480765bfb4286378e47517e3e" id="r_gaf6eaee2480765bfb4286378e47517e3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf6eaee2480765bfb4286378e47517e3e">game_keyboard_handler</a> ()</td></tr>
 <tr class="memdesc:gaf6eaee2480765bfb4286378e47517e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles keyboard input for the game.  <br /></td></tr>
@@ -158,57 +162,51 @@ Functions</h2></td></tr>
 <tr class="memitem:gaed8baa9ecfe76f65360d20ffdc5ecc94" id="r_gaed8baa9ecfe76f65360d20ffdc5ecc94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaed8baa9ecfe76f65360d20ffdc5ecc94">game_activate_multiplayer</a> ()</td></tr>
 <tr class="memdesc:gaed8baa9ecfe76f65360d20ffdc5ecc94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the multiplayer mode of the game. Sets the game state to "Running".  <br /></td></tr>
 <tr class="separator:gaed8baa9ecfe76f65360d20ffdc5ecc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2011807177844c9163f65d24b5784a70" id="r_ga2011807177844c9163f65d24b5784a70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2011807177844c9163f65d24b5784a70">game_lose</a> ()</td></tr>
+<tr class="separator:ga2011807177844c9163f65d24b5784a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:gac16ac5b5982366cbba9038d9e97c250d" id="r_gac16ac5b5982366cbba9038d9e97c250d"><td class="memItemLeft" align="right" valign="top">xpm_image_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac16ac5b5982366cbba9038d9e97c250d">img</a></td></tr>
-<tr class="memdesc:gac16ac5b5982366cbba9038d9e97c250d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pixmap and metadata for the game image.  <br /></td></tr>
 <tr class="separator:gac16ac5b5982366cbba9038d9e97c250d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9ea1a8f5ef3e6d20b362385e1288c72c" id="r_ga9ea1a8f5ef3e6d20b362385e1288c72c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9ea1a8f5ef3e6d20b362385e1288c72c">delta</a></td></tr>
-<tr class="memdesc:ga9ea1a8f5ef3e6d20b362385e1288c72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle for the player's movement direction.  <br /></td></tr>
 <tr class="separator:ga9ea1a8f5ef3e6d20b362385e1288c72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga802b2a513fad611ec2f07d8552d31afa" id="r_ga802b2a513fad611ec2f07d8552d31afa"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga802b2a513fad611ec2f07d8552d31afa">kbd_value</a></td></tr>
-<tr class="memdesc:ga802b2a513fad611ec2f07d8552d31afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of the keyboard input.  <br /></td></tr>
 <tr class="separator:ga802b2a513fad611ec2f07d8552d31afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab4ae1cb519663fba62800fbd989fc7ba" id="r_gab4ae1cb519663fba62800fbd989fc7ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4ae1cb519663fba62800fbd989fc7ba">update_delta</a></td></tr>
-<tr class="memdesc:gab4ae1cb519663fba62800fbd989fc7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if the delta value needs to be updated.  <br /></td></tr>
+<tr class="memdesc:gab4ae1cb519663fba62800fbd989fc7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to update the delta.  <br /></td></tr>
 <tr class="separator:gab4ae1cb519663fba62800fbd989fc7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f63d54450207faa0b56186bef691a33" id="r_ga4f63d54450207faa0b56186bef691a33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4f63d54450207faa0b56186bef691a33">host</a></td></tr>
+<tr class="memdesc:ga4f63d54450207faa0b56186bef691a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to check if the player is the host.  <br /></td></tr>
+<tr class="separator:ga4f63d54450207faa0b56186bef691a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf88b946fb90d5f08b5fb740c70e98c10" id="r_gaf88b946fb90d5f08b5fb740c70e98c10"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf88b946fb90d5f08b5fb740c70e98c10">x</a></td></tr>
-<tr class="memdesc:gaf88b946fb90d5f08b5fb740c70e98c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">X-coordinate of the player's position.  <br /></td></tr>
 <tr class="separator:gaf88b946fb90d5f08b5fb740c70e98c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab927965981178aa1fba979a37168db2a" id="r_gab927965981178aa1fba979a37168db2a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab927965981178aa1fba979a37168db2a">y</a></td></tr>
-<tr class="memdesc:gab927965981178aa1fba979a37168db2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y-coordinate of the player's position.  <br /></td></tr>
 <tr class="separator:gab927965981178aa1fba979a37168db2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga976b3255a6a93ce4753593285a5185f9" id="r_ga976b3255a6a93ce4753593285a5185f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga976b3255a6a93ce4753593285a5185f9">x_mouse</a></td></tr>
-<tr class="memdesc:ga976b3255a6a93ce4753593285a5185f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">X-coordinate of the mouse position.  <br /></td></tr>
 <tr class="separator:ga976b3255a6a93ce4753593285a5185f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae37b017d16f47be8c966133b60efd486" id="r_gae37b017d16f47be8c966133b60efd486"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae37b017d16f47be8c966133b60efd486">y_mouse</a></td></tr>
-<tr class="memdesc:gae37b017d16f47be8c966133b60efd486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y-coordinate of the mouse position.  <br /></td></tr>
 <tr class="separator:gae37b017d16f47be8c966133b60efd486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3b2e64ffb96c650d6525c99be01c7331" id="r_ga3b2e64ffb96c650d6525c99be01c7331"><td class="memItemLeft" align="right" valign="top">struct packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3b2e64ffb96c650d6525c99be01c7331">mouse_packet</a></td></tr>
-<tr class="memdesc:ga3b2e64ffb96c650d6525c99be01c7331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mouse packet containing mouse movement information.  <br /></td></tr>
-<tr class="separator:ga3b2e64ffb96c650d6525c99be01c7331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8da9718bd3d0396135453cbb12751a5b" id="r_ga8da9718bd3d0396135453cbb12751a5b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8da9718bd3d0396135453cbb12751a5b">direction</a></td></tr>
-<tr class="memdesc:ga8da9718bd3d0396135453cbb12751a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction of the player's movement.  <br /></td></tr>
-<tr class="separator:ga8da9718bd3d0396135453cbb12751a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff4d1531b25f3014778ea4d68779d8ce" id="r_gaff4d1531b25f3014778ea4d68779d8ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaff4d1531b25f3014778ea4d68779d8ce">is_moving</a></td></tr>
-<tr class="memdesc:gaff4d1531b25f3014778ea4d68779d8ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if the player is currently moving.  <br /></td></tr>
-<tr class="separator:gaff4d1531b25f3014778ea4d68779d8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa4804e295c2689fe40b3d718cea3073c" id="r_gaa4804e295c2689fe40b3d718cea3073c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa4804e295c2689fe40b3d718cea3073c">frame_counter</a></td></tr>
-<tr class="memdesc:gaa4804e295c2689fe40b3d718cea3073c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for tracking the frames.  <br /></td></tr>
-<tr class="separator:gaa4804e295c2689fe40b3d718cea3073c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga612981dddda556478c74123512c5fd1f" id="r_ga612981dddda556478c74123512c5fd1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga612981dddda556478c74123512c5fd1f">current_frame</a></td></tr>
-<tr class="memdesc:ga612981dddda556478c74123512c5fd1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current frame of the game animation.  <br /></td></tr>
-<tr class="separator:ga612981dddda556478c74123512c5fd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa8af8351465868d1197b7e4dc62bfdcb" id="r_gaa8af8351465868d1197b7e4dc62bfdcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa8af8351465868d1197b7e4dc62bfdcb">initialTimeSet</a></td></tr>
-<tr class="memdesc:gaa8af8351465868d1197b7e4dc62bfdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if the initial time has been set.  <br /></td></tr>
 <tr class="separator:gaa8af8351465868d1197b7e4dc62bfdcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga63255c86ccf04fdd3ac33146e2d12151" id="r_ga63255c86ccf04fdd3ac33146e2d12151"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga63255c86ccf04fdd3ac33146e2d12151">finalTimeSet</a></td></tr>
-<tr class="memdesc:ga63255c86ccf04fdd3ac33146e2d12151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if the final time has been set.  <br /></td></tr>
 <tr class="separator:ga63255c86ccf04fdd3ac33146e2d12151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7fbdc8de2840db23708b1ac7ccaddd8f" id="r_ga7fbdc8de2840db23708b1ac7ccaddd8f"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="group__rtc.html#ga1cfc45b00479a9d62b7707bbb86fa272">time_el</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7fbdc8de2840db23708b1ac7ccaddd8f">time_stamp</a></td></tr>
-<tr class="memdesc:ga7fbdc8de2840db23708b1ac7ccaddd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time structure for storing the time.  <br /></td></tr>
 <tr class="separator:ga7fbdc8de2840db23708b1ac7ccaddd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b2e64ffb96c650d6525c99be01c7331" id="r_ga3b2e64ffb96c650d6525c99be01c7331"><td class="memItemLeft" align="right" valign="top">struct packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3b2e64ffb96c650d6525c99be01c7331">mouse_packet</a></td></tr>
+<tr class="separator:ga3b2e64ffb96c650d6525c99be01c7331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaafcf8e4f1e694db11ea0bdb8190270ed" id="r_gaafcf8e4f1e694db11ea0bdb8190270ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaafcf8e4f1e694db11ea0bdb8190270ed">lanterna_x</a></td></tr>
+<tr class="separator:gaafcf8e4f1e694db11ea0bdb8190270ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae927845506b0f0b0386f2fe320d90a4b" id="r_gae927845506b0f0b0386f2fe320d90a4b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae927845506b0f0b0386f2fe320d90a4b">lanterna_y</a></td></tr>
+<tr class="separator:gae927845506b0f0b0386f2fe320d90a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8da9718bd3d0396135453cbb12751a5b" id="r_ga8da9718bd3d0396135453cbb12751a5b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8da9718bd3d0396135453cbb12751a5b">direction</a></td></tr>
+<tr class="separator:ga8da9718bd3d0396135453cbb12751a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff4d1531b25f3014778ea4d68779d8ce" id="r_gaff4d1531b25f3014778ea4d68779d8ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaff4d1531b25f3014778ea4d68779d8ce">is_moving</a></td></tr>
+<tr class="separator:gaff4d1531b25f3014778ea4d68779d8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4804e295c2689fe40b3d718cea3073c" id="r_gaa4804e295c2689fe40b3d718cea3073c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa4804e295c2689fe40b3d718cea3073c">frame_counter</a></td></tr>
+<tr class="separator:gaa4804e295c2689fe40b3d718cea3073c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga612981dddda556478c74123512c5fd1f" id="r_ga612981dddda556478c74123512c5fd1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga612981dddda556478c74123512c5fd1f">current_frame</a></td></tr>
+<tr class="separator:ga612981dddda556478c74123512c5fd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7578d118bdc54af56e14b585c9e9f2a3" id="r_ga7578d118bdc54af56e14b585c9e9f2a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7578d118bdc54af56e14b585c9e9f2a3">isMultiplayer</a></td></tr>
 <tr class="memdesc:ga7578d118bdc54af56e14b585c9e9f2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if the game is in multiplayer mode.  <br /></td></tr>
 <tr class="separator:ga7578d118bdc54af56e14b585c9e9f2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,13 +242,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Represents the different states of the game. </p>
-<p>The GameState enum defines three possible states for the game:</p><ul>
-<li>Waiting: The game is waiting for the other player.</li>
-<li>Running: The game is currently running.</li>
-<li>Finish: The game has finished. </li>
-</ul>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga7899b65f1ea0f655e4bbf8d2a5714285a7ac9ab6c2e98f6df96b82b175d42747a" name="gga7899b65f1ea0f655e4bbf8d2a5714285a7ac9ab6c2e98f6df96b82b175d42747a"></a>Waiting&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="gga7899b65f1ea0f655e4bbf8d2a5714285a2f5f2c4a8c4f4f0519d503dcdfbf55cb" name="gga7899b65f1ea0f655e4bbf8d2a5714285a2f5f2c4a8c4f4f0519d503dcdfbf55cb"></a>Running&#160;</td><td class="fielddoc"></td></tr>
@@ -260,6 +251,60 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gad74868beaa505ce458fe2f245961d2bf" name="gad74868beaa505ce458fe2f245961d2bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad74868beaa505ce458fe2f245961d2bf">&#9670;&#160;</a></span>can_enter_multiplayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool can_enter_multiplayer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__game_gad74868beaa505ce458fe2f245961d2bf_icgraph.png" border="0" usemap="#agroup__game_gad74868beaa505ce458fe2f245961d2bf_icgraph" alt=""/></div>
+<map name="agroup__game_gad74868beaa505ce458fe2f245961d2bf_icgraph" id="agroup__game_gad74868beaa505ce458fe2f245961d2bf_icgraph">
+<area shape="rect" title=" " alt="" coords="162,5,310,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gad4343e2492d4c6130483623a5fee98a6" name="gad4343e2492d4c6130483623a5fee98a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad4343e2492d4c6130483623a5fee98a6">&#9670;&#160;</a></span>can_lose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool can_lose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__game_gad4343e2492d4c6130483623a5fee98a6_icgraph.png" border="0" usemap="#agroup__game_gad4343e2492d4c6130483623a5fee98a6_icgraph" alt=""/></div>
+<map name="agroup__game_gad4343e2492d4c6130483623a5fee98a6_icgraph" id="agroup__game_gad4343e2492d4c6130483623a5fee98a6_icgraph">
+<area shape="rect" title=" " alt="" coords="162,5,235,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ga81000586bde03fc0a1ecb1b6a4304674" name="ga81000586bde03fc0a1ecb1b6a4304674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga81000586bde03fc0a1ecb1b6a4304674">&#9670;&#160;</a></span>check_collision()</h2>
 
@@ -312,7 +357,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Checks for collision at the given position and size." alt="" coords="372,5,482,32"/>
 <area shape="rect" href="group__game.html#gaf6eaee2480765bfb4286378e47517e3e" title="Handles keyboard input for the game." alt="" coords="162,5,324,32"/>
 <area shape="poly" title=" " alt="" coords="357,21,325,21,325,16,357,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -344,7 +389,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Checks if the game has ended." alt="" coords="329,5,452,32"/>
 <area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,281,21,281,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -368,12 +413,37 @@ Here is the caller graph for this function:</div>
 
 <p>Activates the multiplayer mode of the game. Sets the game state to "Running". </p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_cgraph.png" border="0" usemap="#agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_cgraph" alt=""/></div>
+<map name="agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_cgraph" id="agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_cgraph">
+<area shape="rect" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="5,157,182,184"/>
+<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="230,157,321,184"/>
+<area shape="poly" title=" " alt="" coords="182,168,214,168,214,173,182,173"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="392,5,449,32"/>
+<area shape="poly" title=" " alt="" coords="282,155,314,102,339,71,367,42,377,35,380,39,371,46,343,74,319,105,286,158"/>
+<area shape="rect" href="group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="377,56,464,83"/>
+<area shape="poly" title=" " alt="" coords="289,155,324,125,368,92,374,88,377,93,370,97,327,129,293,159"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="400,107,442,133"/>
+<area shape="poly" title=" " alt="" coords="315,154,384,130,386,135,317,159"/>
+<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="396,157,445,184"/>
+<area shape="poly" title=" " alt="" coords="321,168,381,168,381,173,321,173"/>
+<area shape="rect" href="group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="369,208,472,235"/>
+<area shape="poly" title=" " alt="" coords="317,182,367,200,365,205,315,187"/>
+<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="520,233,611,260"/>
+<area shape="poly" title=" " alt="" coords="289,182,323,216,345,232,370,244,403,253,438,257,505,254,505,260,438,262,403,258,368,249,342,236,319,220,286,186"/>
+<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="401,309,440,336"/>
+<area shape="poly" title=" " alt="" coords="287,183,321,232,371,289,389,303,386,307,367,293,317,236,283,186"/>
+<area shape="poly" title=" " alt="" coords="473,228,505,233,504,239,472,233"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_icgraph.png" border="0" usemap="#agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_icgraph" alt=""/></div>
 <map name="agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_icgraph" id="agroup__game_gaed8baa9ecfe76f65360d20ffdc5ecc94_icgraph">
 <area shape="rect" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="162,5,338,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -404,7 +474,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Checks if the mouse cursor is within the screen boundaries and adjusts its position if necessary." alt="" coords="329,5,466,32"/>
 <area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -433,11 +503,11 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__game_ga883b39d4713f5017f0599666f7f9dd5c_cgraph.png" border="0" usemap="#agroup__game_ga883b39d4713f5017f0599666f7f9dd5c_cgraph" alt=""/></div>
 <map name="agroup__game_ga883b39d4713f5017f0599666f7f9dd5c_cgraph" id="agroup__game_ga883b39d4713f5017f0599666f7f9dd5c_cgraph">
-<area shape="rect" title="Draws the cursor on the screen." alt="" coords="5,13,137,40"/>
-<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="185,5,333,48"/>
-<area shape="poly" title=" " alt="" coords="137,24,169,24,169,29,137,29"/>
-<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="381,13,485,40"/>
-<area shape="poly" title=" " alt="" coords="333,24,366,24,366,29,333,29"/>
+<area shape="rect" title="Draws the cursor on the screen." alt="" coords="5,5,137,32"/>
+<area shape="rect" href="group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="185,5,312,32"/>
+<area shape="poly" title=" " alt="" coords="137,16,169,16,169,21,137,21"/>
+<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="360,5,464,32"/>
+<area shape="poly" title=" " alt="" coords="312,16,344,16,344,21,312,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -448,7 +518,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Draws the cursor on the screen." alt="" coords="329,5,460,32"/>
 <area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,282,21,282,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -480,7 +550,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Draws the field of view (FOV) circle on the screen." alt="" coords="329,5,480,32"/>
 <area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,282,21,282,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -528,7 +598,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Draws the hero character on the screen." alt="" coords="329,5,449,32"/>
 <area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
 <area shape="poly" title=" " alt="" coords="314,21,281,21,281,16,314,16"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -571,7 +641,34 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__game_gaf6eaee2480765bfb4286378e47517e3e_icgraph.png" border="0" usemap="#agroup__game_gaf6eaee2480765bfb4286378e47517e3e_icgraph" alt=""/></div>
 <map name="agroup__game_gaf6eaee2480765bfb4286378e47517e3e_icgraph" id="agroup__game_gaf6eaee2480765bfb4286378e47517e3e_icgraph">
 <area shape="rect" title="Handles keyboard input for the game." alt="" coords="162,5,324,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga2011807177844c9163f65d24b5784a70" name="ga2011807177844c9163f65d24b5784a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2011807177844c9163f65d24b5784a70">&#9670;&#160;</a></span>game_lose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void game_lose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__game_ga2011807177844c9163f65d24b5784a70_icgraph.png" border="0" usemap="#agroup__game_ga2011807177844c9163f65d24b5784a70_icgraph" alt=""/></div>
+<map name="agroup__game_ga2011807177844c9163f65d24b5784a70_icgraph" id="agroup__game_ga2011807177844c9163f65d24b5784a70_icgraph">
+<area shape="rect" title=" " alt="" coords="162,5,246,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -599,41 +696,60 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__game_ga7c0dfd6d419fb67565e597ba124f9a10_cgraph.png" border="0" usemap="#agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_cgraph" alt=""/></div>
 <map name="agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_cgraph" id="agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_cgraph">
-<area shape="rect" title="Main game loop." alt="" coords="5,208,125,235"/>
-<area shape="rect" href="group__game.html#gac75387497d5b7f9eeaddc97b62b9984e" title="Checks if the game has ended." alt="" coords="187,5,310,32"/>
-<area shape="poly" title=" " alt="" coords="68,207,81,173,102,129,132,83,171,42,177,38,180,42,174,46,137,86,107,132,86,176,73,209"/>
-<area shape="rect" href="game_8c.html#a6bb46547a6e0d03100d240a87482645a" title=" " alt="" coords="204,56,293,83"/>
-<area shape="poly" title=" " alt="" coords="72,206,110,151,138,120,171,92,188,83,191,88,174,97,142,124,114,155,77,209"/>
-<area shape="rect" href="group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="224,107,273,133"/>
-<area shape="poly" title=" " alt="" coords="81,206,121,175,171,143,208,128,210,133,174,148,124,179,84,210"/>
-<area shape="rect" href="group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="209,157,288,184"/>
-<area shape="poly" title=" " alt="" coords="115,205,193,183,195,188,117,210"/>
-<area shape="rect" href="group__game.html#ga4469aa2f8480b2c18f824bac10233252" title="Checks if the mouse cursor is within the screen boundaries and adjusts its position if necessary." alt="" coords="180,208,317,235"/>
-<area shape="poly" title=" " alt="" coords="125,219,164,219,164,224,125,224"/>
-<area shape="rect" href="group__game.html#ga883b39d4713f5017f0599666f7f9dd5c" title="Draws the cursor on the screen." alt="" coords="183,259,314,285"/>
-<area shape="poly" title=" " alt="" coords="117,233,183,251,182,257,115,238"/>
-<area shape="rect" href="group__game.html#gae1ae24ae5b73aee99bee4db9e5ddb0ab" title="Draws the field of view (FOV) circle on the screen." alt="" coords="173,309,324,336"/>
-<area shape="poly" title=" " alt="" coords="84,233,124,264,174,295,186,301,184,306,171,300,121,268,81,237"/>
-<area shape="rect" href="group__game.html#gaa0011d61a3ed9d119154f2d5bc081282" title="Draws the hero character on the screen." alt="" coords="188,360,309,387"/>
-<area shape="poly" title=" " alt="" coords="77,234,114,288,142,319,174,346,182,351,179,355,171,350,138,323,110,291,72,237"/>
-<area shape="rect" href="group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="222,411,275,437"/>
-<area shape="poly" title=" " alt="" coords="73,234,86,267,107,311,137,357,174,397,190,407,208,414,206,419,188,411,171,401,132,360,102,313,81,269,68,236"/>
-<area shape="rect" href="group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="372,153,548,180"/>
-<area shape="poly" title=" " alt="" coords="288,167,356,166,357,171,288,173"/>
-<area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="425,204,496,231"/>
-<area shape="poly" title=" " alt="" coords="289,177,410,204,409,209,287,182"/>
-<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="629,263,733,289"/>
-<area shape="poly" title=" " alt="" coords="519,178,549,190,605,220,651,251,648,256,602,224,547,194,517,183"/>
-<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="386,255,534,297"/>
-<area shape="poly" title=" " alt="" coords="314,271,371,272,370,277,314,276"/>
-<area shape="poly" title=" " alt="" coords="535,273,613,273,613,279,535,279"/>
-<area shape="rect" href="group__graphics.html#gaeb2865714797ace67cdca9049d0f6956" title="Draws an XPM image at a specified position with a given rotation angle." alt="" coords="388,339,533,381"/>
-<area shape="poly" title=" " alt="" coords="309,367,372,363,372,368,309,372"/>
-<area shape="poly" title=" " alt="" coords="517,336,629,293,631,298,519,341"/>
-<area shape="rect" href="group__graphics.html#ga1abe147494950a764d8323146357408f" title="Calculates the bounds of a rotated rectangle." alt="" coords="596,328,766,355"/>
-<area shape="poly" title=" " alt="" coords="533,351,580,347,581,352,533,357"/>
-<area shape="rect" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74" title="Normalize the color based on the number of bits per pixel." alt="" coords="662,379,700,405"/>
-<area shape="poly" title=" " alt="" coords="533,368,647,384,646,390,533,373"/>
+<area shape="rect" title="Main game loop." alt="" coords="5,259,125,285"/>
+<area shape="rect" href="game_8c.html#a1d7267f28b26283120842002333e4101" title=" " alt="" coords="196,5,301,32"/>
+<area shape="poly" title=" " alt="" coords="66,258,76,216,96,159,126,97,147,68,171,42,180,35,183,39,174,46,151,71,131,99,101,161,81,218,71,259"/>
+<area shape="rect" href="group__game.html#gac75387497d5b7f9eeaddc97b62b9984e" title="Checks if the game has ended." alt="" coords="187,56,310,83"/>
+<area shape="poly" title=" " alt="" coords="68,257,81,224,102,180,132,133,171,93,177,88,180,93,174,97,137,137,107,183,86,226,73,259"/>
+<area shape="rect" href="game_8c.html#a6bb46547a6e0d03100d240a87482645a" title=" " alt="" coords="204,107,293,133"/>
+<area shape="poly" title=" " alt="" coords="72,257,110,202,138,171,171,143,188,134,191,138,174,148,142,174,114,205,77,260"/>
+<area shape="rect" href="group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="224,157,273,184"/>
+<area shape="poly" title=" " alt="" coords="81,256,121,225,171,194,208,179,210,184,174,198,124,230,84,260"/>
+<area shape="rect" href="group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="209,208,288,235"/>
+<area shape="poly" title=" " alt="" coords="115,255,193,234,195,239,117,261"/>
+<area shape="rect" href="group__game.html#ga4469aa2f8480b2c18f824bac10233252" title="Checks if the mouse cursor is within the screen boundaries and adjusts its position if necessary." alt="" coords="180,259,317,285"/>
+<area shape="poly" title=" " alt="" coords="125,269,164,269,164,275,125,275"/>
+<area shape="rect" href="group__game.html#ga883b39d4713f5017f0599666f7f9dd5c" title="Draws the cursor on the screen." alt="" coords="183,309,314,336"/>
+<area shape="poly" title=" " alt="" coords="117,283,183,302,182,307,115,289"/>
+<area shape="rect" href="group__game.html#gae1ae24ae5b73aee99bee4db9e5ddb0ab" title="Draws the field of view (FOV) circle on the screen." alt="" coords="173,360,324,387"/>
+<area shape="poly" title=" " alt="" coords="84,284,124,314,174,346,186,351,184,356,171,350,121,319,81,288"/>
+<area shape="rect" href="group__game.html#gaa0011d61a3ed9d119154f2d5bc081282" title="Draws the hero character on the screen." alt="" coords="188,411,309,437"/>
+<area shape="poly" title=" " alt="" coords="77,284,114,339,142,370,174,397,182,401,179,406,171,401,138,373,110,342,72,287"/>
+<area shape="rect" href="group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="203,503,294,529"/>
+<area shape="poly" title=" " alt="" coords="75,285,114,357,142,403,175,448,219,491,215,495,171,451,138,406,109,360,70,287"/>
+<area shape="rect" href="group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="222,553,275,580"/>
+<area shape="poly" title=" " alt="" coords="70,286,78,334,96,402,109,439,127,475,148,509,174,539,190,550,208,557,206,562,188,555,171,543,144,513,122,478,104,441,91,403,73,335,65,286"/>
+<area shape="rect" href="group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="372,183,548,209"/>
+<area shape="poly" title=" " alt="" coords="288,214,356,206,357,211,288,219"/>
+<area shape="rect" href="group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="425,233,496,260"/>
+<area shape="poly" title=" " alt="" coords="288,223,409,238,408,243,288,229"/>
+<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="629,284,733,311"/>
+<area shape="poly" title=" " alt="" coords="518,207,549,219,602,245,648,273,645,278,600,250,547,224,516,212"/>
+<area shape="rect" href="group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="397,284,524,311"/>
+<area shape="poly" title=" " alt="" coords="314,312,381,304,381,309,314,318"/>
+<area shape="poly" title=" " alt="" coords="524,295,613,295,613,300,524,300"/>
+<area shape="rect" href="group__graphics.html#gaeb2865714797ace67cdca9049d0f6956" title="Draws an XPM image at a specified position with a given rotation angle." alt="" coords="388,335,533,377"/>
+<area shape="poly" title=" " alt="" coords="292,408,376,380,378,385,293,413"/>
+<area shape="poly" title=" " alt="" coords="532,334,613,312,615,318,534,339"/>
+<area shape="rect" href="group__graphics.html#ga1abe147494950a764d8323146357408f" title="Calculates the bounds of a rotated rectangle." alt="" coords="596,339,766,365"/>
+<area shape="poly" title=" " alt="" coords="533,352,581,351,581,356,533,357"/>
+<area shape="rect" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74" title="Normalize the color based on the number of bits per pixel." alt="" coords="662,389,700,416"/>
+<area shape="poly" title=" " alt="" coords="533,369,647,393,646,398,532,374"/>
+<area shape="rect" href="group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="432,401,489,428"/>
+<area shape="poly" title=" " alt="" coords="267,500,313,469,371,438,415,422,417,427,373,442,316,474,270,504"/>
+<area shape="rect" href="group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="417,452,504,479"/>
+<area shape="poly" title=" " alt="" coords="294,503,401,477,402,482,295,508"/>
+<area shape="rect" href="group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="439,503,481,529"/>
+<area shape="poly" title=" " alt="" coords="295,513,423,513,423,519,295,519"/>
+<area shape="rect" href="group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="436,553,485,580"/>
+<area shape="poly" title=" " alt="" coords="295,524,421,555,420,560,294,529"/>
+<area shape="rect" href="group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="409,604,512,631"/>
+<area shape="poly" title=" " alt="" coords="296,525,325,539,341,552,350,565,359,578,373,590,395,600,393,605,371,594,355,581,346,568,337,556,323,544,293,530"/>
+<area shape="rect" href="utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="636,629,726,656"/>
+<area shape="poly" title=" " alt="" coords="296,523,326,539,337,553,344,567,349,594,354,619,361,630,373,640,403,655,434,665,500,672,564,668,620,657,621,663,565,673,500,678,433,670,401,660,371,645,357,634,349,621,344,595,339,568,333,556,322,543,293,527"/>
+<area shape="rect" href="group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="441,705,480,732"/>
+<area shape="poly" title=" " alt="" coords="295,521,312,529,326,539,340,558,348,577,351,614,354,650,361,667,374,685,398,702,426,711,424,716,396,706,370,689,356,670,349,651,346,614,342,578,336,561,322,543,309,533,293,526"/>
+<area shape="poly" title=" " alt="" coords="512,621,621,633,620,638,512,626"/>
 </map>
 </div>
 <div class="dynheader">
@@ -642,7 +758,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__game_ga7c0dfd6d419fb67565e597ba124f9a10_icgraph.png" border="0" usemap="#agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_icgraph" alt=""/></div>
 <map name="agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_icgraph" id="agroup__game_ga7c0dfd6d419fb67565e597ba124f9a10_icgraph">
 <area shape="rect" title="Main game loop." alt="" coords="162,5,281,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -681,7 +797,34 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="group__game_ga1c0e959f610a66cc6a75aa3ddb9eedcf_icgraph.png" border="0" usemap="#agroup__game_ga1c0e959f610a66cc6a75aa3ddb9eedcf_icgraph" alt=""/></div>
 <map name="agroup__game_ga1c0e959f610a66cc6a75aa3ddb9eedcf_icgraph" id="agroup__game_ga1c0e959f610a66cc6a75aa3ddb9eedcf_icgraph">
 <area shape="rect" title="Handles mouse input for the game." alt="" coords="162,5,310,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga1a5640b92afc268e7635f2b57ad1172a" name="ga1a5640b92afc268e7635f2b57ad1172a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a5640b92afc268e7635f2b57ad1172a">&#9670;&#160;</a></span>game_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void game_reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__game_ga1a5640b92afc268e7635f2b57ad1172a_icgraph.png" border="0" usemap="#agroup__game_ga1a5640b92afc268e7635f2b57ad1172a_icgraph" alt=""/></div>
+<map name="agroup__game_ga1a5640b92afc268e7635f2b57ad1172a_icgraph" id="agroup__game_ga1a5640b92afc268e7635f2b57ad1172a_icgraph">
+<area shape="rect" title=" " alt="" coords="162,5,251,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -714,7 +857,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="356,36,324,32,325,27,357,31"/>
 <area shape="rect" href="group__game.html#ga1c0e959f610a66cc6a75aa3ddb9eedcf" title="Handles mouse input for the game." alt="" coords="169,56,317,83"/>
 <area shape="poly" title=" " alt="" coords="357,57,318,62,317,57,356,52"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,31,114,57"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,31,114,57"/>
 <area shape="poly" title=" " alt="" coords="146,35,114,39,114,34,146,29"/>
 <area shape="poly" title=" " alt="" coords="153,60,114,54,115,49,153,54"/>
 </map>
@@ -736,43 +879,26 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initializes the game module. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__game_ga43344c9fbe4022056e87cbf2a1a77e87_cgraph.png" border="0" usemap="#agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_cgraph" alt=""/></div>
 <map name="agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_cgraph" id="agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_cgraph">
-<area shape="rect" title="Initializes the game module." alt="" coords="5,123,83,149"/>
+<area shape="rect" title=" " alt="" coords="5,72,83,99"/>
 <area shape="rect" href="group__maze.html#ga1a872ef2b894c21b27733845d383891f" title=" " alt="" coords="161,17,250,44"/>
-<area shape="poly" title=" " alt="" coords="56,120,88,89,129,58,147,48,149,53,132,62,91,93,60,124"/>
-<area shape="rect" href="group__maze.html#gaff19e9d5cfbdae617b8e9cd38cf7ed42" title=" " alt="" coords="155,72,256,99"/>
-<area shape="poly" title=" " alt="" coords="82,121,145,101,147,106,84,127"/>
-<area shape="rect" href="group__maze.html#ga3a88d5612b5f99cbbc8aebf521514eb2" title=" " alt="" coords="150,123,261,149"/>
-<area shape="poly" title=" " alt="" coords="83,133,135,133,135,139,83,139"/>
-<area shape="rect" href="group__maze.html#ga10ea0a2bdb34a945d5d96dfcfefbd765" title=" " alt="" coords="131,173,280,200"/>
-<area shape="poly" title=" " alt="" coords="84,145,147,166,145,171,82,151"/>
-<area shape="rect" href="group__maze.html#ga00c9f5e50c5ed60bbfe3dcd2f3bbe630" title=" " alt="" coords="160,275,251,301"/>
-<area shape="poly" title=" " alt="" coords="61,148,181,262,177,266,58,151"/>
-<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="332,5,480,48"/>
-<area shape="poly" title=" " alt="" coords="250,27,316,26,316,31,250,32"/>
-<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="531,13,636,40"/>
-<area shape="poly" title=" " alt="" coords="480,24,516,24,516,29,480,29"/>
-<area shape="poly" title=" " alt="" coords="253,69,316,50,318,55,254,74"/>
-<area shape="rect" href="group__linked__list.html#ga34fae5413370bbacb798e74a7af184ea" title=" " alt="" coords="352,72,460,99"/>
-<area shape="poly" title=" " alt="" coords="257,83,336,83,336,88,257,88"/>
-<area shape="rect" href="group__stack.html#ga3dc254804a21ba5c706a6c48ab75c2f0" title=" " alt="" coords="365,123,446,149"/>
-<area shape="poly" title=" " alt="" coords="261,133,350,133,350,139,261,139"/>
-<area shape="rect" href="group__stack.html#ga1501ebe41d10206153098006f23d57da" title="Pushes a new cell onto the stack." alt="" coords="362,173,450,200"/>
-<area shape="poly" title=" " alt="" coords="261,147,347,169,345,174,260,152"/>
-<area shape="rect" href="group__linked__list.html#ga19b73ee0d18dbb1f586869552d40beb4" title=" " alt="" coords="328,224,483,251"/>
-<area shape="poly" title=" " alt="" coords="251,274,335,252,336,258,252,279"/>
-<area shape="rect" href="group__linked__list.html#ga758420ca3ce47e2d48494c9bd93154b1" title=" " alt="" coords="338,275,473,301"/>
-<area shape="poly" title=" " alt="" coords="252,285,322,285,322,291,252,291"/>
-<area shape="rect" href="group__linked__list.html#ga0f712805cb43d96b0ceeeb4c574f06fd" title=" " alt="" coords="349,325,463,352"/>
-<area shape="poly" title=" " alt="" coords="252,297,336,318,335,324,251,302"/>
-<area shape="rect" href="group__linked__list.html#ga4886b7af7d4b234dbfc34be481935fb9" title=" " alt="" coords="341,376,470,403"/>
-<area shape="poly" title=" " alt="" coords="227,300,273,330,329,362,343,368,341,373,327,366,270,335,224,304"/>
+<area shape="poly" title=" " alt="" coords="82,70,149,47,151,52,84,75"/>
+<area shape="rect" href="group__maze.html#ga3a88d5612b5f99cbbc8aebf521514eb2" title=" " alt="" coords="150,72,261,99"/>
+<area shape="poly" title=" " alt="" coords="83,83,135,83,135,88,83,88"/>
+<area shape="rect" href="group__maze.html#ga10ea0a2bdb34a945d5d96dfcfefbd765" title=" " alt="" coords="131,123,280,149"/>
+<area shape="poly" title=" " alt="" coords="84,95,147,115,145,120,82,100"/>
+<area shape="rect" href="group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="328,5,476,48"/>
+<area shape="poly" title=" " alt="" coords="250,27,312,26,312,31,250,32"/>
+<area shape="rect" href="group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="524,13,629,40"/>
+<area shape="poly" title=" " alt="" coords="477,24,509,24,509,29,477,29"/>
+<area shape="rect" href="group__stack.html#ga3dc254804a21ba5c706a6c48ab75c2f0" title=" " alt="" coords="362,72,443,99"/>
+<area shape="poly" title=" " alt="" coords="261,83,346,83,346,88,261,88"/>
+<area shape="rect" href="group__stack.html#ga1501ebe41d10206153098006f23d57da" title="Pushes a new cell onto the stack." alt="" coords="358,123,446,149"/>
+<area shape="poly" title=" " alt="" coords="261,97,344,118,342,123,260,102"/>
 </map>
 </div>
 <div class="dynheader">
@@ -780,8 +906,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__game_ga43344c9fbe4022056e87cbf2a1a77e87_icgraph.png" border="0" usemap="#agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_icgraph" alt=""/></div>
 <map name="agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_icgraph" id="agroup__game_ga43344c9fbe4022056e87cbf2a1a77e87_icgraph">
-<area shape="rect" title="Initializes the game module." alt="" coords="162,5,239,32"/>
-<area shape="rect" href="proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="rect" title=" " alt="" coords="162,5,239,32"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>
 </div>
@@ -801,8 +927,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Current frame of the game animation. </p>
-
 </div>
 </div>
 <a id="ga9ea1a8f5ef3e6d20b362385e1288c72c" name="ga9ea1a8f5ef3e6d20b362385e1288c72c"></a>
@@ -816,8 +940,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Angle for the player's movement direction. </p>
 
 </div>
 </div>
@@ -833,8 +955,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Direction of the player's movement. </p>
-
 </div>
 </div>
 <a id="ga63255c86ccf04fdd3ac33146e2d12151" name="ga63255c86ccf04fdd3ac33146e2d12151"></a>
@@ -848,8 +968,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Flag indicating if the final time has been set. </p>
 
 </div>
 </div>
@@ -865,7 +983,29 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Counter for tracking the frames. </p>
+</div>
+</div>
+<a id="ga4f63d54450207faa0b56186bef691a33" name="ga4f63d54450207faa0b56186bef691a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4f63d54450207faa0b56186bef691a33">&#9670;&#160;</a></span>host</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool host</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to check if the player is the host. </p>
 
 </div>
 </div>
@@ -881,8 +1021,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Pixmap and metadata for the game image. </p>
-
 </div>
 </div>
 <a id="gaa8af8351465868d1197b7e4dc62bfdcb" name="gaa8af8351465868d1197b7e4dc62bfdcb"></a>
@@ -897,8 +1035,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Flag indicating if the initial time has been set. </p>
-
 </div>
 </div>
 <a id="gaff4d1531b25f3014778ea4d68779d8ce" name="gaff4d1531b25f3014778ea4d68779d8ce"></a>
@@ -912,8 +1048,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Flag indicating if the player is currently moving. </p>
 
 </div>
 </div>
@@ -953,7 +1087,33 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Value of the keyboard input. </p>
+</div>
+</div>
+<a id="gaafcf8e4f1e694db11ea0bdb8190270ed" name="gaafcf8e4f1e694db11ea0bdb8190270ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaafcf8e4f1e694db11ea0bdb8190270ed">&#9670;&#160;</a></span>lanterna_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lanterna_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gae927845506b0f0b0386f2fe320d90a4b" name="gae927845506b0f0b0386f2fe320d90a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae927845506b0f0b0386f2fe320d90a4b">&#9670;&#160;</a></span>lanterna_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lanterna_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -977,8 +1137,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Mouse packet containing mouse movement information. </p>
-
 </div>
 </div>
 <a id="ga7fbdc8de2840db23708b1ac7ccaddd8f" name="ga7fbdc8de2840db23708b1ac7ccaddd8f"></a>
@@ -1001,8 +1159,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Time structure for storing the time. </p>
-
 </div>
 </div>
 <a id="gab4ae1cb519663fba62800fbd989fc7ba" name="gab4ae1cb519663fba62800fbd989fc7ba"></a>
@@ -1017,7 +1173,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Flag indicating if the delta value needs to be updated. </p>
+<p>Flag to update the delta. </p>
 
 </div>
 </div>
@@ -1033,8 +1189,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>X-coordinate of the player's position. </p>
-
 </div>
 </div>
 <a id="ga976b3255a6a93ce4753593285a5185f9" name="ga976b3255a6a93ce4753593285a5185f9"></a>
@@ -1048,8 +1202,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>X-coordinate of the mouse position. </p>
 
 </div>
 </div>
@@ -1065,8 +1217,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Y-coordinate of the player's position. </p>
-
 </div>
 </div>
 <a id="gae37b017d16f47be8c966133b60efd486" name="gae37b017d16f47be8c966133b60efd486"></a>
@@ -1080,8 +1230,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Y-coordinate of the mouse position. </p>
 
 </div>
 </div>

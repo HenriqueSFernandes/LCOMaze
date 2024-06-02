@@ -1,18 +1,23 @@
 <map id="top" name="top">
-<area shape="rect" id="Node000001" title="Returns the element at the front of the queue without removing it." alt="" coords="625,31,664,57"/>
-<area shape="rect" id="Node000002" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="352,5,415,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="610,31,576,21,533,16,489,14,416,18,415,13,489,9,533,11,577,16,611,26"/>
-<area shape="rect" id="Node000004" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="503,31,559,57"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="609,47,560,47,560,41,609,41"/>
-<area shape="rect" id="Node000005" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="485,81,577,108"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="612,61,564,83,561,78,610,56"/>
-<area shape="rect" id="Node000003" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,56,114,83"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,27,162,53,115,62,114,56,161,48,336,22"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="487,39,415,27,416,21,488,34"/>
-<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="469,94,114,75,114,70,470,89"/>
-<area shape="rect" id="Node000006" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,107,437,133"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="471,108,438,113,437,108,470,102"/>
-<area shape="rect" id="Node000007" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,107,281,133"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="313,123,281,123,281,117,313,117"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="161,104,104,86,105,81,163,99"/>
+<area shape="rect" id="Node000001" title="Returns the element at the front of the queue without removing it." alt="" coords="682,56,721,83"/>
+<area shape="rect" id="Node000002" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="409,5,472,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="667,58,633,47,546,31,472,23,472,18,547,25,634,41,668,53"/>
+<area shape="rect" id="Node000004" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="560,56,616,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="666,72,617,72,617,67,666,67"/>
+<area shape="rect" id="Node000005" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="542,107,634,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="669,87,621,109,618,104,667,82"/>
+<area shape="rect" id="Node000003" href="$group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,81,114,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,20,286,25,224,33,162,47,120,63,84,83,81,79,117,59,161,41,223,28,286,20,393,15"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="544,57,471,32,473,27,546,52"/>
+<area shape="rect" id="Node000006" href="$group__game.html#gaed8baa9ecfe76f65360d20ffdc5ecc94" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="162,56,338,83"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="526,110,494,104,338,82,339,77,495,99,527,105"/>
+<area shape="rect" id="Node000007" href="$group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="190,107,310,133"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="527,123,310,123,310,117,527,117"/>
+<area shape="rect" id="Node000008" href="$group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="386,157,494,184"/>
+<area shape="poly" id="edge10_Node000005_Node000008" title=" " alt="" coords="533,142,482,159,481,154,531,136"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="147,86,114,90,114,85,146,81"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="174,113,113,104,114,99,175,107"/>
+<area shape="rect" id="Node000009" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="190,157,310,184"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="371,173,310,173,310,168,371,168"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="180,155,161,148,84,111,86,106,163,143,182,150"/>
 </map>

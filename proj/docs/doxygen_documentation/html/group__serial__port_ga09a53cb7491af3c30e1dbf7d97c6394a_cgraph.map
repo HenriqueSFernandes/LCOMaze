@@ -1,0 +1,7 @@
+<map id="clear_transmit_queue" name="clear_transmit_queue">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,151,57"/>
+<area shape="rect" id="Node000002" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="199,5,256,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,29,183,23,184,29,151,34"/>
+<area shape="rect" id="Node000003" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="206,56,249,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,54,191,61,190,66,150,59"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="multiple_player" name="multiple_player">
+<area shape="rect" id="Node000001" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="5,157,114,184"/>
+<area shape="rect" id="Node000002" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="162,157,253,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,168,146,168,146,173,114,173"/>
+<area shape="rect" id="Node000003" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="324,5,381,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,155,246,102,271,71,299,42,309,35,312,39,303,46,275,74,251,105,218,158"/>
+<area shape="rect" id="Node000004" href="$group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="309,56,396,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="221,155,256,125,300,92,306,88,309,93,302,97,259,129,225,159"/>
+<area shape="rect" id="Node000005" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="332,107,374,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="247,154,316,130,318,135,249,159"/>
+<area shape="rect" id="Node000006" href="$group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="328,157,377,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="253,168,313,168,313,173,253,173"/>
+<area shape="rect" id="Node000007" href="$group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="301,208,404,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="249,182,299,200,297,205,247,187"/>
+<area shape="rect" id="Node000008" href="$utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="452,233,543,260"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="221,182,255,216,277,232,302,244,335,253,370,257,437,254,437,260,370,262,335,258,300,249,274,236,251,220,218,186"/>
+<area shape="rect" id="Node000009" href="$group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="333,309,372,336"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="219,183,253,232,303,289,321,303,318,307,299,293,249,236,215,186"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="405,228,437,233,436,239,404,233"/>
+</map>
