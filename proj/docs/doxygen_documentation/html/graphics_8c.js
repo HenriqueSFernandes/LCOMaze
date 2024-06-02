@@ -15,6 +15,7 @@ var graphics_8c =
     [ "swap", "group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be", null ],
     [ "vg_draw_pixel", "group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686", null ],
     [ "vg_draw_rectangle_to_buffer", "group__graphics.html#gab19746795d16b63538d39207ffe631a5", null ],
+    [ "vg_exit_to_text", "group__graphics.html#ga54cb064192623201f6b0b30449adef9e", null ],
     [ "bytesPerPixel", "graphics_8c.html#ad534b56f3e210d3ad8dbc025741a302b", null ],
     [ "kbd_hook_id", "graphics_8c.html#a74708534432e98d4ab30ba40e2e5dcc3", null ],
     [ "kbd_value", "group__game.html#ga802b2a513fad611ec2f07d8552d31afa", null ]

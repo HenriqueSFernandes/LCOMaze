@@ -175,6 +175,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga49ece8cb08e27584142748fa70eea00b" id="r_ga49ece8cb08e27584142748fa70eea00b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga49ece8cb08e27584142748fa70eea00b">update</a> ()</td></tr>
 <tr class="memdesc:ga49ece8cb08e27584142748fa70eea00b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Real-Time Clock (RTC) and retrieves the current time.  <br /></td></tr>
 <tr class="separator:ga49ece8cb08e27584142748fa70eea00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11bffa3fc13be22f2882bdf475a83705" id="r_ga11bffa3fc13be22f2882bdf475a83705"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga11bffa3fc13be22f2882bdf475a83705">get_time_direct</a> (uint32_t *seconds, uint32_t *minutes, uint32_t *hours)</td></tr>
+<tr class="memdesc:ga11bffa3fc13be22f2882bdf475a83705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current time from the RTC (Real-Time Clock) chip.  <br /></td></tr>
+<tr class="separator:ga11bffa3fc13be22f2882bdf475a83705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Module for handling the RTC. </p>
@@ -437,6 +440,50 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Retrieves the current time from the RTC (Real&#45;Time Clock) chip." alt="" coords="270,5,341,32"/>
 <area shape="rect" href="group__rtc.html#ga49ece8cb08e27584142748fa70eea00b" title="Updates the Real&#45;Time Clock (RTC) and retrieves the current time." alt="" coords="162,5,222,32"/>
 <area shape="poly" title=" " alt="" coords="255,21,222,21,222,16,255,16"/>
+<area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
+<area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga11bffa3fc13be22f2882bdf475a83705" name="ga11bffa3fc13be22f2882bdf475a83705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11bffa3fc13be22f2882bdf475a83705">&#9670;&#160;</a></span>get_time_direct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74">int</a> get_time_direct </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>seconds</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>minutes</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the current time from the RTC (Real-Time Clock) chip. </p>
+<p>This function updates the RTC by reading the cause register and then retrieves the current time from the RTC. The time is stored in 3 variables: seconds, minutes, and hours.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__rtc_ga11bffa3fc13be22f2882bdf475a83705_icgraph.png" border="0" usemap="#agroup__rtc_ga11bffa3fc13be22f2882bdf475a83705_icgraph" alt=""/></div>
+<map name="agroup__rtc_ga11bffa3fc13be22f2882bdf475a83705_icgraph" id="agroup__rtc_ga11bffa3fc13be22f2882bdf475a83705_icgraph">
+<area shape="rect" title="Retrieves the current time from the RTC (Real&#45;Time Clock) chip." alt="" coords="465,5,576,32"/>
+<area shape="rect" href="game_8c.html#a6bb46547a6e0d03100d240a87482645a" title=" " alt="" coords="329,5,417,32"/>
+<area shape="poly" title=" " alt="" coords="450,21,418,21,418,16,450,16"/>
+<area shape="rect" href="group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="162,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="314,21,281,21,281,16,314,16"/>
 <area shape="rect" href="group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
 </map>

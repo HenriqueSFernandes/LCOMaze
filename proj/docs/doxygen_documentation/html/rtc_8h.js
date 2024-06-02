@@ -16,6 +16,7 @@ var rtc_8h =
     [ "time_el", "group__rtc.html#ga1cfc45b00479a9d62b7707bbb86fa272", null ],
     [ "clean_update", "group__rtc.html#ga2e1d6e1b038587fd6930cf59ca013f41", null ],
     [ "get_time", "group__rtc.html#ga6207f70a12db5425816e7cc765a0ad7e", null ],
+    [ "get_time_direct", "group__rtc.html#ga11bffa3fc13be22f2882bdf475a83705", null ],
     [ "set_update", "group__rtc.html#ga7aa36b632d1853215b9b6854d2f5cad5", null ],
     [ "subscribe_rtc", "group__rtc.html#ga1bf586eb25ba5fd9b524f7b9c2a10b2a", null ],
     [ "unsubscribe_rtc", "group__rtc.html#ga5044355ac16d65a75a879527aef33781", null ],
