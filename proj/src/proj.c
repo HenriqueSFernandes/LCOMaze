@@ -101,7 +101,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
         printf("Error subscribing to timer!\n");
         return 1;
     }
-    if (activate_interrupt_mode()) {
+    if (set_update()) {
         printf("Error activating interrupt mode!\n");
         return 1;
     }
@@ -208,7 +208,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
         printf("Error unsubscribing to rtc!\n");
         return 1;
     }
-    if (deactivate_interrupt_mode()) {
+    if (clean_update()) {
         printf("Error deactivating interrupt mode!\n");
         return 1;
     }
