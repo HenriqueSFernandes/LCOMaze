@@ -68,12 +68,11 @@ int(normalizeColor(uint32_t color, uint32_t *newColor)) {
 }
 
 int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer) {
-    if (x > mode_info.XResolution || y > mode_info.YResolution)
+    if (x >= mode_info.XResolution || y >= mode_info.YResolution)
         return 1;
 
     uint32_t bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
     uint32_t index = (mode_info.XResolution * y + x) * bytesPerPixel;
-
     return memcpy(&buffer[index], &color, bytesPerPixel) == NULL;
 }
 

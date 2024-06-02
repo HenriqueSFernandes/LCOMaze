@@ -71,10 +71,10 @@ void game_mouse_handler() {
 }
 
 void game_check_bound() {
-    if (x_mouse + 4 > mode_info.XResolution)
-        x_mouse = mode_info.XResolution - 3;
-    if (y_mouse + 4 > mode_info.YResolution)
-        y_mouse = mode_info.YResolution - 3;
+    if (x_mouse > mode_info.XResolution)
+        x_mouse = mode_info.XResolution;
+    if (y_mouse > mode_info.YResolution)
+        y_mouse = mode_info.YResolution;
     if (x_mouse < 0)
         x_mouse = 0;
     if (y_mouse < 0)
