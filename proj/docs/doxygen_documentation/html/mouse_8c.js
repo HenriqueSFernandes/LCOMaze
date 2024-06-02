@@ -7,7 +7,7 @@ var mouse_8c =
     [ "mouse_subscribe_int", "group__mouse.html#ga1074bdd55cbbc2d400c574354392c662", null ],
     [ "mouse_unsubscribe_int", "group__mouse.html#ga685ad2706aca36d9869a30a19b9f446a", null ],
     [ "sync_bytes", "group__mouse.html#gaa8915545644e131a6ebe4b4b4c3b45da", null ],
-    [ "byte_index", "mouse_8c.html#a8884dab9d88cd6c24f21afc6c7144a7b", null ],
+    [ "byte_index", "group__proj.html#ga8884dab9d88cd6c24f21afc6c7144a7b", null ],
     [ "current_byte", "mouse_8c.html#a65b988e1163cc65c6d3e5562fbc36a98", null ],
     [ "mouse_bytes", "mouse_8c.html#addea07e4cbaf9574f38de24dcf0bf3cb", null ],
     [ "mouse_hook_id", "mouse_8c.html#a37cad7cad93664f8a1ed1b0258fe958b", null ],

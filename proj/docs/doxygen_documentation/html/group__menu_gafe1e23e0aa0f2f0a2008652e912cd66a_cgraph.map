@@ -1,55 +1,63 @@
 <map id="menu_main_loop" name="menu_main_loop">
-<area shape="rect" id="Node000001" title="Main loop of the menu module." alt="" coords="5,208,125,235"/>
-<area shape="rect" id="Node000002" href="$group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="202,5,252,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,206,104,131,134,84,171,42,186,31,190,35,174,46,138,87,109,133,74,209"/>
-<area shape="rect" id="Node000003" href="$group__menu.html#gaa431cf9edd6a3ee79ea356091599963d" title="Creates a button with the specified parameters and adds it to the button array." alt="" coords="177,56,277,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,206,112,153,140,121,171,93,177,89,180,93,174,97,143,125,116,156,77,209"/>
-<area shape="rect" id="Node000004" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="177,107,277,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="86,205,171,150,188,139,191,144,174,154,88,210"/>
-<area shape="rect" id="Node000012" href="$group__menu.html#ga39a6589b7272d766d21a79c3862c889a" title="Handles a mouse click event." alt="" coords="329,208,468,235"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="125,219,313,219,313,224,125,224"/>
-<area shape="rect" id="Node000013" href="$menu_8c.html#aafc0a4d6dd0de29a9cf74817634a59cd" title=" " alt="" coords="195,259,259,285"/>
-<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="111,233,181,255,180,260,109,238"/>
-<area shape="rect" id="Node000014" href="$group__menu.html#gafe7fc531bdb715767b074e320b5b07ae" title="Draws the cursor on the menu screen." alt="" coords="333,157,464,184"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="125,208,172,200,317,179,318,184,173,205,126,213"/>
-<area shape="rect" id="Node000015" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="173,309,281,336"/>
-<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="85,233,125,263,174,295,182,300,180,304,171,300,122,267,82,237"/>
-<area shape="rect" id="Node000024" href="$menu_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="178,360,276,387"/>
-<area shape="poly" id="edge27_Node000001_Node000024" title=" " alt="" coords="77,234,116,287,143,318,174,346,180,350,177,354,171,350,140,322,112,290,73,237"/>
-<area shape="rect" id="Node000025" href="$group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="201,411,253,437"/>
-<area shape="poly" id="edge28_Node000001_Node000025" title=" " alt="" coords="74,234,109,310,138,355,174,397,188,407,185,411,171,401,134,359,104,312,69,236"/>
-<area shape="rect" id="Node000005" href="$group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="353,107,445,133"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="277,117,337,117,337,123,277,123"/>
-<area shape="rect" id="Node000006" href="$group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="551,69,630,96"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="445,108,536,90,537,96,446,114"/>
-<area shape="rect" id="Node000010" href="$group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="527,187,654,213"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="442,131,470,143,494,158,518,172,531,178,529,183,515,177,491,162,467,148,440,136"/>
-<area shape="rect" id="Node000011" href="$group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="516,120,665,163"/>
-<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="446,122,501,129,500,134,445,128"/>
-<area shape="rect" id="Node000007" href="$group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="713,27,889,53"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="629,72,716,54,717,60,630,77"/>
-<area shape="rect" id="Node000009" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="765,77,837,104"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="630,81,750,86,750,91,630,87"/>
-<area shape="rect" id="Node000008" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="937,77,1041,104"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="854,51,923,70,922,75,853,57"/>
-<area shape="poly" id="edge11_Node000011_Node000008" title=" " alt="" coords="665,136,771,128,889,113,925,106,926,111,889,119,771,134,665,141"/>
-<area shape="poly" id="edge13_Node000012_Node000010" title=" " alt="" coords="469,211,511,206,512,211,469,216"/>
-<area shape="poly" id="edge16_Node000014_Node000011" title=" " alt="" coords="464,158,501,152,501,158,465,163"/>
-<area shape="rect" id="Node000016" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="353,364,444,391"/>
-<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="272,334,341,356,339,361,270,339"/>
-<area shape="rect" id="Node000017" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="562,339,619,365"/>
-<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="444,369,546,355,547,360,445,374"/>
-<area shape="rect" id="Node000018" href="$group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="547,389,634,416"/>
-<area shape="poly" id="edge20_Node000016_Node000018" title=" " alt="" coords="445,381,532,392,531,398,444,386"/>
-<area shape="rect" id="Node000019" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="569,440,612,467"/>
-<area shape="poly" id="edge21_Node000016_Node000019" title=" " alt="" coords="431,389,517,426,556,439,554,444,515,430,429,394"/>
-<area shape="rect" id="Node000020" href="$group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="566,491,615,517"/>
-<area shape="poly" id="edge22_Node000016_Node000020" title=" " alt="" coords="414,389,458,432,486,455,518,476,552,491,550,496,515,481,483,460,454,436,410,393"/>
-<area shape="rect" id="Node000021" href="$group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="539,237,642,264"/>
-<area shape="poly" id="edge23_Node000016_Node000021" title=" " alt="" coords="410,362,454,319,483,295,515,274,525,268,528,273,518,278,486,299,458,323,414,366"/>
-<area shape="rect" id="Node000022" href="$utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="756,389,846,416"/>
-<area shape="poly" id="edge26_Node000016_Node000022" title=" " alt="" coords="408,390,422,421,446,460,478,498,496,514,518,527,556,542,590,547,623,541,664,527,700,507,732,481,780,427,784,431,735,485,703,512,666,532,625,546,590,552,555,548,515,532,493,518,474,502,441,463,418,423,403,392"/>
-<area shape="rect" id="Node000023" href="$group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="571,288,610,315"/>
-<area shape="poly" id="edge25_Node000016_Node000023" title=" " alt="" coords="429,361,515,324,555,310,557,315,517,329,431,366"/>
-<area shape="poly" id="edge24_Node000021_Node000022" title=" " alt="" coords="642,262,666,274,700,297,731,324,780,375,776,379,728,328,697,302,663,278,640,267"/>
+<area shape="rect" id="Node000001" title="Main loop of the menu module." alt="" coords="5,259,125,285"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="214,5,263,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,257,77,216,97,159,127,97,147,68,171,42,197,26,200,31,174,46,152,71,132,100,102,161,82,218,72,259"/>
+<area shape="rect" id="Node000003" href="$group__menu.html#gaa431cf9edd6a3ee79ea356091599963d" title="Creates a button with the specified parameters and adds it to the button array." alt="" coords="188,56,289,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="68,257,82,225,103,181,133,134,171,93,176,89,180,93,174,97,137,137,108,183,86,227,73,259"/>
+<area shape="rect" id="Node000004" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="189,107,288,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="74,257,113,206,140,177,171,150,188,139,191,143,174,154,144,181,117,210,78,260"/>
+<area shape="rect" id="Node000012" href="$group__graphics.html#gac64a8729042d4a3278e24849040f9781" title=" " alt="" coords="564,208,642,235"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="116,255,172,244,277,232,381,224,549,219,549,224,381,230,277,237,173,249,117,261"/>
+<area shape="rect" id="Node000013" href="$group__menu.html#ga191afc58fb9f5bc145a58eefac945575" title="Exits the game by setting the &#39;running&#39; flag to false." alt="" coords="198,309,279,336"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="114,283,184,304,182,309,113,289"/>
+<area shape="rect" id="Node000014" href="$group__menu.html#ga39a6589b7272d766d21a79c3862c889a" title="Handles a mouse click event." alt="" coords="352,157,491,184"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="81,256,120,227,172,200,213,188,256,179,337,170,337,175,256,184,214,193,174,205,123,231,84,260"/>
+<area shape="rect" id="Node000015" href="$group__menu.html#gaafc0a4d6dd0de29a9cf74817634a59cd" title="Function to handle the how to play button click event." alt="" coords="207,360,270,387"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="84,284,124,314,174,346,193,355,191,360,171,350,121,318,81,288"/>
+<area shape="rect" id="Node000016" href="$group__menu.html#gafe7fc531bdb715767b074e320b5b07ae" title="Draws the cursor on the menu screen." alt="" coords="173,259,304,285"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="125,269,157,269,157,275,125,275"/>
+<area shape="rect" id="Node000018" href="$group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="184,411,293,437"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="77,284,115,338,143,369,174,397,181,401,178,405,171,401,139,373,111,341,72,287"/>
+<area shape="rect" id="Node000027" href="$group__menu.html#ga095b10852176bed8392f819a203048c8" title="Function to handle the single player button click event." alt="" coords="190,461,287,488"/>
+<area shape="poly" id="edge32_Node000001_Node000027" title=" " alt="" coords="73,285,86,317,108,361,137,407,174,447,180,451,176,455,171,451,133,410,103,363,82,319,68,287"/>
+<area shape="rect" id="Node000028" href="$group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="212,512,265,539"/>
+<area shape="poly" id="edge33_Node000001_Node000028" title=" " alt="" coords="72,285,82,326,102,383,132,444,152,473,174,498,199,513,197,518,171,502,147,476,127,447,97,385,77,328,66,287"/>
+<area shape="rect" id="Node000005" href="$group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="376,107,468,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="289,117,360,117,360,123,289,123"/>
+<area shape="rect" id="Node000006" href="$group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="564,107,642,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="468,117,548,117,548,123,468,123"/>
+<area shape="rect" id="Node000010" href="$group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="539,157,667,184"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="469,130,539,150,537,155,467,135"/>
+<area shape="rect" id="Node000011" href="$group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="729,53,877,96"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="468,106,539,92,629,82,713,76,714,81,629,87,540,97,469,111"/>
+<area shape="rect" id="Node000007" href="$group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="715,187,891,213"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="640,131,755,178,753,183,638,136"/>
+<area shape="rect" id="Node000009" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="767,125,839,152"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="643,121,752,131,752,137,643,126"/>
+<area shape="rect" id="Node000008" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="939,187,1043,213"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="892,197,924,197,924,203,892,203"/>
+<area shape="poly" id="edge11_Node000011_Node000008" title=" " alt="" coords="861,94,892,111,934,142,968,174,964,178,930,146,890,116,859,99"/>
+<area shape="poly" id="edge13_Node000012_Node000007" title=" " alt="" coords="642,215,699,208,700,214,642,220"/>
+<area shape="poly" id="edge14_Node000012_Node000009" title=" " alt="" coords="638,205,666,194,714,172,752,156,754,161,716,177,668,198,640,210"/>
+<area shape="poly" id="edge17_Node000014_Node000010" title=" " alt="" coords="492,168,524,168,524,173,492,173"/>
+<area shape="rect" id="Node000017" href="$group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="739,237,867,264"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="305,267,724,251,724,256,305,272"/>
+<area shape="poly" id="edge21_Node000017_Node000008" title=" " alt="" coords="855,234,924,215,925,220,856,239"/>
+<area shape="rect" id="Node000019" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="376,436,467,463"/>
+<area shape="poly" id="edge23_Node000018_Node000019" title=" " alt="" coords="293,429,361,438,360,444,293,434"/>
+<area shape="rect" id="Node000020" href="$group__queue.html#gab9deb83ce06c1c220a7b254e7496b5bc" title="Checks if the queue is empty." alt="" coords="574,360,632,387"/>
+<area shape="poly" id="edge24_Node000019_Node000020" title=" " alt="" coords="453,433,538,396,559,388,561,393,540,401,456,438"/>
+<area shape="rect" id="Node000021" href="$group__queue.html#ga1641e32ca81e22bdf17ae7fdf554973b" title="Creates a new queue." alt="" coords="559,411,647,437"/>
+<area shape="poly" id="edge25_Node000019_Node000021" title=" " alt="" coords="467,440,544,430,544,435,468,446"/>
+<area shape="rect" id="Node000022" href="$group__queue.html#ga15b3fcf286d6f0013eab16891d7fb5fe" title="Removes the element at the front of the queue." alt="" coords="582,461,624,488"/>
+<area shape="poly" id="edge26_Node000019_Node000022" title=" " alt="" coords="468,453,566,467,566,472,467,458"/>
+<area shape="rect" id="Node000023" href="$group__queue.html#ga36bd63341c0f154d3d08529efe944533" title="Pushes an element into the queue." alt="" coords="578,512,628,539"/>
+<area shape="poly" id="edge27_Node000019_Node000023" title=" " alt="" coords="456,461,540,498,565,508,563,513,538,502,453,466"/>
+<area shape="rect" id="Node000024" href="$group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="551,613,655,640"/>
+<area shape="poly" id="edge28_Node000019_Node000024" title=" " alt="" coords="433,461,475,523,506,559,541,593,557,603,554,608,538,597,502,563,471,526,429,464"/>
+<area shape="rect" id="Node000025" href="$utils_8c.html#a2b56f50ba159e9d5115ed1a75eff15d9" title=" " alt="" coords="758,588,848,615"/>
+<area shape="poly" id="edge31_Node000019_Node000025" title=" " alt="" coords="436,461,479,505,508,529,541,548,591,568,645,582,742,596,742,601,644,587,590,573,538,553,505,533,475,509,432,465"/>
+<area shape="rect" id="Node000026" href="$group__queue.html#gafd26f7644b0d2c6ccbd978afc643ea57" title="Returns the element at the front of the queue without removing it." alt="" coords="583,309,623,336"/>
+<area shape="poly" id="edge30_Node000019_Node000026" title=" " alt="" coords="434,434,478,391,538,346,567,331,570,336,541,350,481,396,438,437"/>
+<area shape="poly" id="edge29_Node000024_Node000025" title=" " alt="" coords="655,617,742,606,743,612,655,623"/>
 </map>

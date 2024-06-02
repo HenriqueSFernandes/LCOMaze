@@ -18,8 +18,10 @@ void init_game() {
     y = 50;
     maze = generate_maze();
     generate_maze_buffer(&maze);
-    maze_solution = get_solution(&maze);
-    draw_solution(&maze, maze_solution);
+    /********** Enable this to see the maze solution **********/
+    // maze_solution = get_solution(&maze);
+    // draw_solution(&maze, maze_solution);
+    /**********************************************************/
     draw_maze(&maze);
 }
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['waiting_0',['Waiting',['../group__game.html#gga7899b65f1ea0f655e4bbf8d2a5714285a7ac9ab6c2e98f6df96b82b175d42747a',1,'game.h']]],
-  ['width_1',['width',['../struct_maze.html#a773062dafae19d78f0d8b47846ea4286',1,'Maze::width'],['../struct_button.html#a94051f6f79d4436d8a268a81b828863a',1,'Button::width']]]
+  ['x_0',['x',['../struct_cell.html#ac008158796a0bfdf37be2f26eff651ef',1,'Cell::x'],['../struct_button.html#a2ec3bc40025b64b44319e7464164d61f',1,'Button::x'],['../group__game.html#gaf88b946fb90d5f08b5fb740c70e98c10',1,'x:&#160;game.h']]],
+  ['x_5fmouse_1',['x_mouse',['../group__game.html#ga976b3255a6a93ce4753593285a5185f9',1,'x_mouse:&#160;game.h'],['../group__menu.html#ga976b3255a6a93ce4753593285a5185f9',1,'x_mouse:&#160;menu.h']]]
 ];

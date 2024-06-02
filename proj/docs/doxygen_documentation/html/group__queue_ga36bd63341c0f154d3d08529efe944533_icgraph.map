@@ -1,17 +1,22 @@
 <map id="push" name="push">
-<area shape="rect" id="Node000001" title="Pushes an element into the queue." alt="" coords="625,31,674,57"/>
-<area shape="rect" id="Node000002" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="503,5,559,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,38,559,27,560,22,610,33"/>
-<area shape="rect" id="Node000005" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="485,56,577,83"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="610,55,578,62,577,57,609,50"/>
-<area shape="rect" id="Node000003" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="190,5,253,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,21,253,21,253,16,487,16"/>
-<area shape="rect" id="Node000004" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,56,114,83"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="176,36,105,58,104,53,174,30"/>
-<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="470,72,114,72,114,67,470,67"/>
-<area shape="rect" id="Node000006" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,107,437,133"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="476,91,425,109,424,104,474,86"/>
-<area shape="rect" id="Node000007" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,107,281,133"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="313,123,281,123,281,117,313,117"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="161,104,104,86,105,81,163,99"/>
+<area shape="rect" id="Node000001" title="Pushes an element into the queue." alt="" coords="693,56,742,83"/>
+<area shape="rect" id="Node000002" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="571,19,627,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="677,60,627,43,628,38,679,54"/>
+<area shape="rect" id="Node000005" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="553,81,645,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="678,80,646,87,645,82,677,75"/>
+<area shape="rect" id="Node000003" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="218,5,282,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="555,33,282,23,282,17,555,28"/>
+<area shape="rect" id="Node000004" href="$group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,81,114,108"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,33,163,46,86,83,84,78,161,42,202,28"/>
+<area shape="rect" id="Node000006" href="$group__game.html#gaed8baa9ecfe76f65360d20ffdc5ecc94" title="Activates the multiplayer mode of the game. Sets the game state to &quot;Running&quot;." alt="" coords="162,56,338,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="537,93,338,78,339,73,538,88"/>
+<area shape="rect" id="Node000007" href="$group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="386,107,505,133"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="538,107,506,113,505,107,537,102"/>
+<area shape="rect" id="Node000008" href="$group__menu.html#gad96f5e3d516346cb14adcb87878dae13" title="Handles the event when the multiple player button is clicked. Sets the state variable to 1 and the is..." alt="" coords="392,157,500,184"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="562,118,507,148,482,159,479,154,504,143,559,114"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="147,86,114,90,114,85,146,81"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="371,118,114,101,114,96,371,112"/>
+<area shape="rect" id="Node000009" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="190,157,310,184"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="376,173,310,173,310,168,376,168"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="194,154,161,141,90,111,93,106,163,136,196,149"/>
 </map>

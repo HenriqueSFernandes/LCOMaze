@@ -65,12 +65,12 @@ bool running = true;               ///< @brief Flag to check if the game is runn
 int main(int argc, char *argv[]);
 
 /**
- * Converts a binary number to its decimal equivalent.
+ * @brief Converts a binary number to its decimal equivalent.
  *
  * @param bin_num The binary number to be converted.
  * @return The decimal equivalent of the binary number.
  */
-int binaryTodecimal(int bin_num);
+int binary_to_decimal(int bin_num);
 
 /**
  * @brief Initialization of the project.

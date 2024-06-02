@@ -1,12 +1,12 @@
 <map id="draw_button" name="draw_button">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,64,98,91"/>
-<area shape="rect" id="Node000002" href="$group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="170,13,249,40"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="170,13,249,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,61,154,41,156,46,96,66"/>
 <area shape="rect" id="Node000006" href="$group__menu.html#ga6173b51baa906fb066829c5673affd61" title="Checks if a button is pressed based on the mouse coordinates." alt="" coords="146,64,273,91"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="98,75,130,75,130,80,98,80"/>
 <area shape="rect" id="Node000007" href="$group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="335,107,483,149"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="98,89,146,100,235,113,320,121,320,126,235,118,145,105,97,94"/>
-<area shape="rect" id="Node000003" href="$group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="321,5,497,32"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="321,5,497,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,22,305,20,305,25,249,28"/>
 <area shape="rect" id="Node000005" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="374,56,445,83"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="250,32,359,56,358,61,249,38"/>

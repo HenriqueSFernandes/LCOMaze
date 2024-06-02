@@ -2,6 +2,8 @@
 <area shape="rect" id="Node000001" title="Function to handle the Timer." alt="" coords="73,5,221,32"/>
 <area shape="rect" id="Node000002" href="$timer_8c.html" title=" " alt="" coords="5,80,153,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,45,93,81,89,78,123,42"/>
-<area shape="rect" id="Node000003" href="$proj_8c.html" title=" " alt="" coords="177,80,253,107"/>
+<area shape="rect" id="Node000003" href="$proj_8h.html" title="This file contains the declarations of the main functions of the project." alt="" coords="177,80,253,107"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,42,205,78,201,81,167,45"/>
+<area shape="rect" id="Node000004" href="$proj_8c.html" title=" " alt="" coords="177,155,253,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="218,122,218,154,212,154,212,122"/>
 </map>

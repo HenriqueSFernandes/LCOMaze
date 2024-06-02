@@ -2,6 +2,8 @@
 <area shape="rect" id="Node000001" title="This file contains the declarations of the functions and variables used in the game module...." alt="" coords="67,5,189,32"/>
 <area shape="rect" id="Node000002" href="$game_8c.html" title=" " alt="" coords="5,80,128,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,79,81,75,78,105,42"/>
-<area shape="rect" id="Node000003" href="$proj_8c.html" title=" " alt="" coords="152,80,227,107"/>
+<area shape="rect" id="Node000003" href="$proj_8h.html" title="This file contains the declarations of the main functions of the project." alt="" coords="152,80,227,107"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,42,181,78,177,81,146,46"/>
+<area shape="rect" id="Node000004" href="$proj_8c.html" title=" " alt="" coords="152,155,227,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,122,192,154,187,154,187,122"/>
 </map>

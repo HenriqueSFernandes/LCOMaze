@@ -1,15 +1,19 @@
 <map id="info_main_loop" name="info_main_loop">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,114,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,114,108"/>
 <area shape="rect" id="Node000002" href="$group__graphics.html#ga76741979889408e77b487f863b739bbd" title="Clears the given buffer by setting all its elements to zero." alt="" coords="176,5,226,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,53,161,30,163,35,100,58"/>
-<area shape="rect" id="Node000003" href="$group__graphics.html#ga33adeb4ff7072755dde191a5b8819787" title="Draws text on the screen at the specified coordinates." alt="" coords="162,56,240,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,67,146,67,146,72,114,72"/>
-<area shape="rect" id="Node000007" href="$group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="175,107,227,133"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="100,81,161,103,159,108,98,86"/>
-<area shape="rect" id="Node000004" href="$group__graphics.html#gaf2593db4ee44417972e50ce0a464034a" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="288,31,464,57"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="240,61,272,56,273,62,241,66"/>
-<area shape="rect" id="Node000006" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="341,81,412,108"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="241,72,325,85,325,90,240,78"/>
-<area shape="rect" id="Node000005" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="512,31,617,57"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="465,41,497,41,497,47,465,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,78,161,37,164,41,88,83"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="162,56,240,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,82,146,76,147,82,115,88"/>
+<area shape="rect" id="Node000007" href="$group__graphics.html#gac64a8729042d4a3278e24849040f9781" title=" " alt="" coords="162,107,240,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="115,102,147,108,146,113,114,107"/>
+<area shape="rect" id="Node000008" href="$group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be" title="Swaps the contents of the frame buffer and the back buffer." alt="" coords="175,157,227,184"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="88,106,162,147,160,152,85,111"/>
+<area shape="rect" id="Node000004" href="$group__graphics.html#gaa227433414ffc0b68318938b64d76c4c" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="288,56,464,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="240,67,272,67,272,72,240,72"/>
+<area shape="rect" id="Node000006" href="$group__graphics.html#gaabf2fd1a69319772761ddbe6d218992d" title="Retrieves the XPM map corresponding to a given letter." alt="" coords="341,107,412,133"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="241,78,289,92,326,103,325,108,287,97,240,83"/>
+<area shape="rect" id="Node000005" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="512,56,617,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="465,67,497,67,497,72,465,72"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="239,106,287,92,312,85,313,90,289,97,241,111"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="240,117,325,117,325,123,240,123"/>
 </map>

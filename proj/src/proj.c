@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int binaryTodecimal(int bin_num) {
+int binary_to_decimal(int bin_num) {
     // declaration of variables
     int decimal_num = 0, temp = 0, rem;
     while (bin_num != 0) {
@@ -63,7 +63,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
         return 1;
     }
 
-    if (timer_set_frequency(0, 20)) {
+    if (timer_set_frequency(0, 45)) {
         printf("Error setting the frequency!\n");
         return 1;
     }

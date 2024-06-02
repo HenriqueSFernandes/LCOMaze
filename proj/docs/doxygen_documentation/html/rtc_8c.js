@@ -1,8 +1,8 @@
 var rtc_8c =
 [
-    [ "activate_interrupt_mode", "group__rtc.html#gac6bc32b86668e510da97337d6fe53e81", null ],
-    [ "deactivate_interrupt_mode", "group__rtc.html#ga32b15ab935091949482ad97f950d3fa5", null ],
+    [ "clean_update", "group__rtc.html#ga2e1d6e1b038587fd6930cf59ca013f41", null ],
     [ "get_time", "group__rtc.html#ga6207f70a12db5425816e7cc765a0ad7e", null ],
+    [ "set_update", "group__rtc.html#ga7aa36b632d1853215b9b6854d2f5cad5", null ],
     [ "subscribe_rtc", "group__rtc.html#ga1bf586eb25ba5fd9b524f7b9c2a10b2a", null ],
     [ "unsubscribe_rtc", "group__rtc.html#ga5044355ac16d65a75a879527aef33781", null ],
     [ "update", "group__rtc.html#ga49ece8cb08e27584142748fa70eea00b", null ],

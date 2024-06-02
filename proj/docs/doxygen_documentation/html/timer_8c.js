@@ -6,6 +6,6 @@ var timer_8c =
     [ "timer_set_frequency", "group__timer.html#gaca1506be74dfc71c6f90772ca269c619", null ],
     [ "timer_subscribe_int", "group__timer.html#ga6f786481e80308348d629d605ffa2d84", null ],
     [ "timer_unsubscribe_int", "group__timer.html#gab9eea51549744bca5c5c923b388bb4ee", null ],
-    [ "timerCounter", "timer_8c.html#a1fb2fb06ba2c8cc453d71805842b74d9", null ],
+    [ "timerCounter", "group__proj.html#ga1fb2fb06ba2c8cc453d71805842b74d9", null ],
     [ "timerHookId", "timer_8c.html#aac7e4957c7b26da1278bcc6e3ca9dbd9", null ]
 ];

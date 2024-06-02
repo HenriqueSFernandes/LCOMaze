@@ -1,0 +1,23 @@
+<map id="draw_xpm_x_times_bigger" name="draw_xpm_x_times_bigger">
+<area shape="rect" id="Node000001" title="Draws an XPM image on the screen, scaling it by a given factor." alt="" coords="779,81,955,108"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga49c8ecbdb5010c62e2f1f99e3a303503" title="Draws text on the screen at the specified coordinates." alt="" coords="653,56,731,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,82,731,78,732,72,764,77"/>
+<area shape="rect" id="Node000009" href="$group__graphics.html#gac64a8729042d4a3278e24849040f9781" title=" " alt="" coords="653,107,731,133"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="764,112,731,117,731,112,763,107"/>
+<area shape="rect" id="Node000003" href="$group__menu.html#ga67437303ad652d440763730f50fa3eaf" title=" " alt="" coords="504,56,597,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="637,72,597,72,597,67,637,67"/>
+<area shape="rect" id="Node000007" href="$group__game.html#ga7c0dfd6d419fb67565e597ba124f9a10" title="Main game loop." alt="" coords="329,5,448,32"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="637,55,604,47,523,33,448,26,449,20,524,28,605,41,639,50"/>
+<area shape="rect" id="Node000008" href="$info_8c.html#a9cc55d4940b86fa696cf725de5361bfc" title=" " alt="" coords="496,107,605,133"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="639,91,591,109,589,104,637,86"/>
+<area shape="rect" id="Node000004" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="339,56,438,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="489,72,439,72,439,67,489,67"/>
+<area shape="rect" id="Node000005" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,157,281,184"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="353,93,246,159,244,155,350,89"/>
+<area shape="rect" id="Node000006" href="$group__proj.html#ga7a72220d8366dd84709e79ce415862e5" title="Initialization of the project." alt="" coords="5,107,114,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="161,155,104,136,105,131,163,150"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="329,40,106,109,105,104,327,35"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="481,123,114,123,114,117,481,117"/>
+<area shape="poly" id="edge12_Node000009_Node000005" title=" " alt="" coords="639,140,605,148,517,160,429,168,281,173,281,168,429,163,517,155,604,143,638,135"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="638,123,605,123,605,117,638,117"/>
+</map>

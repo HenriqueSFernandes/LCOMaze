@@ -1,7 +1,7 @@
 <map id="game_draw_cursor" name="game_draw_cursor">
-<area shape="rect" id="Node000001" title="Draws the cursor on the screen." alt="" coords="5,13,137,40"/>
-<area shape="rect" id="Node000002" href="$group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="185,5,333,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,24,169,24,169,29,137,29"/>
-<area shape="rect" id="Node000003" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="381,13,485,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,24,366,24,366,29,333,29"/>
+<area shape="rect" id="Node000001" title="Draws the cursor on the screen." alt="" coords="5,5,137,32"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#gab4049fd3c4ec67d17c594298c0de21d5" title="Draws an XPM image at a specified position on the screen." alt="" coords="185,5,312,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,16,169,16,169,21,137,21"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="360,5,464,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="312,16,344,16,344,21,312,21"/>
 </map>

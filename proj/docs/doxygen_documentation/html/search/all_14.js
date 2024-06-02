@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['vg_5fdraw_5fpixel_0',['vg_draw_pixel',['../group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686',1,'vg_draw_pixel(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer):&#160;graphics.c'],['../group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686',1,'vg_draw_pixel(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer):&#160;graphics.c']]],
-  ['vg_5fdraw_5frectangle_5fto_5fbuffer_1',['vg_draw_rectangle_to_buffer',['../group__graphics.html#gab19746795d16b63538d39207ffe631a5',1,'vg_draw_rectangle_to_buffer(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer):&#160;graphics.c'],['../group__graphics.html#gab19746795d16b63538d39207ffe631a5',1,'vg_draw_rectangle_to_buffer(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer):&#160;graphics.c']]],
-  ['video_20card_2',['Video Card',['../group__graphics.html',1,'']]],
-  ['visited_3',['visited',['../struct_cell.html#ac0fdf52adc7d9dd8c5de95635ff04de3',1,'Cell']]]
+  ['waiting_0',['Waiting',['../group__game.html#gga7899b65f1ea0f655e4bbf8d2a5714285a7ac9ab6c2e98f6df96b82b175d42747a',1,'game.h']]],
+  ['width_1',['width',['../struct_maze.html#a773062dafae19d78f0d8b47846ea4286',1,'Maze::width'],['../struct_button.html#a94051f6f79d4436d8a268a81b828863a',1,'Button::width']]],
+  ['won_2',['won',['../game_8c.html#a3e75feb3349ca4d088a303072d41a8f0',1,'game.c']]]
 ];
