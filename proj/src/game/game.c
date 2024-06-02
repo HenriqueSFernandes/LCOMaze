@@ -298,3 +298,10 @@ void game_main_loop() {
         swap();
     }
 }
+
+bool can_lose(){
+    return gameState==Running;
+}
+bool can_enter_multiplayer(){
+    return gameState==Waiting;
+}

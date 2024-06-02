@@ -172,11 +172,16 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         receive(&c);
                         printf("UWU: %c\n", c);
                         if(c=='M'){
-                            game_activate_multiplayer();
+                            if(can_enter_multiplayer()){
+                                game_activate_multiplayer();
+                            }
                         }
                         if(c=='L'){
                             printf("You lost\n");
-                            game_lose();
+                            if(can_lose()){
+                                 game_lose();
+                            }
+                           
                         }
                         clear_receive_queue();
                     }
