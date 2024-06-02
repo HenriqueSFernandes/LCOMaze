@@ -15,8 +15,8 @@
 #ifndef GRAPHICS_H
 #    define GRAPHICS_H
 
+#    include "../images/font/cursor.xpm"
 #    include "../images/font/letter_a.xpm"
-#    include "../images/font/letter_arrow.xpm"
 #    include "../images/font/letter_b.xpm"
 #    include "../images/font/letter_c.xpm"
 #    include "../images/font/letter_d.xpm"
@@ -52,6 +52,7 @@
 #    include "../images/font/number_three.xpm"
 #    include "../images/font/number_two.xpm"
 #    include "../images/font/number_zero.xpm"
+#    include "../images/font/right_arrow.xpm"
 #    include <lcom/lcf.h>
 #    include <lcom/vbe.h>
 #    include <stdint.h>

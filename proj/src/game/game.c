@@ -82,16 +82,7 @@ void game_check_bound() {
 }
 
 void game_draw_cursor() {
-    uint32_t sky_color;
-    uint32_t ground_color;
-    normalizeColor(0x87CEEB, &sky_color);
-    normalizeColor(0x4A4A4F, &ground_color);
-    if (!update_delta) {
-        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, sky_color, back_buffer);
-    }
-    else {
-        vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000, back_buffer);
-    }
+    draw_xpm_at_pos((xpm_map_t) cursor_xpm, (int) x_mouse, (int) y_mouse);
 }
 
 void game_draw_hero() {
