@@ -4,10 +4,10 @@
 extern vbe_mode_info_t mode_info;
 struct Maze maze;
 struct LinkedList *maze_solution;
-bool won=0;
-GameState gameState=Waiting;
- time_el time_initial;
- time_el time_final;
+bool won = 0;
+GameState gameState = Waiting;
+time_el time_initial;
+time_el time_final;
 double FOV_V;
 double FOV_H;
 bool initialTimeSet = 0;
@@ -175,91 +175,82 @@ void game_draw_fov_circle() {
 
 void game_activate_multiplayer() {
     gameState = Running;
-    
-    if(isMultiplayer){
-         if(host){
-         sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
-    }else{
-        sp_send_int(0x3f8, 6, 2, 0x3, 115200, "S", 1);
+
+    if (isMultiplayer) {
+        if (host) {
+            sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
+        }
+        else {
+            sp_send_int(0x3f8, 6, 2, 0x3, 115200, "S", 1);
+        }
     }
-    }
-   
 }
 void game_reset() {
-   isMultiplayer=0;
-   won=0;
-    gameState=Waiting;
-    initialTimeSet=0;
-    finalTimeSet=0;
-     x=50;
-     y=50;
+    isMultiplayer = 0;
+    won = 0;
+    gameState = Waiting;
+    initialTimeSet = 0;
+    finalTimeSet = 0;
+    x = 50;
+    y = 50;
 }
 void check_time() {
     if (!initialTimeSet) {
         initialTimeSet = 1;
         memcpy(&time_initial, &time_stamp, sizeof(time_el));
-        printf("Time: %x:%x:%x\n", time_initial.hours, time_initial.minutes, time_initial.seconds);
     }
     if (!finalTimeSet && gameState == Finish) {
         finalTimeSet = 1;
         memcpy(&time_final, &time_stamp, sizeof(time_el));
-        printf("Time: %x:%x:%x\n", time_final.hours, time_final.minutes, time_final.seconds);
     }
 }
 int calculate_time() {
     int time = 0;
-    printf("Time: %x:%x:%x\n", time_final.hours, time_final.minutes, time_final.seconds);
-    printf("Time: %x:%x:%x\n", time_initial.hours, time_initial.minutes, time_initial.seconds);
-    
-     int length = snprintf( NULL, 0, "%x",  time_final.hours);
-     char* str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x",  time_final.hours );
+    int length = snprintf(NULL, 0, "%x", time_final.hours);
+    char *str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_final.hours);
     printf("str: %s\n", str);
     int hours_final = atoi(str);
     free(str);
-    length = snprintf( NULL, 0, "%x",  time_final.minutes);
-    str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x",  time_final.minutes );
+    length = snprintf(NULL, 0, "%x", time_final.minutes);
+    str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_final.minutes);
     int minutes_final = atoi(str);
     free(str);
-    length = snprintf( NULL, 0, "%x",  time_final.seconds);
-    str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x",  time_final.seconds );
+    length = snprintf(NULL, 0, "%x", time_final.seconds);
+    str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_final.seconds);
     int seconds_final = atoi(str);
-     length = snprintf( NULL, 0, "%x",  time_initial.hours);
-     str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x", time_initial.hours );
+    length = snprintf(NULL, 0, "%x", time_initial.hours);
+    str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_initial.hours);
     int hours_initial = atoi(str);
     free(str);
-    length = snprintf( NULL, 0, "%x", time_initial.minutes);
-    str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x", time_initial.minutes );
+    length = snprintf(NULL, 0, "%x", time_initial.minutes);
+    str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_initial.minutes);
     int minutes_initial = atoi(str);
     free(str);
-    length = snprintf( NULL, 0, "%x",  time_initial.seconds);
-    str = malloc( length + 1 );
-    snprintf( str, length + 1, "%x",  time_initial.seconds );
+    length = snprintf(NULL, 0, "%x", time_initial.seconds);
+    str = malloc(length + 1);
+    snprintf(str, length + 1, "%x", time_initial.seconds);
     int seconds_initial = atoi(str);
-    printf("final: %d:%d:%d\n", hours_final, minutes_final, seconds_final);
-    printf("begin: %d:%d:%d\n", hours_initial, minutes_initial, seconds_initial);
-
-    time+= (hours_final - hours_initial) * 3600;
-    time+= (minutes_final - minutes_initial) * 60;
-    time+= seconds_final - seconds_initial;
+    time += (hours_final - hours_initial) * 3600;
+    time += (minutes_final - minutes_initial) * 60;
+    time += seconds_final - seconds_initial;
     return time;
 }
-void game_lose(){
-    gameState=Finish;
-    won=0;
-    printf("You lost\n");
+void game_lose() {
+    gameState = Finish;
+    won = 0;
 }
 void game_main_loop() {
 
     check_time();
     if (gameState == Waiting) {
         clear(back_buffer);
-        draw_text("WAITING FOR SOUTO", mode_info.XResolution / 2 - 200, 500);
-          
+        draw_text("Waiting for Player 2", (mode_info.XResolution / 2) - 300, mode_info.YResolution / 2);
+
         swap();
     }
     else if (gameState == Running) {
@@ -270,38 +261,39 @@ void game_main_loop() {
         game_draw_cursor();
         if (check_game_end()) {
             gameState = Finish;
-            won=1;
-            if(isMultiplayer)
-             sp_send_int(0x3f8, 6, 2, 0x3, 115200, "L", 1);
+            won = 1;
+            if (isMultiplayer)
+                sp_send_int(0x3f8, 6, 2, 0x3, 115200, "L", 1);
         }
         swap();
     }
     else {
         clear(back_buffer);
-        if(won){
-              draw_text("YOU WON", mode_info.XResolution / 2 - 200, 200);
-              draw_text("Time", mode_info.XResolution / 2 - 200, 400);
-              int sec=calculate_time();
-              printf("Time: %x\n", sec);    
-              int length = snprintf( NULL, 0, "%d", sec );
-                char* str = malloc( length + 1 );
-                snprintf( str, length + 1, "%d", sec );
-              draw_text(str, mode_info.XResolution / 2 - 200, 500);
-              draw_text("seconds", mode_info.XResolution / 2 - 200, 600);
-              draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 700);
-              free(str );
+        if (won) {
+            draw_text("YOU WON", mode_info.XResolution / 2 - 200, 200);
+            draw_text("Time", mode_info.XResolution / 2 - 200, 400);
+            int sec = calculate_time();
+            printf("Time: %x\n", sec);
+            int length = snprintf(NULL, 0, "%d", sec);
+            char *str = malloc(length + 1);
+            snprintf(str, length + 1, "%d", sec);
+            draw_text(str, mode_info.XResolution / 2 - 200, 500);
+            draw_text("seconds", mode_info.XResolution / 2 - 200, 600);
+            draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 700);
+            free(str);
         }
-          
-        else{draw_text("YOU LOST", 500, 500);}
-            
-       
+
+        else {
+            draw_text("YOU LOST", 500, 500);
+        }
+
         swap();
     }
 }
 
-bool can_lose(){
-    return gameState==Running;
+bool can_lose() {
+    return gameState == Running;
 }
-bool can_enter_multiplayer(){
-    return gameState==Waiting;
+bool can_enter_multiplayer() {
+    return gameState == Waiting;
 }

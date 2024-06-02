@@ -1,6 +1,7 @@
 #include "menu.h"
 
 extern int state;
+extern bool running;
 
 Button buttons[MAX_BUTTONS];
 int button_count = 0;
@@ -18,6 +19,7 @@ void menu_mouse_handler() {
     if (y_mouse < 0)
         y_mouse = 0;
 }
+
 void create_button(int x, int y, int width, int height, char *label, void (*onClick)()) {
     if (button_count < MAX_BUTTONS) {
         buttons[button_count].x = x;
@@ -79,36 +81,43 @@ void handle_mouse_click(int mouse_x, int mouse_y) {
     }
 }
 
-// Example of a button click handler
 void single_player() {
     printf("Button clicked!\n");
     state = 1;
     isMultiplayer = false;
     gameState = 1;
 }
+
 void multiple_player() {
     printf("Button clicked!\n");
     state = 1;
     isMultiplayer = true;
-    if(host){
+    if (host) {
         sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
-    }else{
+    }
+    else {
         sp_send_int(0x3f8, 6, 2, 0x3, 115200, "S", 1);
     }
-    
 }
+
 void how_to() {
     printf("Button clicked!\n");
     state = 2;
 }
 
+void exit_game() {
+    running = false;
+}
+
 void menu_main_loop() {
     if (button_count < 1) {
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 1 / 5, 400, 50, "SinglePlayer", single_player);
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 2 / 5, 400, 50, "MultiPlayer", multiple_player);
-        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 3 / 5, 400, 50, "How to Play", how_to);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 1 / 5 + 100, 400, 50, "SinglePlayer", single_player);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 2 / 5 + 100, 400, 50, "MultiPlayer", multiple_player);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 3 / 5 + 100, 400, 50, "How to Play", how_to);
+        create_button(mode_info.XResolution / 2 - 200, mode_info.YResolution * 4 / 5 + 100, 400, 50, "Exit", exit_game);
     }
     clear(back_buffer);
+    draw_title("LCOMaze", mode_info.XResolution / 2 - 200, mode_info.YResolution / 10);
     handle_mouse_click(x_mouse, y_mouse);
     draw_buttons();
     menu_draw_cursor();

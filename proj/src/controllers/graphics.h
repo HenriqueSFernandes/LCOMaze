@@ -195,6 +195,16 @@ xpm_map_t get_xpm(char letter);
 int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t times);
 
 /**
+ * Draws a title on the screen.
+ *
+ * @param text The text to be displayed as the title.
+ * @param x The x-coordinate of the starting position of the title.
+ * @param y The y-coordinate of the starting position of the title.
+ * @return 0 if successful.
+ */
+int draw_title(char *text, uint16_t x, uint16_t y);
+
+/**
  * @brief Draws text on the screen at the specified coordinates.
  *
  * @param text The text to be drawn.

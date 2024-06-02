@@ -283,6 +283,24 @@ int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t time
     return 0;
 }
 
+int draw_title(char *text, uint16_t x, uint16_t y) {
+    int i = 0;
+    while (text[i] != '\0') {
+        char lowercase_letter = tolower((unsigned char) text[i]); // Convert to lowercase
+        if (lowercase_letter == ' ') {
+            x += 20; // Increase x by 10 for space
+        }
+        else {
+            draw_xpm_x_times_bigger(get_xpm(lowercase_letter), x, y, 4);
+            x += 20; // Increase x by 10 for the letter width
+        }
+        x += 40; // Add space between letters
+        i++;
+    }
+    return 0;
+}
+
+
 int draw_text(char *text, uint16_t x, uint16_t y) {
     int i = 0;
     while (text[i] != '\0') {

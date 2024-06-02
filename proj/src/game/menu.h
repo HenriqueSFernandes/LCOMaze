@@ -106,12 +106,27 @@ void menu_draw_cursor();
 void handle_mouse_click(int mouse_x, int mouse_y);
 
 /**
- * @brief Handles the click event of the example button.
- *
- * This function is called when the example button is clicked. It prints a message
- * indicating that the button has been clicked and updates the state variable to 1.
+ * @brief Function to handle the single player button click event.
  */
-void example_button_click();
+void single_player();
+
+/**
+ * @brief Handles the event when the multiple player button is clicked.
+ * Sets the state variable to 1 and the isMultiplayer variable to true.
+ * If the host flag is true, sends a message to the serial port with the character 'M'.
+ * If the host flag is false, sends a message to the serial port with the character 'S'.
+ */
+void multiple_player();
+
+/**
+ * @brief Function to handle the how to play button click event.
+ */
+void how_to();
+
+/**
+ * @brief Exits the game by setting the 'running' flag to false.
+ */
+void exit_game();
 
 #endif // MENU_H
 
