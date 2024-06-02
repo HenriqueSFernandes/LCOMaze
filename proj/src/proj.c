@@ -189,5 +189,5 @@ int(proj_main_loop)(int argc, char *argv[]) {
         return 1;
     }
     sp_unsubscribe();
-    return vg_exit();
+    return vg_exit_to_text();
 }

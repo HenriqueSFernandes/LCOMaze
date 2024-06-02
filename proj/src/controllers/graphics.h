@@ -80,6 +80,13 @@ int setFrameBuffer(uint16_t mode);
 int setGraphicsMode(uint16_t mode);
 
 /**
+ * @brief Sets the text mode for the video controller.
+ *
+ * @return 0 on success, 1 on failure.
+ */
+int vg_exit_to_text();
+
+/**
  * @brief Normalize the color based on the number of bits per pixel.
  *
  * This function takes a color value and normalizes it based on the number of bits per pixel.

@@ -40,6 +40,18 @@ int setFrameBuffer(uint16_t mode) {
     return frame_buffer == NULL;
 }
 
+int vg_exit_to_text() {
+    reg86_t reg86;
+    memset(&reg86, 0, sizeof(reg86));
+    reg86.intno = 0x10;        
+    reg86.ah = 0x00;           
+    reg86.al = 0x03;           
+    reg86.bx = 0x0000;
+    if (sys_int86(&reg86) != 0)
+        return 1;
+    return 0;
+}
+
 int setGraphicsMode(uint16_t mode) {
     // Initialize the struct.
     reg86_t reg86;
