@@ -15,6 +15,7 @@ var group__graphics =
     [ "swap", "group__graphics.html#gaeec782e7c12030da6ba7c5d01c0205be", null ],
     [ "vg_draw_pixel", "group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686", null ],
     [ "vg_draw_rectangle_to_buffer", "group__graphics.html#gab19746795d16b63538d39207ffe631a5", null ],
+    [ "vg_exit_to_text", "group__graphics.html#ga54cb064192623201f6b0b30449adef9e", null ],
     [ "back_buffer", "group__graphics.html#gade66029b03e5902ccf0e2133ea1e002e", null ],
     [ "frame_buffer", "group__graphics.html#gaca42f7778287b9a79affe540ce98d0f5", null ],
     [ "img", "group__graphics.html#gac16ac5b5982366cbba9038d9e97c250d", null ],
