@@ -82,14 +82,12 @@ void handle_mouse_click(int mouse_x, int mouse_y) {
 }
 
 void single_player() {
-    printf("Button clicked!\n");
     state = 1;
     isMultiplayer = false;
     gameState = 1;
 }
 
 void multiple_player() {
-    printf("Button clicked!\n");
     state = 1;
     isMultiplayer = true;
     if (host) {
@@ -101,7 +99,6 @@ void multiple_player() {
 }
 
 void how_to() {
-    printf("Button clicked!\n");
     state = 2;
 }
 
