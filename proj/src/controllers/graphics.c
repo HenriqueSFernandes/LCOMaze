@@ -264,7 +264,7 @@ xpm_map_t get_xpm(char letter) {
     }
 }
 
-int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t times) {
+int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t times, uint32_t color) {
     xpm_image_t img; // pixmap and metadata
     uint32_t *map;   // pixmap itself
     enum xpm_image_type image_type = XPM_8_8_8_8;
@@ -274,7 +274,19 @@ int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t time
         for (int j = 0; j < img.width; j++) {
             for (int k = 0; k < times; k++) {
                 for (int l = 0; l < times; l++) {
-                    vg_draw_pixel(x + j * times + k, y + i * times + l, map[i * img.width + j], back_buffer);
+                    if (color == 0xFFFFFFFF) {
+                        vg_draw_pixel(x + j * times + k, y + i * times + l, map[i * img.width + j], back_buffer);
+                    }
+                    else {
+                        uint32_t new_color;
+                        if (map[i * img.width + j] == 0xFF0000) {
+                            new_color = color;
+                        }
+                        else {
+                            new_color = 0xFF0000;
+                        }
+                        vg_draw_pixel(x + j * times + k, y + i * times + l, new_color, back_buffer);
+                    }
                 }
             }
         }
@@ -290,7 +302,7 @@ int draw_title(char *text, uint16_t x, uint16_t y) {
             x += 20; // Increase x by 10 for space
         }
         else {
-            draw_xpm_x_times_bigger(get_xpm(lowercase_letter), x, y, 4);
+            draw_xpm_x_times_bigger(get_xpm(lowercase_letter), x, y, 4, 0xFFFFFFFF);
             x += 20; // Increase x by 10 for the letter width
         }
         x += 40; // Add space between letters
@@ -299,8 +311,7 @@ int draw_title(char *text, uint16_t x, uint16_t y) {
     return 0;
 }
 
-
-int draw_text(char *text, uint16_t x, uint16_t y) {
+int draw_text(char *text, uint16_t x, uint16_t y, uint32_t color) {
     int i = 0;
     while (text[i] != '\0') {
         char lowercase_letter = tolower((unsigned char) text[i]); // Convert to lowercase
@@ -308,7 +319,7 @@ int draw_text(char *text, uint16_t x, uint16_t y) {
             x += 10; // Increase x by 10 for space
         }
         else {
-            draw_xpm_x_times_bigger(get_xpm(lowercase_letter), x, y, 2);
+            draw_xpm_x_times_bigger(get_xpm(lowercase_letter), x, y, 2, color);
             x += 10; // Increase x by 10 for the letter width
         }
         x += 20; // Add space between letters

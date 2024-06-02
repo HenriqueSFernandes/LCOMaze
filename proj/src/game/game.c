@@ -249,7 +249,7 @@ void game_main_loop() {
     check_time();
     if (gameState == Waiting) {
         clear(back_buffer);
-        draw_text("Waiting for Player 2", (mode_info.XResolution / 2) - 300, mode_info.YResolution / 2);
+        draw_text("Waiting for Player 2", (mode_info.XResolution / 2) - 300, mode_info.YResolution / 2, 0xFFFFFFFF);
 
         swap();
     }
@@ -270,21 +270,21 @@ void game_main_loop() {
     else {
         clear(back_buffer);
         if (won) {
-            draw_text("YOU WON", mode_info.XResolution / 2 - 200, 200);
-            draw_text("Time", mode_info.XResolution / 2 - 200, 400);
+            draw_text("YOU WON", mode_info.XResolution / 2 - 200, 200, 0xFFFFFFFF);
+            draw_text("Time", mode_info.XResolution / 2 - 200, 400, 0xFFFFFFFF);
             int sec = calculate_time();
             printf("Time: %x\n", sec);
             int length = snprintf(NULL, 0, "%d", sec);
             char *str = malloc(length + 1);
             snprintf(str, length + 1, "%d", sec);
-            draw_text(str, mode_info.XResolution / 2 - 200, 500);
-            draw_text("seconds", mode_info.XResolution / 2 - 200, 600);
-            draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 700);
+            draw_text(str, mode_info.XResolution / 2 - 200, 500, 0xFFFFFFFF);
+            draw_text("seconds", mode_info.XResolution / 2 - 200, 600, 0xFFFFFFFF);
+            draw_text("Press ESC to exit", mode_info.XResolution / 2 - 200, 700, 0xFFFFFFFF);
             free(str);
         }
 
         else {
-            draw_text("YOU LOST", 500, 500);
+            draw_text("YOU LOST", 500, 500, 0xFFFFFFFF);
         }
 
         swap();

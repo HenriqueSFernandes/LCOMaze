@@ -37,11 +37,13 @@ void create_button(int x, int y, int width, int height, char *label, void (*onCl
 
 void draw_button(Button button) {
     // Draw the button background
-    uint32_t button_color = 0x000000; // Default button color
+    uint32_t button_color = 0xFF0000; // Default button color
+    uint32_t background_color = 0x000000; // Default background color
     if (is_button_pressed(&button, x_mouse, y_mouse)) {
-        button_color = 0xFF0000; // Change color when button is pressed
+        button_color = 0x000000; // Change color when button is pressed
+        background_color = 0xFF0000; // Change background color when button is pressed
     }
-    vg_draw_rectangle_to_buffer(button.x, button.y, button.width, button.height, button_color, back_buffer);
+    vg_draw_rectangle_to_buffer(button.x, button.y, button.width, button.height, background_color, back_buffer);
 
     // Add more padding around the text
     int padding = 20;                           // Increase padding as needed
@@ -53,7 +55,10 @@ void draw_button(Button button) {
     int text_y = button.y + padding + (button.height - 2 * padding) / 2 - text_height / 2;
 
     // Draw the text
-    draw_text(button.label, text_x, text_y);
+    if (button_color == 0xFF0000)
+        draw_text(button.label, text_x, text_y, 0xFFFFFFFF);
+    else
+        draw_text(button.label, text_x, text_y, 0x000000);
 }
 
 void draw_buttons() {
