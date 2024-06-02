@@ -41,16 +41,15 @@ int unsubscribe_rtc() {
     }
     return 0;
 }
-
-int update() {
-    printf("update\n");
+int update(){
+   // printf("update\n");
     uint32_t cause;
     sys_outb(RTC_ADDR_REG, RTC_REG_C);
-    printf("ou");
+  //  printf("ou");
     sys_inb(RTC_DATA_REG, &cause);
-    printf("cause %x\n", cause);
+   // printf("cause %x\n", cause);
     get_time();
-    printf("Time: %x:%x:%x\n", time_stamp.hours, time_stamp.minutes, time_stamp.seconds);
+    //printf("Time: %x:%x:%x\n", time_stamp.hours, time_stamp.minutes, time_stamp.seconds);
     return 0;
 }
 

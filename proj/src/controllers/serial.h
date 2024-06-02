@@ -116,8 +116,22 @@ int receive(char *c);
  * effectively cleaning the queues.
  */
 void clean_queue();
-#endif
 
+/**
+ * Clears the receive queue by popping all elements from it.
+ *
+ * @return 0 if the receive queue was successfully cleared, otherwise an error code.
+ */
+int clear_receive_queue();
+
+/**
+ * Clears the transmit queue by popping all elements until it is empty.
+ *
+ * @return 0 if the transmit queue is successfully cleared, otherwise an error code.
+ */
+int clear_transmit_queue();
+
+#endif
 /**@}*/
 
 /**@}*/
