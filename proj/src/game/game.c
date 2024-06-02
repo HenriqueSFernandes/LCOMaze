@@ -175,6 +175,15 @@ void game_draw_fov_circle() {
 
 void game_activate_multiplayer() {
     gameState = Running;
+    
+    if(isMultiplayer){
+         if(host){
+         sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
+    }else{
+        sp_send_int(0x3f8, 6, 2, 0x3, 115200, "S", 1);
+    }
+    }
+   
 }
 void game_reset() {
    isMultiplayer=0;
@@ -250,7 +259,7 @@ void game_main_loop() {
     if (gameState == Waiting) {
         clear(back_buffer);
         draw_text("WAITING FOR SOUTO", mode_info.XResolution / 2 - 200, 500);
-          sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
+          
         swap();
     }
     else if (gameState == Running) {
@@ -288,4 +297,11 @@ void game_main_loop() {
        
         swap();
     }
+}
+
+bool can_lose(){
+    return gameState==Running;
+}
+bool can_enter_multiplayer(){
+    return gameState==Waiting;
 }

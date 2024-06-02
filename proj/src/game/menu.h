@@ -11,6 +11,7 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
+extern bool host;
 /** @defgroup menu Menu
  *  @brief Menu module for creating and handling menu buttons.
  *  @{
