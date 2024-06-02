@@ -3,10 +3,11 @@
 void info_main_loop() {
     clear(back_buffer);
     draw_text("W - Move Forward", 0, 0);
-    draw_text("A - Move Forward", 0, 100);
-    draw_text("S - Move Forward", 0, 200);
-    draw_text("D - Move Forward", 0, 300);
+    draw_text("A - Move Left", 0, 100);
+    draw_text("S - Move Back", 0, 200);
+    draw_text("D - Move Right", 0, 300);
     draw_text("MOUSE LEFT - Select Direction", 0, 400);
     draw_text("MOUSE RIGHT - Exit Game", 0, 500);
+    draw_text("ESC - Go back to the menu", 0, 600);
     swap();
 }
