@@ -107,6 +107,14 @@ int get_time();
 int update();
 
 
+/**
+ * @brief Retrieves the current time from the RTC (Real-Time Clock) chip.
+ *
+ * This function updates the RTC by reading the cause register and then retrieves the current time
+ * from the RTC. The time is stored in 3 variables: seconds, minutes, and hours.
+ *
+ * @return 0 on success.
+ */
 int get_time_direct(uint32_t *seconds, uint32_t *minutes, uint32_t *hours);
 #endif
 
