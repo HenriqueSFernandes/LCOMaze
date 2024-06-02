@@ -133,6 +133,10 @@ void game_draw_fov_circle();
  * Sets the game state to "Running".
  */
 void game_activate_multiplayer();
+/**
+ * @brief Update game state upon losing.
+ *
+ */
 void game_lose();
 #endif
 
