@@ -1,43 +1,4 @@
-#include "controllers/graphics.h"
-#include "controllers/keyboard.h"
-#include "controllers/mouse.h"
-#include "controllers/rtc.h"
-#include "controllers/serial.h"
-#include "controllers/timer.h"
-#include "game/game.h"
-#include "game/info.h"
-#include "game/maze.h"
-#include "game/menu.h"
-#include <lcom/lcf.h>
-#include <lcom/vbe.h>
-#include <stdint.h>
-#include <math.h>
-#include <stdio.h>
-
-uint8_t kbd_value;
-extern bool update_delta;
-// Any header files included below this line should have been created by you
-extern uint8_t kbd_value;
-extern uint8_t byte_index;
-extern struct packet mouse_packet;
-extern int timerCounter;
-extern vbe_mode_info_t mode_info;
-extern bool isMultiplayer;
-double delta = 0;
-bool host = 0;
-typedef enum {
-    Menu,
-    Game,
-    HowTo
-} State;
-State state = Menu;
-
-void print_double(double n) {
-
-    char str[100];
-    sprintf(str, "%f", n);
-    printf("%s", str);
-}
+#include "proj.h"
 
 int main(int argc, char *argv[]) {
     lcf_set_language("EN-US");
@@ -48,28 +9,28 @@ int main(int argc, char *argv[]) {
     lcf_cleanup();
     return 0;
 }
-int binaryTodecimal( int bin_num)  
-{  
-    // declaration of variables  
-    int decimal_num = 0, temp = 0, rem;  
-    while (bin_num != 0)  
-    {  
-        rem = bin_num % 10;  
-        bin_num = bin_num / 10;  
-        decimal_num = decimal_num + rem * pow( 2, temp);  
-        temp++;  
-    }  
-    return decimal_num;  
-}  
+
+int binaryTodecimal(int bin_num) {
+    // declaration of variables
+    int decimal_num = 0, temp = 0, rem;
+    while (bin_num != 0) {
+        rem = bin_num % 10;
+        bin_num = bin_num / 10;
+        decimal_num = decimal_num + rem * pow(2, temp);
+        temp++;
+    }
+    return decimal_num;
+}
+
 int(proj_main_loop)(int argc, char *argv[]) {
-    printf("proj_main_loop()\n");
-    if(argc < 1){
+    if (argc < 1) {
         printf("Usage: proj [host|client]\n");
         return 1;
     }
-    if(strncmp(argv[0], "host", 4) == 0){
+    if (strncmp(argv[0], "host", 4) == 0) {
         host = 1;
-    }else{
+    }
+    else {
         host = 0;
     }
     int ipc_status;
@@ -128,8 +89,9 @@ int(proj_main_loop)(int argc, char *argv[]) {
     }
 
     init_game();
+
     char c = 1;
-    while (!mouse_packet.rb) {
+    while (running) {
         if ((receiver = driver_receive(ANY, &msg, &ipc_status)) != 0) {
             printf("error driver_receive");
             return 1;
@@ -175,26 +137,22 @@ int(proj_main_loop)(int argc, char *argv[]) {
                     }
                     if (msg.m_notify.interrupts & irq_set_rtc) {
                         update();
-                        
                     }
                     if ((msg.m_notify.interrupts & irq_set_serie) && c != 0) {
-                        printf("SERIE\n");
                         receive(&c);
-                        printf("UWU: %c\n", c);
-                        if(c=='M' && host == 0){
-                            if(can_enter_multiplayer()){
+                        if (c == 'M' && host == 0) {
+                            if (can_enter_multiplayer()) {
                                 game_activate_multiplayer();
                             }
                         }
-                        if(c=='S' && host == 1){
+                        if (c == 'S' && host == 1) {
                             game_activate_multiplayer();
                         }
-                        if(c=='L'){
+                        if (c == 'L') {
                             printf("You lost\n");
-                            if(can_lose()){
-                                 game_lose();
+                            if (can_lose()) {
+                                game_lose();
                             }
-                           
                         }
                         clear_receive_queue();
                     }

@@ -35,7 +35,6 @@ int push(queue_t *q, char c) {
     q->rear = (q->rear + 1) % BUFFER_SIZE;
     q->buf[q->rear] = c;
     q->size++;
-    //printf("Pushed %c, rear=%d, size=%d\n", c, q->rear, q->size); // Debug statement
     return 0;
 }
 
@@ -43,7 +42,6 @@ char top(queue_t *q) {
     if (q == NULL || q->size == 0) {
         return '\0';
     }
-    //printf("Top element: %c, front=%d\n", q->buf[q->front], q->front); // Debug statement
     return q->buf[q->front];
 }
 
@@ -51,7 +49,6 @@ void pop(queue_t *q) {
     if (q == NULL || q->size == 0) {
         return;
     }
-    //printf("Popping %c, front=%d\n", q->buf[q->front], q->front); // Debug statement
     q->front = (q->front + 1) % BUFFER_SIZE;
     q->size--;
 }

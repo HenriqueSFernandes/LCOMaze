@@ -190,9 +190,20 @@ xpm_map_t get_xpm(char letter);
  * @param x The x-coordinate of the top-left corner of the image.
  * @param y The y-coordinate of the top-left corner of the image.
  * @param times The scaling factor for the image.
+ * @param color The color of the image, 0xFFFFFFFF means the default color.
  * @return 0 on success, non-zero otherwise.
  */
-int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t times);
+int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t times, uint32_t color);
+
+/**
+ * Draws a title on the screen.
+ *
+ * @param text The text to be displayed as the title.
+ * @param x The x-coordinate of the starting position of the title.
+ * @param y The y-coordinate of the starting position of the title.
+ * @return 0 if successful.
+ */
+int draw_title(char *text, uint16_t x, uint16_t y);
 
 /**
  * @brief Draws text on the screen at the specified coordinates.
@@ -200,9 +211,10 @@ int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t time
  * @param text The text to be drawn.
  * @param x The x-coordinate of the starting position.
  * @param y The y-coordinate of the starting position.
+ * @param color The color of the text, 0xFFFFFFFF for default.
  * @return 0 if successful, -1 otherwise.
  */
-int draw_text(char *text, uint16_t x, uint16_t y);
+int draw_text(char *text, uint16_t x, uint16_t y, uint32_t color);
 #endif
 
 /**@}*/
