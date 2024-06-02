@@ -61,12 +61,7 @@ void draw_buttons() {
 }
 
 void menu_draw_cursor() {
-    uint32_t sky_color;
-    uint32_t ground_color;
-    normalizeColor(0x87CEEB, &sky_color);
-    normalizeColor(0x4A4A4F, &ground_color);
-
-    vg_draw_rectangle_to_buffer((int) x_mouse, (int) y_mouse, 3, 3, 0xff0000, back_buffer);
+    draw_xpm_at_pos((xpm_map_t) cursor_xpm, (int) x_mouse, (int) y_mouse);
 }
 
 int is_button_pressed(Button *button, int mouse_x, int mouse_y) {

@@ -95,7 +95,9 @@ int draw_xpm_at_pos(xpm_map_t xpm, uint16_t x, uint16_t y) {
     map = (uint32_t *) xpm_load(xpm, image_type, &img);
     for (int i = 0; i < img.height; i++) {
         for (int j = 0; j < img.width; j++) {
-            vg_draw_pixel(x + j, y + i, map[i * img.width + j], back_buffer);
+            if (map[i * img.width + j] != 0x00ff00) {
+                vg_draw_pixel(x + j, y + i, map[i * img.width + j], back_buffer);
+            }
         }
     }
     return 0;
@@ -257,7 +259,7 @@ xpm_map_t get_xpm(char letter) {
         case '9':
             return (xpm_map_t) number_nine_xpm;
         case '-':
-            return (xpm_map_t) arrow_xpm;
+            return (xpm_map_t) right_arrow_xpm;
         default:
             return NULL;
     }
