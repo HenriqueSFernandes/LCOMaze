@@ -24,6 +24,7 @@ extern int timerCounter;
 extern vbe_mode_info_t mode_info;
 extern bool isMultiplayer;
 double delta = 0;
+bool host = 0;
 typedef enum {
     Menu,
     Game,
@@ -62,6 +63,15 @@ int binaryTodecimal( int bin_num)
 }  
 int(proj_main_loop)(int argc, char *argv[]) {
     printf("proj_main_loop()\n");
+    if(argc < 1){
+        printf("Usage: proj [host|client]\n");
+        return 1;
+    }
+    if(strncmp(argv[0], "host", 4) == 0){
+        host = 1;
+    }else{
+        host = 0;
+    }
     int ipc_status;
     int receiver;
     uint16_t irq_set_mouse;
@@ -171,10 +181,13 @@ int(proj_main_loop)(int argc, char *argv[]) {
                         printf("SERIE\n");
                         receive(&c);
                         printf("UWU: %c\n", c);
-                        if(c=='M'){
+                        if(c=='M' && host == 0){
                             if(can_enter_multiplayer()){
                                 game_activate_multiplayer();
                             }
+                        }
+                        if(c=='S' && host == 1){
+                            game_activate_multiplayer();
                         }
                         if(c=='L'){
                             printf("You lost\n");

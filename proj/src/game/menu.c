@@ -95,7 +95,12 @@ void multiple_player() {
     printf("Button clicked!\n");
     state = 1;
     isMultiplayer = true;
-    sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
+    if(host){
+        sp_send_int(0x3f8, 6, 2, 0x3, 115200, "M", 1);
+    }else{
+        sp_send_int(0x3f8, 6, 2, 0x3, 115200, "S", 1);
+    }
+    
 }
 void how_to() {
     printf("Button clicked!\n");

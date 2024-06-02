@@ -31,6 +31,7 @@ xpm_image_t img; // pixmap and metadata
 double delta;
 uint8_t kbd_value;
 bool update_delta;
+extern bool host;
 bool can_lose();
 bool can_enter_multiplayer();
 double x;
