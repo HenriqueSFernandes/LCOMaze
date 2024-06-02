@@ -3,6 +3,11 @@
  * @brief This file contains the declarations of the linked list data structure and its associated functions.
  */
 
+/**
+ * \addtogroup data_structures Data Structures
+ * @{
+ */
+
 /** @defgroup linked_list Linked List
  * @brief Module for the linked list data structure.
  * @{
@@ -103,5 +108,7 @@ void linked_list_remove(struct LinkedList *list, struct Cell *cell);
 bool linked_list_contains(struct LinkedList *list, struct Cell *cell);
 
 #endif
+
+/** @} */
 
 /** @} */

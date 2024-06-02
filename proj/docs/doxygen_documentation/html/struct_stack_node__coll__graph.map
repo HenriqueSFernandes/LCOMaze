@@ -1,0 +1,7 @@
+<map id="StackNode" name="StackNode">
+<area shape="rect" id="Node000001" title="Represents a node in a stack data structure." alt="" coords="5,96,92,123"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="108,100,118,109,110,118,92,120,91,115,108,113,113,109,105,105"/>
+<area shape="rect" id="Node000002" href="$struct_cell.html" title="Represents a cell in a maze." alt="" coords="26,5,71,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,48,51,95,46,95,46,48"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="87,9,94,12,97,19,89,28,71,29,71,24,86,23,92,18,91,16,85,14"/>
+</map>

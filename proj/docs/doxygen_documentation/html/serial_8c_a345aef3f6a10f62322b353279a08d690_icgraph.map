@@ -1,0 +1,12 @@
+<map id="sp_get_status" name="sp_get_status">
+<area shape="rect" id="Node000001" title=" " alt="" coords="625,31,728,57"/>
+<area shape="rect" id="Node000002" href="$serial_8c.html#ad605e6ff47801fcd5b58e98a8bdb3f06" title=" " alt="" coords="485,31,577,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,47,577,47,577,41,609,41"/>
+<area shape="rect" id="Node000003" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,5,437,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,36,437,31,438,25,471,31"/>
+<area shape="rect" id="Node000005" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,31,114,57"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="470,47,114,47,114,41,470,41"/>
+<area shape="rect" id="Node000004" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="147,33,115,38,114,33,146,28"/>
+</map>

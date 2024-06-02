@@ -1,0 +1,7 @@
+<map id="generate_maze" name="generate_maze">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,116,57"/>
+<area shape="rect" id="Node000002" href="$group__stack.html#ga3dc254804a21ba5c706a6c48ab75c2f0" title=" " alt="" coords="167,5,249,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,32,151,26,152,31,117,37"/>
+<area shape="rect" id="Node000003" href="$group__stack.html#ga1501ebe41d10206153098006f23d57da" title="Pushes a new cell onto the stack." alt="" coords="164,56,252,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,51,149,56,148,62,116,56"/>
+</map>

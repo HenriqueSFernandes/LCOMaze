@@ -1,0 +1,9 @@
+<map id="draw_button" name="draw_button">
+<area shape="rect" id="Node000001" title=" " alt="" coords="476,5,569,32"/>
+<area shape="rect" id="Node000002" href="$group__menu.html#ga620fd28f0662fd27061296dc73763a0e" title="Draws all the buttons on the screen." alt="" coords="329,5,428,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="461,21,429,21,429,16,461,16"/>
+<area shape="rect" id="Node000003" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,5,281,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="313,21,282,21,282,16,313,16"/>
+<area shape="rect" id="Node000004" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,5,114,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,21,114,21,114,16,146,16"/>
+</map>

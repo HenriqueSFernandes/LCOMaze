@@ -3,6 +3,11 @@
  * @brief Defines the stack data structure and its associated functions.
  */
 
+/**
+ * \addtogroup data_structures Data Structures
+ * @{
+ */
+
 /** @defgroup stack Stack
  * @brief Module for the stack data structure.
  * @{
@@ -65,5 +70,7 @@ struct Cell *stack_pop(struct Stack *stack);
 struct Cell *stack_top(struct Stack *stack);
 
 #endif
+
+/** @} */
 
 /** @} */

@@ -1,0 +1,9 @@
+<map id="src/data_structures/queue.c" name="src/data_structures/queue.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="62,5,195,48"/>
+<area shape="rect" id="Node000002" href="$queue_8h.html" title="Defines the queue data structure and its associated functions." alt="" coords="5,96,73,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,51,66,87,63,83,104,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,96,160,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,49,131,80,126,80,126,49"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,96,244,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="152,47,191,83,188,87,148,51"/>
+</map>
