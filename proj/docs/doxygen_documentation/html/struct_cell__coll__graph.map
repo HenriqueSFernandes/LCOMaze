@@ -1,0 +1,4 @@
+<map id="Cell" name="Cell">
+<area shape="rect" id="Node000001" title="Represents a cell in a maze." alt="" coords="5,5,50,32"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="67,12,76,19,67,25,50,26,50,21,66,20,71,19,64,17"/>
+</map>

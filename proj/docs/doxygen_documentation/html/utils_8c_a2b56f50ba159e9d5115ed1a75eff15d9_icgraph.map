@@ -1,0 +1,40 @@
+<map id="util_sys_inb" name="util_sys_inb">
+<area shape="rect" id="Node000001" title=" " alt="" coords="882,208,972,235"/>
+<area shape="rect" id="Node000002" href="$group__mouse.html#ga30d35bb3ff4bbde8a477eaaedf109623" title="Sends a command to the keyboard controller (KBC) through the specified port." alt="" coords="693,5,834,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="915,194,884,124,861,86,832,53,805,35,808,30,836,49,865,83,889,122,919,192"/>
+<area shape="rect" id="Node000003" href="$group__mouse.html#ga8f2981a74d75d33c2e4bec9a93314711" title="Sends a command to the mouse." alt="" coords="485,56,645,83"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="911,195,880,147,858,123,833,104,787,84,739,72,690,67,645,66,645,60,690,61,740,67,789,79,835,99,862,119,884,143,915,193"/>
+<area shape="rect" id="Node000005" href="$group__keyboard.html#ga3b35eecf289446fe614818dd6ab6d5bf" title="Keyboard interrupt handler." alt="" coords="354,107,413,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="901,200,870,175,833,154,775,137,715,124,654,117,594,113,489,114,413,119,413,114,488,108,595,108,654,111,716,119,776,131,835,150,873,170,904,195"/>
+<area shape="rect" id="Node000006" href="$group__mouse.html#ga834b6d7efe311484d6da234db333cb97" title="Mouse interrupt handler." alt="" coords="183,157,260,184"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="868,206,834,199,667,180,503,172,361,170,261,172,260,167,361,165,503,166,668,175,834,193,869,201"/>
+<area shape="rect" id="Node000007" href="$group__serial__port.html#ga831765d455499780ff2b4b08613be4d7" title="Interrupt handler for the serial port." alt="" coords="735,208,792,235"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="866,224,792,224,792,219,866,219"/>
+<area shape="rect" id="Node000009" href="$group__serial__port.html#gadc945c9610fdc7d91001dd59f4b02992" title="Enables the specified interrupt(s) for a serial port." alt="" coords="333,259,434,285"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="869,242,834,249,723,263,612,271,434,275,434,270,611,266,722,258,834,244,868,237"/>
+<area shape="rect" id="Node000010" href="$group__serial__port.html#ga345aef3f6a10f62322b353279a08d690" title="Reads the status register of the serial port." alt="" coords="712,309,815,336"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="900,247,835,293,800,311,797,306,833,288,896,243"/>
+<area shape="rect" id="Node000011" href="$group__serial__port.html#gad605e6ff47801fcd5b58e98a8bdb3f06" title="Sends a string of characters over a serial port." alt="" coords="519,335,611,361"/>
+<area shape="poly" id="edge20_Node000001_Node000011" title=" " alt="" coords="917,250,887,304,864,330,835,350,807,362,777,369,717,375,659,371,610,362,611,357,659,365,717,369,776,364,805,357,833,346,860,326,882,301,913,247"/>
+<area shape="rect" id="Node000014" href="$group__timer.html#gafafc1891c876602d55b894103b1841a7" title="Retrieves the configuration of a timer." alt="" coords="710,411,817,437"/>
+<area shape="poly" id="edge21_Node000001_Node000014" title=" " alt="" coords="919,251,889,321,865,360,836,394,808,412,805,408,832,390,861,356,884,318,915,249"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="694,39,621,58,619,53,693,34"/>
+<area shape="rect" id="Node000004" href="$proj_8c.html#a7a72220d8366dd84709e79ce415862e5" title=" " alt="" coords="5,233,114,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,62,399,61,319,67,238,84,200,98,163,116,130,142,103,175,82,208,69,234,64,232,78,205,98,172,126,138,160,111,198,93,237,79,319,62,399,56,470,57"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="338,119,254,123,207,132,163,148,134,166,108,190,72,235,68,231,104,186,130,162,160,143,206,127,253,118,338,114"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="174,193,163,198,89,235,86,230,161,194,172,188"/>
+<area shape="rect" id="Node000008" href="$group__serial__port.html#ga126942c39afa1df63c23b4d8b72f0c78" title="Receives a character from the serial port." alt="" coords="190,208,253,235"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="720,224,253,224,253,219,720,219"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="175,231,114,241,114,236,174,226"/>
+<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="317,270,114,254,114,248,317,264"/>
+<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="696,334,611,345,611,340,696,329"/>
+<area shape="poly" id="edge19_Node000011_Node000004" title=" " alt="" coords="504,340,161,272,114,262,115,256,162,267,505,334"/>
+<area shape="rect" id="Node000012" href="$menu_8c.html#ad96f5e3d516346cb14adcb87878dae13" title=" " alt="" coords="329,360,437,387"/>
+<area shape="poly" id="edge16_Node000011_Node000012" title=" " alt="" coords="504,359,438,368,437,363,503,354"/>
+<area shape="rect" id="Node000013" href="$group__menu.html#gafe1e23e0aa0f2f0a2008652e912cd66a" title="Main loop of the menu module." alt="" coords="162,360,281,387"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="313,376,281,376,281,371,313,371"/>
+<area shape="poly" id="edge18_Node000013_Node000004" title=" " alt="" coords="177,354,160,343,109,300,71,262,75,258,113,296,163,339,180,350"/>
+<area shape="rect" id="Node000015" href="$group__timer.html#gaca1506be74dfc71c6f90772ca269c619" title="Sets the frequency of a timer." alt="" coords="495,411,635,437"/>
+<area shape="poly" id="edge22_Node000014_Node000015" title=" " alt="" coords="694,427,635,427,635,421,694,421"/>
+<area shape="poly" id="edge23_Node000015_Node000004" title=" " alt="" coords="480,442,408,448,325,447,282,442,240,433,199,420,160,401,140,387,123,370,94,331,75,292,63,261,68,259,79,289,99,328,127,366,144,383,163,396,201,415,241,428,283,437,325,442,408,443,480,437"/>
+</map>

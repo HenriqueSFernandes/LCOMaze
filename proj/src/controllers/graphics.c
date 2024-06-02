@@ -77,7 +77,7 @@ int(vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color, uint8_t *buffer) {
     return memcpy(&buffer[index], &color, bytesPerPixel) == NULL;
 }
 
-int(vg_draw_rectangle_to_buffer)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer) {
+int vg_draw_rectangle_to_buffer(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color, uint8_t *buffer) {
     for (uint16_t i = x; i < width + x; i++) {
         for (uint16_t j = y; j < height + y; j++) {
             if (vg_draw_pixel(i, j, color, buffer)) {
@@ -88,9 +88,9 @@ int(vg_draw_rectangle_to_buffer)(uint16_t x, uint16_t y, uint16_t width, uint16_
     return 0;
 }
 
-int(draw_xpm_at_pos)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-    xpm_image_t img; // pixmap and metadataz
-    uint32_t *map;   // pixmap itself
+int draw_xpm_at_pos(xpm_map_t xpm, uint16_t x, uint16_t y) {
+    xpm_image_t img;
+    uint32_t *map;
     enum xpm_image_type image_type = XPM_8_8_8_8;
     map = (uint32_t *) xpm_load(xpm, image_type, &img);
     for (int i = 0; i < img.height; i++) {
@@ -174,14 +174,14 @@ int(fill_color)(uint32_t color, uint8_t *buffer) {
     return vg_draw_rectangle_to_buffer(0, 0, mode_info.XResolution, mode_info.YResolution, color, buffer);
 }
 
-int(swap)() {
-    memcpy(frame_buffer, back_buffer, mode_info.XResolution * mode_info.YResolution * bytesPerPixel);
-    return 0;
+int swap() {
+    return memcpy(frame_buffer, back_buffer, mode_info.XResolution * mode_info.YResolution * bytesPerPixel) == NULL;
 }
 
 int(clear)(uint8_t *buffer) {
     return memset(buffer, 0, mode_info.XResolution * mode_info.YResolution * bytesPerPixel) == NULL;
 }
+
 xpm_map_t get_xpm(char letter) {
     switch (letter) {
         case 'a':
@@ -278,6 +278,7 @@ int draw_xpm_x_times_bigger(xpm_map_t xpm, uint16_t x, uint16_t y, uint16_t time
     }
     return 0;
 }
+
 int draw_text(char *text, uint16_t x, uint16_t y) {
     int i = 0;
     while (text[i] != '\0') {

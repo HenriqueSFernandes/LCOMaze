@@ -1,0 +1,9 @@
+<map id="draw_solution" name="draw_solution">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,107,61"/>
+<area shape="rect" id="Node000002" href="$group__linked__list.html#ga34fae5413370bbacb798e74a7af184ea" title=" " alt="" coords="175,5,283,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,37,159,28,160,33,107,42"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#gab19746795d16b63538d39207ffe631a5" title="Draws a rectangle on a buffer with the specified position, size, and color." alt="" coords="155,56,303,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,54,140,59,139,65,107,59"/>
+<area shape="rect" id="Node000004" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="351,64,455,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="303,75,336,75,336,80,303,80"/>
+</map>

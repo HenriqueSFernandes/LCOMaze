@@ -1,0 +1,11 @@
+<map id="game_draw_hero" name="game_draw_hero">
+<area shape="rect" id="Node000001" title="Draws the hero character on the screen." alt="" coords="5,56,126,83"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#gaeb2865714797ace67cdca9049d0f6956" title="Draws an XPM image at a specified position with a given rotation angle." alt="" coords="174,48,319,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,67,158,67,158,72,126,72"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#ga1abe147494950a764d8323146357408f" title="Calculates the bounds of a rotated rectangle." alt="" coords="367,5,536,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,49,379,34,381,39,320,54"/>
+<area shape="rect" id="Node000004" href="$group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74" title="Normalize the color based on the number of bits per pixel." alt="" coords="432,56,471,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="319,67,417,67,417,72,319,72"/>
+<area shape="rect" id="Node000005" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="400,107,504,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="320,85,385,101,384,106,318,90"/>
+</map>

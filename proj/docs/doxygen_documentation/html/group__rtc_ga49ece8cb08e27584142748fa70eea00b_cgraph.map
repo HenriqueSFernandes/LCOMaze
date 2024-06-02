@@ -1,0 +1,5 @@
+<map id="update" name="update">
+<area shape="rect" id="Node000001" title="Updates the Real&#45;Time Clock (RTC) and retrieves the current time." alt="" coords="5,5,66,32"/>
+<area shape="rect" id="Node000002" href="$group__rtc.html#ga6207f70a12db5425816e7cc765a0ad7e" title="Retrieves the current time from the RTC (Real&#45;Time Clock) chip." alt="" coords="114,5,185,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,16,98,16,98,21,66,21"/>
+</map>

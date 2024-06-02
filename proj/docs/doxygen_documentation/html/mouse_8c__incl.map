@@ -1,0 +1,9 @@
+<map id="src/controllers/mouse.c" name="src/controllers/mouse.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,5,181,32"/>
+<area shape="rect" id="Node000002" href="$mouse_8h.html" title="Functions to handle the mouse." alt="" coords="66,80,138,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,33,105,64,99,64,99,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,84,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,109,66,144,62,141,90,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="108,155,213,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="114,106,143,141,139,144,110,109"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="draw_xpm_at_pos_at_delta" name="draw_xpm_at_pos_at_delta">
+<area shape="rect" id="Node000001" title="Draws an XPM image at a specified position with a given rotation angle." alt="" coords="5,48,151,91"/>
+<area shape="rect" id="Node000002" href="$group__graphics.html#ga1abe147494950a764d8323146357408f" title="Calculates the bounds of a rotated rectangle." alt="" coords="199,5,368,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,49,211,34,212,39,151,54"/>
+<area shape="rect" id="Node000003" href="$group__graphics.html#ga3bd4616c7490cde274745b405c0aeb74" title="Normalize the color based on the number of bits per pixel." alt="" coords="264,56,303,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,67,249,67,249,72,151,72"/>
+<area shape="rect" id="Node000004" href="$group__graphics.html#ga5c4e9586406f8d2cf7f2a5db188b6686" title="Draws a pixel of a specified color at the given coordinates on the screen." alt="" coords="231,107,336,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,85,217,101,216,106,150,90"/>
+</map>

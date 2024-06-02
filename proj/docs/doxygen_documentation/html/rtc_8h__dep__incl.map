@@ -1,0 +1,12 @@
+<map id="src/controllers/rtc.h" name="src/controllers/rtc.h">
+<area shape="rect" id="Node000001" title="Functions to handle the RTC." alt="" coords="157,5,291,32"/>
+<area shape="rect" id="Node000002" href="$rtc_8c.html" title=" " alt="" coords="5,80,139,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,41,100,82,98,77,183,37"/>
+<area shape="rect" id="Node000003" href="$game_8h.html" title="This file contains the declarations of the functions and variables used in the game module...." alt="" coords="163,80,285,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,48,227,80,221,80,221,48"/>
+<area shape="rect" id="Node000005" href="$proj_8c.html" title=" " alt="" coords="285,155,360,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="260,39,281,57,300,79,317,119,324,154,319,155,312,120,295,81,277,61,256,43"/>
+<area shape="rect" id="Node000004" href="$game_8c.html" title=" " alt="" coords="139,155,261,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="218,123,207,155,202,153,212,121"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="255,114,307,152,304,156,252,118"/>
+</map>
