@@ -10,7 +10,7 @@ Group members:
 - Luís Cordeiro (up202205425@up.pt)
 - Miguel Cabral (up202204996@up.pt)
 
-Final Grade: In Progress
+Final Grade: 19.96 / 20
 
 # Table of Contents
 
